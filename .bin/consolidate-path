@@ -1,0 +1,19 @@
+#!/bin/bash
+
+#
+# From: https://raw.githubusercontent.com/mislav/dotfiles/master/bin/consolidate-path
+#
+
+# Usage: PATH="$(consolidate-path "$PATH")"
+#
+# Remove duplicate entries from PATH.
+
+result=":"
+
+IFS=:
+for p in $1; do
+  [[ "$result" == *:"$p":* ]] || result="${result}${p}:"
+done
+
+result="${result#:}"
+echo "${result%:}"
