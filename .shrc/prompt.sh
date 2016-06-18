@@ -1,3 +1,7 @@
+for file in ~/.shrc/prompt/*.sh; do
+  source "$file"
+done
+
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
 
