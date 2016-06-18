@@ -72,7 +72,6 @@ call plug#begin('~/.vim/plugged')
   Plug 'AndrewRadev/splitjoin.vim' " single / multiline toggles
   Plug 'AndrewRadev/switch.vim'    " switch hash flavours, etc
 call plug#end()
-" }
 
 set nobackup
 set nowritebackup
@@ -85,8 +84,6 @@ syntax on
 filetype plugin indent on
 
 " Improve performance:
-" set nocursorline   " Don't paint cursor line
-" set nocursorcolumn " Don't paint cursor column
 set ttyfast " Defaults to on already with neovim
 set regexpengine=1
 
@@ -112,8 +109,6 @@ runtime macros/matchit.vim
 set laststatus=2
 set showtabline=2
 set guioptions-=e
-
-:let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
 " When tab-completing commands, don't just cycle:
 set wildmode=longest,list
@@ -176,19 +171,20 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 " Configure UI {
   set t_Co=256
   set background=dark
-  
+
+  :let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+
   " Use darker-than-default seoul theme...
   let g:seoul256_background = 234
   colorscheme seoul256
-  
+
   " ...but don't colour the line number background:
   highlight LineNr       ctermbg=234 guibg=#252525
   highlight CursorLineNr ctermbg=234 guibg=#252525
+
+  highlight StatusLine   ctermfg=15  guifg=#ffffff ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
+  highlight StatusLineNC ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
 " }
-
-highlight StatusLine   ctermfg=15  guifg=#ffffff ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
-highlight StatusLineNC ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
-
 
 " Tab completion config {
   let g:UltiSnipsExpandTrigger="<tab>"
@@ -197,7 +193,6 @@ highlight StatusLineNC ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm
 " }
 
 " Airline config {
-  " let g:airline_theme = 'zenburn'   " A good match for seoul256
   let g:airline_section_x = ''      " Don't care about filetype
   let g:airline_section_y = ''      " Don't care about encoding
   let g:airline_section_z = '%l:%c' " line_no:col_no
