@@ -1,0 +1,6 @@
+# Case insensitive autocompletion:
+set completion-ignore-case on
+# Symlinked directories are marked with a slash:
+set mark-symlinked-directories on
+# Don't ring the bell first time:
+set show-all-if-ambiguous on
