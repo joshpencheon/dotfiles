@@ -7,7 +7,7 @@
 	<key>AboutToPasteTabsWithCancel_selection</key>
 	<integer>2</integer>
 	<key>AdjustWindowForFontSizeChange</key>
-	<true/>
+	<false/>
 	<key>AllowClipboardAccess</key>
 	<false/>
 	<key>AlternateMouseScroll</key>
@@ -787,9 +787,9 @@
 		<key>0x68-0x40000</key>
 		<dict>
 			<key>Action</key>
-			<integer>10</integer>
+			<integer>16</integer>
 			<key>Text</key>
-			<string>[104;5u</string>
+			<string></string>
 		</dict>
 		<key>0x9-0x40000</key>
 		<dict>
