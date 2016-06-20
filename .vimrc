@@ -172,7 +172,8 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
   set t_Co=256
   set background=dark
 
-  :let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
   " Use darker-than-default seoul theme...
   let g:seoul256_background = 234
