@@ -1,0 +1,3 @@
+excludeInFolderSearch = "{$excludeInFolderSearch,bower_components,_site,node_modules,tmp}"
+include = "{$include,.gitignore,.htpasswd,.ruby-version,.travis.yml}"
+excludeInFileChooser = "{$exclude,$excludeInFolderSearch}"
