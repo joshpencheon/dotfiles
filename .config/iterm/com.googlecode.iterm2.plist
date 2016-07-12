@@ -769,6 +769,8 @@
 	<false/>
 	<key>DisableFullscreenTransparency</key>
 	<false/>
+	<key>DoubleClickPerformsSmartSelection</key>
+	<false/>
 	<key>EnableRendezvous</key>
 	<false/>
 	<key>FocusFollowsMouse</key>
@@ -996,13 +998,23 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>728 571 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>612 416 700 622 0 0 1920 1177 </string>
+	<string>492 303 700 622 0 0 1680 1027 </string>
+	<key>NSWindow Frame SessionsPreferences</key>
+	<string>433 289 606 456 0 0 1680 1027 </string>
+	<key>NSWindow Frame SharedPreferences</key>
+	<string>545 242 796 473 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>107 286 1297 741 0 0 1680 1027 </string>
+	<string>323 381 955 552 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>202 182 955 552 0 0 1680 1027 </string>
+	<string>46 475 1288 552 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>234 25 955 552 0 0 1680 1027 </string>
+	<string>274 175 955 573 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 3</key>
+	<string>254 55 955 552 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 4</key>
+	<string>275 32 955 552 0 0 1680 1027 </string>
+	<key>NSWindow Frame iTerm Window 5</key>
+	<string>296 9 955 552 0 0 1680 1027 </string>
 	<key>New Bookmarks</key>
 	<array>
 		<dict>
@@ -1162,8 +1174,12 @@
 			<false/>
 			<key>Background Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
 				<real>0.0</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
 				<key>Green Component</key>
 				<real>0.0</real>
 				<key>Red Component</key>
@@ -1268,12 +1284,16 @@
 			<false/>
 			<key>Foreground Color</key>
 			<dict>
+				<key>Alpha Component</key>
+				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.73256611824035645</real>
+				<key>Color Space</key>
+				<string>Calibrated</string>
 				<key>Green Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.73255372047424316</real>
 				<key>Red Component</key>
-				<real>0.73333334922790527</real>
+				<real>0.73257553577423096</real>
 			</dict>
 			<key>Guid</key>
 			<string>B70CDF0E-5A0E-4846-8A01-E95FC05D49A6</string>
@@ -1754,6 +1774,8 @@
 			<array/>
 			<key>Terminal Type</key>
 			<string>xterm-256color</string>
+			<key>Thin Strokes</key>
+			<integer>0</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
 			<key>Triggers</key>
@@ -1885,7 +1907,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-06-18T10:16:50Z</date>
+	<date>2016-07-12T18:10:17Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -1947,7 +1969,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.20160607-nightly</string>
+	<string>3.0.20160712-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
