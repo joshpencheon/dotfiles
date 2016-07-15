@@ -7,8 +7,7 @@ call plug#begin('~/.vim/plugged')
   " theme:
   Plug 'junegunn/seoul256.vim'
 
-  " Use FZF for searching, if installed
-  if executable('fzf')
+  " { Use FZF for searching, if installed
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
 
@@ -17,7 +16,7 @@ call plug#begin('~/.vim/plugged')
     nnoremap <Leader>o :Files!<CR>
     nnoremap <Leader>a :Ag!<CR>
     nnoremap <Leader>b :Buffers<CR>
-  endif
+  " }
 
   " Preview register contents
   Plug 'junegunn/vim-peekaboo'
