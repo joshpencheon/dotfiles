@@ -175,12 +175,12 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
   " Use darker-than-default seoul theme...
-  let g:seoul256_background = 234
+  let g:seoul256_background = 233
   colorscheme seoul256
 
   " ...but don't colour the line number background:
-  highlight LineNr       ctermbg=234 guibg=#252525
-  highlight CursorLineNr ctermbg=234 guibg=#252525
+  highlight LineNr       ctermbg=233 guibg=#252525
+  highlight CursorLineNr ctermbg=233 guibg=#252525
 
   highlight StatusLine   ctermfg=15  guifg=#ffffff ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
   highlight StatusLineNC ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
