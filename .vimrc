@@ -21,10 +21,19 @@ call plug#begin('~/.vim/plugged')
   " Preview register contents
   Plug 'junegunn/vim-peekaboo'
 
+  " { better autochdir
+    Plug 'airblade/vim-rooter'
+
+    let g:rooter_use_lcd = 1       " :lcd for current window
+    let g:rooter_silent_chdir = 1  " don't report action
+    let g:rooter_resolve_links = 1 " follow symlinks
+
+    " let g:rooter_change_directory_for_non_project_files = 'current'
+  " }
+
   " tab completion / snippet engine / snippets:
   Plug 'ervandew/supertab'
-  Plug 'SirVer/ultisnips'
-  Plug 'honza/vim-snippets'
+  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
   " Status bar:
   Plug 'bling/vim-airline'
