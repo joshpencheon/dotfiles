@@ -33,7 +33,7 @@ call plug#begin('~/.vim/plugged')
 
   " tab completion / snippet engine / snippets:
   Plug 'ervandew/supertab'
-  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+  " Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
   " Status bar:
   Plug 'bling/vim-airline'
@@ -71,11 +71,15 @@ call plug#begin('~/.vim/plugged')
   Plug 'nelstrom/vim-textobj-rubyblock'
 
   " Additional language / env support:
-  Plug 'tpope/vim-bundler'
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-rake'
   Plug 'kchmck/vim-coffee-script'
   Plug 'elixir-lang/vim-elixir'
+
+  " { Up-to-date ruby support, with fast load
+    let g:ruby_path = []
+    Plug 'vim-ruby/vim-ruby'
+  " }
 
   Plug 'AndrewRadev/splitjoin.vim' " single / multiline toggles
   Plug 'AndrewRadev/switch.vim'    " switch hash flavours, etc
