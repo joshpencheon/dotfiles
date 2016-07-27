@@ -913,6 +913,8 @@
 	<integer>0</integer>
 	<key>HotkeyCode</key>
 	<integer>0</integer>
+	<key>HotkeyMigratedFromSingleToMulti</key>
+	<true/>
 	<key>HotkeyModifiers</key>
 	<integer>0</integer>
 	<key>IRMemory</key>
@@ -1000,17 +1002,17 @@
 	<key>NSWindow Frame SUUpdateAlert</key>
 	<string>492 303 700 622 0 0 1680 1027 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
-	<string>433 289 606 456 0 0 1680 1027 </string>
+	<string>433 243 599 502 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
 	<string>545 242 796 473 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>323 381 955 552 0 0 1680 1027 </string>
+	<string>205 350 1468 657 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>46 475 1288 552 0 0 1680 1027 </string>
+	<string>46 328 1441 699 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
-	<string>274 175 955 573 0 0 1680 1027 </string>
+	<string>274 196 955 552 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
-	<string>254 55 955 552 0 0 1680 1027 </string>
+	<string>254 58 955 552 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 4</key>
 	<string>275 32 955 552 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 5</key>
@@ -1907,7 +1909,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-07-12T18:10:17Z</date>
+	<date>2016-07-17T10:25:33Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -1969,7 +1971,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.20160712-nightly</string>
+	<string>3.0.20160717-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
