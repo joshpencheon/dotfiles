@@ -762,9 +762,9 @@
 	<key>Default Bookmark Guid</key>
 	<string>B70CDF0E-5A0E-4846-8A01-E95FC05D49A6</string>
 	<key>DimBackgroundWindows</key>
-	<false/>
+	<true/>
 	<key>DimInactiveSplitPanes</key>
-	<false/>
+	<true/>
 	<key>DimOnlyText</key>
 	<false/>
 	<key>DisableFullscreenTransparency</key>
@@ -894,7 +894,7 @@
 	<key>HideMenuBarInFullscreen</key>
 	<true/>
 	<key>HideScrollbar</key>
-	<false/>
+	<true/>
 	<key>HideTab</key>
 	<true/>
 	<key>HideTabCloseButton</key>
@@ -1000,15 +1000,15 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>728 571 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>492 303 700 622 0 0 1680 1027 </string>
+	<string>492 321 700 622 0 0 1680 1050 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>433 243 599 502 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>545 242 796 473 0 0 1680 1027 </string>
+	<string>545 370 770 409 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>205 350 1468 657 0 0 1680 1027 </string>
+	<string>72 454 955 573 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
-	<string>46 328 1441 699 0 0 1680 1027 </string>
+	<string>117 170 1369 615 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
 	<string>274 196 955 552 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 3</key>
@@ -1909,7 +1909,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-07-17T10:25:33Z</date>
+	<date>2016-08-03T20:11:57Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -1923,7 +1923,7 @@
 	<key>SmartPlacement</key>
 	<false/>
 	<key>SplitPaneDimmingAmount</key>
-	<real>0.22908152639865875</real>
+	<real>0.36362179082173562</real>
 	<key>SwitchTabModifier</key>
 	<integer>4</integer>
 	<key>SwitchWindowModifier</key>
@@ -1971,7 +1971,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.20160717-nightly</string>
+	<string>3.0.20160729-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
