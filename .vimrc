@@ -172,7 +172,7 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 " }
 
 " invisibles {
-  set listchars=eol:¬,tab:▸\ ,trail:█,extends:»,precedes:«,space:·
+  set listchars=space:⋅,trail:█,tab:▸\ ,extends:»,precedes:«
   set list
 " }
 
