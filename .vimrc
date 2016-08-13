@@ -1,11 +1,11 @@
 " We must iMprove things:
-set nocompatible " ignored by NeoVim
+set nocompatible
 
 let mapleader = " "
 
 call plug#begin('~/.vim/plugged')
-  " theme:
-  Plug 'junegunn/seoul256.vim'
+  " colour scheme:
+  Plug 'roosta/srcery'
 
   " { Use FZF for searching, if installed
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
@@ -27,17 +27,38 @@ call plug#begin('~/.vim/plugged')
     let g:rooter_use_lcd = 1       " :lcd for current window
     let g:rooter_silent_chdir = 1  " don't report action
     let g:rooter_resolve_links = 1 " follow symlinks
-
-    " let g:rooter_change_directory_for_non_project_files = 'current'
   " }
 
   " tab completion / snippet engine / snippets:
   Plug 'ervandew/supertab'
   Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
-  " Status bar:
-  Plug 'bling/vim-airline'
-  Plug 'vim-airline/vim-airline-themes'
+  " { Status / Tab bars:
+    Plug 'itchyny/lightline.vim'
+    Plug 'ap/vim-buftabline'
+
+    set noshowmode " Don't show '--INSERT--' etc
+
+    let g:buftabline_indicators = 1 " Add '+' to modified buffers in the tabline
+    let g:lightline = {
+      \ 'active': {
+      \   'left':  [[ 'mode', 'paste' ], [ 'modified', 'filename' ]],
+      \   'right': []
+      \ },
+      \ 'inactive': {
+      \   'left':   [[ 'filename', 'modified' ]],
+      \   'right':  []
+      \ },
+      \ 'component': {
+      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}'
+      \ },
+      \ 'component_visible_condition': {
+      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))'
+      \ },
+      \ 'separator':    { 'left': '', 'right': '' },
+      \ 'subseparator': { 'left': '', 'right': '' }
+      \ }
+  " }
 
   " Tmux / vim integration:
   Plug 'christoomey/vim-tmux-navigator'
@@ -94,6 +115,7 @@ filetype plugin indent on
 " Improve performance:
 set ttyfast " Defaults to on already with neovim
 set regexpengine=1
+set lazyredraw
 
 " No splash screen, use abbreviations,
 " truncate if needed, don't give file info
@@ -127,9 +149,6 @@ set timeout timeoutlen=1000 ttimeoutlen=10
 " Give choices when closing without write:
 set confirm
 
-" Show the current command in the bottom right:
-set showcmd
-
 " delete comment character when joining commented line:
 set formatoptions+=j
 
@@ -152,9 +171,6 @@ vnoremap <C-c> <Esc>
 set splitbelow
 set splitright
 
-set number         " show absolute line numbers...
-set relativenumber " ...on the current line, and relative numbers elsewhere
-
 set scrolloff=2  " Keep cursor 2 lines from boundary when scrolling
 set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 
@@ -172,7 +188,7 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 " }
 
 " invisibles {
-  set listchars=eol:¬,tab:▸\ ,trail:█,extends:»,precedes:«,space:·
+  set listchars=space:⋅,trail:█,tab:▸\ ,extends:»,precedes:«
   set list
 " }
 
@@ -180,44 +196,28 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
   set t_Co=256
   set background=dark
 
+  set termguicolors
   let $NVIM_TUI_ENABLE_TRUE_COLOR=1
   let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
 
-  " Use darker-than-default seoul theme...
-  let g:seoul256_background = 233
-  colorscheme seoul256
+  let g:srcery_inverse=0
+  colorscheme srcery
 
-  " ...but don't colour the line number background:
-  highlight LineNr       ctermbg=233 guibg=#252525
-  highlight CursorLineNr ctermbg=233 guibg=#252525
+  set fillchars=vert:\  " blank vertical split, looks nicer than pipe
 
-  highlight StatusLine   ctermfg=15  guifg=#ffffff ctermbg=239 guibg=#4e4e4e cterm=bold gui=bold
-  highlight StatusLineNC ctermfg=249 guifg=#b2b2b2 ctermbg=237 guibg=#3a3a3a cterm=none gui=none
-" }
+  set number     " show absolute line numbers...
+  set cursorline " ...and highlight the current one.
 
-" Tab completion config {
-  let g:UltiSnipsExpandTrigger="<tab>"
-  let g:UltiSnipsJumpForwardTrigger="<tab>"
-  let g:UltiSnipsJumpBackwardTrigger="<s-tab>"
-" }
+  highlight Normal guibg=black
+  highlight LineNr guibg=black
+  highlight CursorLine guibg=black
+  highlight CursorLineNr guibg=black
 
-" Airline config {
-  let g:airline_section_x = ''      " Don't care about filetype
-  let g:airline_section_y = ''      " Don't care about encoding
-  let g:airline_section_z = '%l:%c' " line_no:col_no
+  highlight Visual guibg=darkgreen
 
-  let g:airline_left_sep  = ' '
-  let g:airline_right_sep = ' '
-
-  " Git extension config (fugitive) {
-    let g:airline#extensions#fugitive#enabled = 1
-  " }
-
-  " Tabline extension config {
-    let g:airline#extensions#tabline#enabled = 1      " Enable the list of buffers
-    let g:airline#extensions#tabline#fnamemod = ':t'  " Show filename, rather than path
-    let airline#extensions#tabline#buffer_nr_show = 1 " Show buffer number
-  " }
+  highlight BufTabLineCurrent guifg=#1B1B1B  guibg=darkgray
+  highlight BufTabLineActive  guifg=darkgray guibg=#1B1B1B
+  highlight BufTabLineHidden  guifg=#333333  guibg=#1B1B1B
 " }
 
 " Strip trailing whitespace, and restore cursor {
