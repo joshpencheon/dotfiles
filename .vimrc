@@ -212,6 +212,7 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
   highlight LineNr guibg=black
   highlight CursorLine guibg=black
   highlight CursorLineNr guibg=black
+  highlight BufTabLineFill guibg=black
 
   highlight Visual guibg=darkgreen
 
