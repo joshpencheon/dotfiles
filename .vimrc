@@ -112,6 +112,9 @@ set ruler " show the cursor position all the time
 syntax on
 filetype plugin indent on
 
+" Use system (+ selection) clipboard by default:
+set clipboard^=unnamed,unnamedplus
+
 " Improve performance:
 set ttyfast " Defaults to on already with neovim
 set regexpengine=1
