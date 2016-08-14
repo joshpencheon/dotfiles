@@ -34,30 +34,8 @@ call plug#begin('~/.vim/plugged')
   Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
 
   " { Status / Tab bars:
-    Plug 'itchyny/lightline.vim'
     Plug 'ap/vim-buftabline'
-
-    set noshowmode " Don't show '--INSERT--' etc
-
     let g:buftabline_indicators = 1 " Add '+' to modified buffers in the tabline
-    let g:lightline = {
-      \ 'active': {
-      \   'left':  [[ 'mode', 'paste' ], [ 'modified', 'filename' ]],
-      \   'right': []
-      \ },
-      \ 'inactive': {
-      \   'left':   [[ 'filename', 'modified' ]],
-      \   'right':  []
-      \ },
-      \ 'component': {
-      \   'modified': '%{&filetype=="help"?"":&modified?"+":&modifiable?"":"-"}'
-      \ },
-      \ 'component_visible_condition': {
-      \   'modified': '(&filetype!="help"&&(&modified||!&modifiable))'
-      \ },
-      \ 'separator':    { 'left': '', 'right': '' },
-      \ 'subseparator': { 'left': '', 'right': '' }
-      \ }
   " }
 
   " Tmux / vim integration:
@@ -190,39 +168,82 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
   set nowrap       " don't text-wrap
 " }
 
-" invisibles {
+" Configure UI {
   set listchars=space:⋅,trail:█,tab:▸\ ,extends:»,precedes:«
   set list
-" }
 
-" Configure UI {
   set t_Co=256
   set background=dark
 
-  set termguicolors
-  let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-
+  " scheme (don't invert selections)
   let g:srcery_inverse=0
   colorscheme srcery
 
-  set fillchars=vert:\  " blank vertical split, looks nicer than pipe
+  " NeoVim extras:
+  if has('nvim')
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
+  endif
+
+  set fillchars=vert:│ " better than a pipe
 
   set number     " show absolute line numbers...
   set cursorline " ...and highlight the current one.
 
-  highlight Normal guibg=black
-  highlight LineNr guibg=black
-  highlight CursorLine guibg=black
-  highlight CursorLineNr guibg=black
+  set noshowmode " Don't show '--INSERT--' etc
+
+  set termguicolors
+
+  highlight Normal         guibg=black
+  highlight LineNr         guibg=black
+  highlight CursorLine     guibg=black
+  highlight CursorLineNr   guibg=black
   highlight BufTabLineFill guibg=black
+  highlight VertSplit      guibg=black guifg=#918175
 
   highlight Visual guibg=darkgreen
 
-  highlight BufTabLineCurrent guifg=#1B1B1B  guibg=darkgray
-  highlight BufTabLineActive  guifg=darkgray guibg=#1B1B1B
-  highlight BufTabLineHidden  guifg=#333333  guibg=#1B1B1B
-" }
+  highlight BufTabLineCurrent guifg=white    guibg=#222222 gui=bold
+  highlight BufTabLineActive  guifg=#555555  guibg=#222222 gui=NONE
+  highlight BufTabLineHidden  guifg=#555555  guibg=black
+
+  highlight Statusline   guifg=white   guibg=#1B1B1B gui=bold
+  highlight StatuslineNC guifg=#555555 guibg=black   gui=NONE
+
+  highlight StatusLine_insert  guibg=darkblue  gui=bold
+  highlight StatusLine_visual  guibg=darkgreen gui=bold
+  highlight StatusLine_replace guibg=darkred   gui=bold
+
+  function! MagicStatus(n)
+    let mode   = mode()
+    let active = winnr() == a:n
+
+    if mode == 'i'
+      let group = 'StatusLine_insert'
+    elseif mode == 'v' || mode == 'V' || mode == '\<C-v>'
+      let group = 'StatusLine_visual'
+    elseif mode == 'r' || mode == 'R'
+      let group = 'StatusLine_replace'
+    elseif active
+      let group = 'StatusLine'
+    else
+      let group = 'StatusLineNC'
+    endif
+
+    return '%#' . group . '#%f'
+  endfunction
+
+  function! s:RefreshStatuses()
+    for nr in range(1, winnr('$'))
+      call setwinvar(nr, '&statusline', '%!MagicStatus(' . nr . ')')
+    endfor
+  endfunction
+
+  augroup status
+    autocmd!
+    autocmd VimEnter,WinEnter,BufWinEnter * call <SID>RefreshStatuses()
+  augroup END
+  " }
 
 " Strip trailing whitespace, and restore cursor {
   fun! TrimWhitespace()
