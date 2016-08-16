@@ -203,14 +203,14 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 
   highlight Visual guibg=darkgreen
 
-  highlight BufTabLineCurrent guifg=white    guibg=#222222 gui=bold
-  highlight BufTabLineActive  guifg=#555555  guibg=#222222 gui=NONE
-  highlight BufTabLineHidden  guifg=#555555  guibg=black
+  highlight BufTabLineCurrent guifg=white    guibg=black gui=bold
+  highlight BufTabLineActive  guifg=#555555  guibg=black gui=NONE
+  highlight BufTabLineHidden  guifg=#333333  guibg=black
 
-  highlight Statusline   guifg=white   guibg=#1B1B1B gui=bold
-  highlight StatuslineNC guifg=#555555 guibg=black   gui=NONE
+  highlight Statusline   guifg=white   guibg=#191919 gui=bold
+  highlight StatuslineNC guifg=#555555 guibg=#191919 gui=NONE
 
-  highlight StatusLine_insert  guibg=darkblue  gui=bold
+  highlight StatusLine_insert  guibg=skyblue   gui=bold guifg=black
   highlight StatusLine_visual  guibg=darkgreen gui=bold
   highlight StatusLine_replace guibg=darkred   gui=bold
 
@@ -220,7 +220,7 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 
     if mode == 'i'
       let group = 'StatusLine_insert'
-    elseif mode == 'v' || mode == 'V' || mode == '\<C-v>'
+    elseif mode == 'v' || mode == 'V' || mode == "\<C-v>"
       let group = 'StatusLine_visual'
     elseif mode == 'r' || mode == 'R'
       let group = 'StatusLine_replace'
@@ -230,7 +230,7 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
       let group = 'StatusLineNC'
     endif
 
-    return '%#' . group . '#%f'
+    return '%#' . group . '#' . (active ? '»' : '«') . ' %f ' . (active ? '«' : '»')
   endfunction
 
   function! s:RefreshStatuses()
