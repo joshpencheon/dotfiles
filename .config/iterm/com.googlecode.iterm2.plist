@@ -1000,13 +1000,13 @@
 	<key>NSWindow Frame Preferences</key>
 	<string>728 571 606 456 0 0 1680 1027 </string>
 	<key>NSWindow Frame SUUpdateAlert</key>
-	<string>492 321 700 622 0 0 1680 1050 </string>
+	<string>492 303 700 622 0 0 1680 1027 </string>
 	<key>NSWindow Frame SessionsPreferences</key>
 	<string>433 243 599 502 0 0 1680 1027 </string>
 	<key>NSWindow Frame SharedPreferences</key>
-	<string>545 370 770 409 0 0 1680 1027 </string>
+	<string>545 336 918 507 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 0</key>
-	<string>72 454 955 573 0 0 1680 1027 </string>
+	<string>205 183 1306 741 0 0 1680 1027 </string>
 	<key>NSWindow Frame iTerm Window 1</key>
 	<string>117 170 1369 615 0 0 1680 1050 </string>
 	<key>NSWindow Frame iTerm Window 2</key>
@@ -1623,7 +1623,7 @@
 			<key>Non-ASCII Anti Aliased</key>
 			<true/>
 			<key>Normal Font</key>
-			<string>Monaco 15</string>
+			<string>Monaco 14</string>
 			<key>Option Key Sends</key>
 			<integer>0</integer>
 			<key>Place Prompt at First Column</key>
@@ -1909,7 +1909,7 @@
 	<key>SUHasLaunchedBefore</key>
 	<true/>
 	<key>SULastCheckTime</key>
-	<date>2016-08-03T20:11:57Z</date>
+	<date>2016-08-10T17:59:29Z</date>
 	<key>SavePasteHistory</key>
 	<false/>
 	<key>Secure Input</key>
@@ -1971,7 +1971,7 @@
 	<key>findRegex_iTerm</key>
 	<false/>
 	<key>iTerm Version</key>
-	<string>3.0.20160729-nightly</string>
+	<string>3.0.20160808-nightly</string>
 	<key>kCPKSelectionViewPreferredModeKey</key>
 	<integer>0</integer>
 	<key>kCPKSelectionViewShowHSBTextFieldsKey</key>
