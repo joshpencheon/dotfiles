@@ -6,11 +6,11 @@ for file in ~/.shrc/*.sh; do
   source "$file"
 done
 
-# Remove any duplicates that have crept in:
-#export PATH="$(consolidate-path "$PATH")"
-export PATH="$(consolidate-path "$PATH")"
-
 # Source local config, if present:
 if [ -e ~/.bash_profile.local ]; then
   source ~/.bash_profile.local
 fi
+
+# Remove any duplicates that have crept in:
+#export PATH="$(consolidate-path "$PATH")"
+export PATH="$(consolidate-path "$PATH")"
