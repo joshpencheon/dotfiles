@@ -1,3 +1,5 @@
+command -v brew > /dev/null || return
+
 # brew install coreutils
 # brew install findutils --with-default-names
 # brew install gnu-indent --with-default-names
