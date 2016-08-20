@@ -4,8 +4,9 @@ set -e
 # Clone a bare repository:
 git clone --bare https://github.com/joshpencheon/dotfiles $HOME/.cfg
 
-# Set up an alias for immediate use (see config.sh)
-alias config='git --git-dir=$HOME/.cfg/ --work-tree=$HOME'
+function config () {
+  /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+}
 
 # Checkout into $HOME:
 config checkout
