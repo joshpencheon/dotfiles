@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# Based on:
+#  https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
+
 # Clone a bare repository:
 git clone --bare https://github.com/joshpencheon/dotfiles $HOME/.cfg
 
