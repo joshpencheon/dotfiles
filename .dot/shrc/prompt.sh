@@ -1,4 +1,4 @@
-for file in ~/.shrc/prompt/*.sh; do
+for file in ~/.dot/shrc/prompt/*.sh; do
   source "$file"
 done
 

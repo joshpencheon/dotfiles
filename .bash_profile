@@ -1,8 +1,8 @@
 # Ensure local bin directory is sourced:
-PATH=~/.bin:$PATH
+PATH=~/.local/bin:$PATH
 
 # Source all files in the symlinked directory:
-for file in ~/.shrc/*.sh; do
+for file in ~/.dot/shrc/*.sh; do
   source "$file"
 done
 
@@ -12,5 +12,4 @@ if [ -e ~/.bash_profile.local ]; then
 fi
 
 # Remove any duplicates that have crept in:
-#export PATH="$(consolidate-path "$PATH")"
 export PATH="$(consolidate-path "$PATH")"
