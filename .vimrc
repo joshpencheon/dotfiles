@@ -190,59 +190,60 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
   set number     " show absolute line numbers...
   set cursorline " ...and highlight the current one.
 
-  set noshowmode " Don't show '--INSERT--' etc
+  if has('termguicolors')
+    set termguicolors
+    set noshowmode " Don't show '--INSERT--' etc
 
-  set termguicolors
+    highlight Normal         guibg=black
+    highlight LineNr         guibg=black
+    highlight CursorLine     guibg=black
+    highlight CursorLineNr   guibg=black
+    highlight BufTabLineFill guibg=black
+    highlight VertSplit      guibg=black guifg=#918175
 
-  highlight Normal         guibg=black
-  highlight LineNr         guibg=black
-  highlight CursorLine     guibg=black
-  highlight CursorLineNr   guibg=black
-  highlight BufTabLineFill guibg=black
-  highlight VertSplit      guibg=black guifg=#918175
+    highlight Visual guibg=darkgreen
 
-  highlight Visual guibg=darkgreen
+    highlight BufTabLineCurrent guifg=white    guibg=black gui=bold
+    highlight BufTabLineActive  guifg=#555555  guibg=black gui=NONE
+    highlight BufTabLineHidden  guifg=#333333  guibg=black
 
-  highlight BufTabLineCurrent guifg=white    guibg=black gui=bold
-  highlight BufTabLineActive  guifg=#555555  guibg=black gui=NONE
-  highlight BufTabLineHidden  guifg=#333333  guibg=black
+    highlight Statusline   guifg=white   guibg=#191919 gui=bold
+    highlight StatuslineNC guifg=#555555 guibg=#191919 gui=NONE
 
-  highlight Statusline   guifg=white   guibg=#191919 gui=bold
-  highlight StatuslineNC guifg=#555555 guibg=#191919 gui=NONE
+    highlight StatusLine_insert  guibg=skyblue   gui=bold guifg=black
+    highlight StatusLine_visual  guibg=darkgreen gui=bold
+    highlight StatusLine_replace guibg=darkred   gui=bold
 
-  highlight StatusLine_insert  guibg=skyblue   gui=bold guifg=black
-  highlight StatusLine_visual  guibg=darkgreen gui=bold
-  highlight StatusLine_replace guibg=darkred   gui=bold
+    function! MagicStatus(n)
+      let mode   = mode()
+      let active = winnr() == a:n
 
-  function! MagicStatus(n)
-    let mode   = mode()
-    let active = winnr() == a:n
+      if mode == 'i'
+        let group = 'StatusLine_insert'
+      elseif mode == 'v' || mode == 'V' || mode == "\<C-v>"
+        let group = 'StatusLine_visual'
+      elseif mode == 'r' || mode == 'R'
+        let group = 'StatusLine_replace'
+      elseif active
+        let group = 'StatusLine'
+      else
+        let group = 'StatusLineNC'
+      endif
 
-    if mode == 'i'
-      let group = 'StatusLine_insert'
-    elseif mode == 'v' || mode == 'V' || mode == "\<C-v>"
-      let group = 'StatusLine_visual'
-    elseif mode == 'r' || mode == 'R'
-      let group = 'StatusLine_replace'
-    elseif active
-      let group = 'StatusLine'
-    else
-      let group = 'StatusLineNC'
-    endif
+      return '%#' . group . '#' . (active ? '»' : '«') . ' %f ' . (active ? '«' : '»')
+    endfunction
 
-    return '%#' . group . '#' . (active ? '»' : '«') . ' %f ' . (active ? '«' : '»')
-  endfunction
+    function! s:RefreshStatuses()
+      for nr in range(1, winnr('$'))
+        call setwinvar(nr, '&statusline', '%!MagicStatus(' . nr . ')')
+      endfor
+    endfunction
 
-  function! s:RefreshStatuses()
-    for nr in range(1, winnr('$'))
-      call setwinvar(nr, '&statusline', '%!MagicStatus(' . nr . ')')
-    endfor
-  endfunction
-
-  augroup status
-    autocmd!
-    autocmd VimEnter,WinEnter,BufWinEnter * call <SID>RefreshStatuses()
-  augroup END
+    augroup status
+      autocmd!
+      autocmd VimEnter,WinEnter,BufWinEnter * call <SID>RefreshStatuses()
+    augroup END
+  endif
   " }
 
 " Strip trailing whitespace, and restore cursor {
