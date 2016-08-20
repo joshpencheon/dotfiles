@@ -90,6 +90,9 @@ set ruler " show the cursor position all the time
 syntax on
 filetype plugin indent on
 
+" even this file needs it...
+set encoding=utf-8
+
 " Use system (+ selection) clipboard by default:
 set clipboard^=unnamed,unnamedplus
 
