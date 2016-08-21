@@ -1,4 +1,3 @@
 # Directory listings:
-alias ls="ls -GFh"
-export CLICOLOR=1
+alias ls="ls -hl --color=auto"
 export LSCOLORS=GxFxCxDxBxegedabagaced
