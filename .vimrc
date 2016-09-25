@@ -29,9 +29,12 @@ call plug#begin('~/.vim/plugged')
     let g:rooter_resolve_links = 1 " follow symlinks
   " }
 
-  " tab completion / snippet engine / snippets:
-  Plug 'ervandew/supertab'
-  Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+  " { tab completion / snippet engine / snippets:
+    Plug 'ervandew/supertab'
+    let g:SuperTabDefaultCompletionType = "<c-n>"
+
+    Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+  " }
 
   " { Status / Tab bars:
     Plug 'ap/vim-buftabline'
