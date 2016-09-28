@@ -9,9 +9,9 @@
 	smudge = git-lfs smudge %f
 	required = true
 [pager]
-	log = diff-highlight | less
-	show = diff-highlight | less
-	diff = diff-highlight | less
+	log = diff-highlight | less -FRX
+	show = diff-highlight | less -FRX
+	diff = diff-highlight | less -FRX
 [interactive]
 	diffFilter = diff-highlight
 [diff]
