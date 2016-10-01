@@ -238,7 +238,7 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
         let group = 'StatusLineNC'
       endif
 
-      return '%#' . group . '#' . (active ? '»' : '«') . ' %f ' . (active ? '«' : '»')
+      return '%#' . group . '#' . (active ? '»' : '«') . ' %f ' . (active ? '«' : '»') . (active ? '%=l: %4l   c: %3v' : '')
     endfunction
 
     function! s:RefreshStatuses()
