@@ -265,6 +265,6 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 " Leader maps {
   nnoremap <Leader>c :lcd %:p:h<CR>
   nnoremap <Leader>w :w<CR>
-  nnoremap <Leader>q :bd<CR>
+  nnoremap <Leader>q :bp\|bd #<CR>
   nnoremap <Leader>s :call TrimWhitespace()<CR>
 " }
