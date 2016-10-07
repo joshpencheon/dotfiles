@@ -4,3 +4,5 @@ set completion-ignore-case on
 set mark-symlinked-directories on
 # Don't ring the bell first time:
 set show-all-if-ambiguous on
+# Tab-completion from the middle of a word: (Bash 4)
+set skip-completed-text on
