@@ -58,6 +58,11 @@ call plug#begin('~/.vim/plugged')
   Plug 'tpope/vim-dispatch'   " asynchronous tasks
   Plug 'tpope/vim-unimpaired' " pairs of mappings
 
+  " { Git signs in the left margin:
+    Plug 'airblade/vim-gitgutter'
+    set updatetime=250 " the gutter will refresh 'realtime' (250ms)
+  " }
+
   " auto-close brackets etc:
   Plug 'jiangmiao/auto-pairs'
 
