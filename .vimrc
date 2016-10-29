@@ -7,15 +7,24 @@ call plug#begin('~/.vim/plugged')
   " colour scheme:
   Plug 'roosta/srcery'
 
-  " { Use FZF for searching, if installed
+  " { Use FZF for file opening
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
     Plug 'junegunn/fzf.vim'
 
     let g:fzf_layout = { 'window': 'enew' }
+    let g:fzf_history_dir = '~/.local/share/fzf-history' " Ctrl+n/p for history
 
-    nnoremap <Leader>o :Files<CR>
     nnoremap <Leader>a :Ag<CR>
+    nnoremap <Leader>o :Files<CR>
     nnoremap <Leader>b :Buffers<CR>
+  " }
+
+  " { Find in Project
+    Plug 'mileszs/ack.vim'
+
+    if executable('ag')
+      let g:ackprg = 'ag --vimgrep'
+    endif
   " }
 
   " Preview register contents
@@ -61,6 +70,7 @@ call plug#begin('~/.vim/plugged')
   " { Git signs in the left margin:
     Plug 'airblade/vim-gitgutter'
     set updatetime=250 " the gutter will refresh 'realtime' (250ms)
+    let g:gitgutter_max_signs = 2000
   " }
 
   " auto-close brackets etc:
