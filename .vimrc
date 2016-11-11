@@ -17,6 +17,9 @@ call plug#begin('~/.vim/plugged')
     nnoremap <Leader>a :Ag<CR>
     nnoremap <Leader>o :Files<CR>
     nnoremap <Leader>b :Buffers<CR>
+
+    nnoremap <C-R> :History:<CR>
+    nnoremap <C-T> :Files<CR>
   " }
 
   " { Find in Project
