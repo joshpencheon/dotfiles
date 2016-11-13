@@ -59,11 +59,9 @@ call plug#begin('~/.vim/plugged')
   " Better iTerm2 / tmux support:
   Plug 'sjl/vitality.vim'
 
-  " Replace netrw. See also tpope's vim-vinegar.
-  Plug 'justinmk/vim-dirvish'
-
   " tpope collection:
   Plug 'tpope/vim-sensible'   " let's agree
+  Plug 'tpope/vim-vinegar'    " improve netrw
   Plug 'tpope/vim-endwise'    " do/end magic
   Plug 'tpope/vim-fugitive'   " Git inside vim
   Plug 'tpope/vim-repeat'     " better '.' support
