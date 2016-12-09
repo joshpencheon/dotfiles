@@ -18,3 +18,5 @@
 	compactionHeuristic = true
 [include]
 	path = .gitconfig.local
+[alias]
+	tree = log --graph --oneline --decorate --all
