@@ -57,7 +57,10 @@ call plug#begin('~/.vim/plugged')
   Plug 'sjl/vitality.vim'
 
   " tpope collection:
-  Plug 'tpope/vim-sensible'   " let's agree
+  if !has('nvim')
+    Plug 'tpope/vim-sensible' " let's agree
+  endif
+
   Plug 'tpope/vim-vinegar'    " improve netrw
   Plug 'tpope/vim-endwise'    " do/end magic
   Plug 'tpope/vim-fugitive'   " Git inside vim
