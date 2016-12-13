@@ -1,0 +1,27 @@
+\set QUIET 1
+
+-- Errors are ignored in interactive sessions,
+-- but not when reading script files.
+\set ON_ERROR_ROLLBACK interactive
+
+-- To have all queries display query times.
+\timing
+
+-- Verbose error reports.
+\set VERBOSITY verbose
+
+-- Switch to expanded table format if necessary:
+\x auto
+
+-- Use a separate history file per-database, removing duplicates:
+\set HISTFILE ~/.psql_history- :DBNAME
+\set HISTCONTROL ignoredups
+
+-- Represent NULL with this character:
+\pset null '∅'
+
+-- Custom coloured prompt, with informative secondary:
+\set PROMPT1 '%[%033[1;34m%]%]%n@%M %[%033[38;5;195m%]%]%/ %#%[%033[0m%]%] '
+\set PROMPT2 '%[%033[38;5;195m%]%]%R %#%[%033[0m%]%] '
+
+\unset QUIET
