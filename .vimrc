@@ -76,6 +76,9 @@ call plug#begin('~/.vim/plugged')
     let g:gitgutter_max_signs = 2000
   " }
 
+  " Git commit browser, :GV / :GV!
+  Plug 'junegunn/gv.vim'
+
   " auto-close brackets etc:
   Plug 'jiangmiao/auto-pairs'
 
