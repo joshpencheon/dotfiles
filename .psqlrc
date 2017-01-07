@@ -21,7 +21,7 @@
 \pset null '∅'
 
 -- Custom coloured prompt, with informative secondary:
-\set PROMPT1 '%[%033[1;34m%]%]%n@%M %[%033[38;5;195m%]%]%/ %#%[%033[0m%]%] '
-\set PROMPT2 '%[%033[38;5;195m%]%]%R %#%[%033[0m%]%] '
+\set PROMPT1 '%n@%M %/ %# '
+\set PROMPT2 '%R %# '
 
 \unset QUIET
