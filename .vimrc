@@ -30,6 +30,9 @@ call plug#begin('~/.vim/plugged')
   " Preview register contents
   Plug 'junegunn/vim-peekaboo'
 
+  " Easy alignment
+  Plug 'junegunn/vim-easy-align'
+
   " { better autochdir
     Plug 'airblade/vim-rooter'
 
