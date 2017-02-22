@@ -1,7 +1,5 @@
 # Use NeoVim instead of vim, if it's available:
-nvim="$(brew --prefix)/bin/nvim"
-
-if [ -e $nvim ]; then
+if command -v nvim > /dev/null; then
   export EDITOR=$nvim
   alias vi=nvim
   alias vim=nvim
