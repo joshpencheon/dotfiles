@@ -1,0 +1,5 @@
+# Ensure screen starts a login shell
+shell -$SHELL
+
+# When detaching/resuming, preserve region layout
+layout save default
