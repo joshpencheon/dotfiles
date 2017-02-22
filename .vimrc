@@ -132,7 +132,11 @@ set lazyredraw
 
 " No splash screen, use abbreviations,
 " truncate if needed, don't give file info
-set shortmess=IatF
+set shortmess=Iat
+try
+  set shortmess+=F
+catch /E539: Illegal character/
+endtry
 
 " Allow switching away from unsaved buffers
 set hidden
@@ -201,7 +205,11 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 " }
 
 " Configure UI {
-  set listchars=space:⋅,trail:█,tab:▸\ ,extends:»,precedes:«
+  if has("patch-7.4.710")
+    set listchars=space:⋅,trail:█,tab:▸\ ,extends:»,precedes:«
+  elseif
+    set listchars=trail:█,tab:▸\ ,extends:»,precedes:«
+  endif
   set list
 
   set t_Co=256
