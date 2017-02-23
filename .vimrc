@@ -207,7 +207,7 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 " Configure UI {
   if has("patch-7.4.710")
     set listchars=space:⋅,trail:█,tab:▸\ ,extends:»,precedes:«
-  elseif
+  else
     set listchars=trail:█,tab:▸\ ,extends:»,precedes:«
   endif
   set list
