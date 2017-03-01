@@ -113,6 +113,8 @@ set noswapfile
 set history=50
 set ruler " show the cursor position all the time
 
+set nomodeline " disable modelines, e.g. ' ex: ...'
+
 " Basic setup:
 syntax on
 filetype plugin indent on
