@@ -16,8 +16,6 @@
 	diffFilter = diff-highlight
 [diff]
 	compactionHeuristic = true
-[include]
-	path = .gitconfig.local
 [alias]
 	tree = log --graph --oneline --decorate --all
 [difftool "sourcetree"]
@@ -28,3 +26,7 @@
 	trustExitCode = true
 [svn]
 	rmdir = true
+
+# Keep last:
+[include]
+	path = .gitconfig.local
