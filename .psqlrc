@@ -14,7 +14,8 @@
 \x auto
 
 -- Use a separate history file per-database, removing duplicates:
-\set HISTFILE ~/.psql_history- :DBNAME
+-- \set HISTFILE ~/.psql_history- :DBNAME
+\set HISTFILE ~/.psql_history/history- :HOST - :PORT - :DBNAME
 \set HISTCONTROL ignoredups
 
 -- Represent NULL with this character:
