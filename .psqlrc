@@ -14,14 +14,15 @@
 \x auto
 
 -- Use a separate history file per-database, removing duplicates:
-\set HISTFILE ~/.psql_history- :DBNAME
+-- \set HISTFILE ~/.psql_history- :DBNAME
+\set HISTFILE ~/.psql_history/history- :HOST - :PORT - :DBNAME
 \set HISTCONTROL ignoredups
 
 -- Represent NULL with this character:
 \pset null '∅'
 
 -- Custom coloured prompt, with informative secondary:
-\set PROMPT1 '%n@%M %/ %# '
+\set PROMPT1 '%n@%M:%> %/ %# '
 \set PROMPT2 '%R %# '
 
 \unset QUIET

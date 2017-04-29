@@ -1,5 +1,11 @@
 # Ensure screen starts a login shell
 shell -$SHELL
 
+# quiet down...
+startup_message off
+
+# Use altscreen for TUIs
+altscreen on
+
 # When detaching/resuming, preserve region layout
 layout save default

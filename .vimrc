@@ -113,6 +113,8 @@ set noswapfile
 set history=50
 set ruler " show the cursor position all the time
 
+set nomodeline " disable modelines, e.g. ' ex: ...'
+
 " Basic setup:
 syntax on
 filetype plugin indent on
@@ -301,7 +303,6 @@ noremap <ScrollWheelDown> <C-E>
 " Leader maps {
   nnoremap <Leader>c :lcd %:p:h<CR>
   nnoremap <Leader>w :w<CR>
-  nnoremap <Leader>q :bp\|bd #<CR>
-  nnoremap <Leader>Q :bd<CR>
+  nnoremap <silent> <Leader>q :try\|bp\|bd #\|close\|catch\|endtry<CR>
   nnoremap <Leader>s :call TrimWhitespace()<CR>
 " }
