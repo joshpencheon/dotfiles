@@ -191,6 +191,10 @@ set splitright
 set scrolloff=2  " Keep cursor 2 lines from boundary when scrolling
 set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 
+" Only scroll one line per tick:
+noremap <ScrollWheelUp>   <C-Y>
+noremap <ScrollWheelDown> <C-E>
+
 " searching {
   set nohlsearch           " don't highlight all matches
   set incsearch            " realtime highlighting
