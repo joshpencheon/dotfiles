@@ -201,6 +201,7 @@ noremap <ScrollWheelDown> <C-E>
   set nohlsearch           " don't highlight all matches
   set incsearch            " realtime highlighting
   set completeopt=longest  " don't show menu for inc complete
+  set inccommand=split     " live :substitute (NeoVim)
 " }
 
 " whitespace controls {
