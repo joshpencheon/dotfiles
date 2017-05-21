@@ -6,3 +6,7 @@ set mark-symlinked-directories on
 set show-all-if-ambiguous on
 # Tab-completion from the middle of a word: (Bash 4)
 set skip-completed-text on
+
+# Use UP and DOWN to search history using existing input:
+"\e[A": history-search-backward
+"\e[B": history-search-forward
