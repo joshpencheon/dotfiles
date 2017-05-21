@@ -211,6 +211,11 @@ noremap <ScrollWheelDown> <C-E>
   set nowrap       " don't text-wrap
 " }
 
+" NeoVim terminal {
+  tnoremap <ESC> <C-\><C-n>
+  tnoremap <Leader><ESC> <C-\><C-n>
+" }
+
 " Configure UI {
   if has("patch-7.4.710")
     set listchars=space:⋅,trail:█,tab:▸\ ,extends:»,precedes:«
@@ -261,6 +266,8 @@ noremap <ScrollWheelDown> <C-E>
     highlight StatusLine_visual  guibg=darkgreen gui=bold
     highlight StatusLine_replace guibg=darkred   gui=bold
 
+    highlight TermCursor guifg=#BB0000
+
     function! MagicStatus(n)
       let mode   = mode()
       let active = winnr() == a:n
@@ -306,4 +313,5 @@ noremap <ScrollWheelDown> <C-E>
   nnoremap <Leader>w :w<CR>
   nnoremap <silent> <Leader>q :try\|bp\|bd #\|close\|catch\|endtry<CR>
   nnoremap <Leader>s :call TrimWhitespace()<CR>
+  nnoremap <silent> <Leader>t :term bash -l<CR>
 " }
