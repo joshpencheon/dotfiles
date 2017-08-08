@@ -284,7 +284,7 @@ noremap <ScrollWheelDown> <C-E>
         let group = 'StatusLineNC'
       endif
 
-      return '%#' . group . '#' . (active ? '»' : '«') . ' %f ' . (active ? '«' : '»') . (active ? '%=l: %4l   c: %3v' : '')
+      return '%#' . group . '#' . (active ? '»' : '«') . ' %f ' . (active ? '«' : '»') . (active ? '%=b: %{fugitive#head(8)}   l: %4l   c: %3v' : '')
     endfunction
 
     function! s:RefreshStatuses()
