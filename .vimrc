@@ -214,6 +214,8 @@ noremap <ScrollWheelDown> <C-E>
 " NeoVim terminal {
   tnoremap <ESC> <C-\><C-n>
   tnoremap <Leader><ESC> <C-\><C-n>
+
+  autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " }
 
 " Configure UI {
