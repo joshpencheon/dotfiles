@@ -270,8 +270,8 @@ noremap <ScrollWheelDown> <C-E>
 
     highlight TermCursor guifg=#BB0000
 
-    highlight NonText    guifg=#555555
-    highlight SpecialKey guifg=#555555
+    highlight NonText    guifg=#333333
+    highlight SpecialKey guifg=#333333
 
     function! MagicStatus(n)
       let mode   = mode()
