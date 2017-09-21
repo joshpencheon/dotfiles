@@ -261,8 +261,9 @@ noremap <ScrollWheelDown> <C-E>
     highlight BufTabLineActive  guifg=#555555  guibg=black gui=NONE
     highlight BufTabLineHidden  guifg=#333333  guibg=black
 
-    highlight Statusline   guifg=white   guibg=#191919 gui=bold
-    highlight StatuslineNC guifg=#555555 guibg=#191919 gui=NONE
+    highlight Statusline    guifg=white   guibg=#191919 gui=bold
+    highlight StatusLineGit guifg=#98BC37 guibg=#191919 gui=bold
+    highlight StatuslineNC  guifg=#555555 guibg=#191919 gui=NONE
 
     highlight StatusLine_insert  guibg=skyblue   gui=bold guifg=black
     highlight StatusLine_visual  guibg=darkgreen gui=bold
@@ -278,18 +279,23 @@ noremap <ScrollWheelDown> <C-E>
       let active = winnr() == a:n
 
       if mode == 'i'
-        let group = 'StatusLine_insert'
+        let group     = 'StatusLine_insert'
+        let git_group = group
       elseif mode == 'v' || mode == 'V' || mode == "\<C-v>"
         let group = 'StatusLine_visual'
+        let git_group = group
       elseif mode == 'r' || mode == 'R'
         let group = 'StatusLine_replace'
+        let git_group = group
       elseif active
-        let group = 'StatusLine'
+        let group     = 'StatusLine'
+        let git_group = 'StatusLineGit'
       else
         let group = 'StatusLineNC'
+        let git_group = group
       endif
 
-      return '%#' . group . '#' . (active ? '»' : '«') . ' %f ' . (active ? '«' : '»') . (active ? '%=b: %{fugitive#head(8)}   l: %4l   c: %3v' : '')
+      return '%#' . group . '#' . (active ? '»' : '«') . ' %f ' . (active ? '«' : '»') . (active ? '%=%#' . git_group . '#%{fugitive#head(8)}%#' . group . '#  %l:%v ' : '')
     endfunction
 
     function! s:RefreshStatuses()
