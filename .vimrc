@@ -54,8 +54,8 @@ call plug#begin('~/.vim/plugged')
 
     let g:ale_lint_on_enter = 0 " Don't lint until a change is made
 
-    nnoremap <silent> [r <Plug>(ale_previous_wrap)
-    nnoremap <silent> ]r <Plug>(ale_next_wrap)
+    nmap <silent> [r <Plug>(ale_previous_wrap)
+    nmap <silent> ]r <Plug>(ale_next_wrap)
     nnoremap <Leader>r :ALEToggle<CR>
   " }
 
