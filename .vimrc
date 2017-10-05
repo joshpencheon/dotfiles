@@ -15,7 +15,8 @@ call plug#begin('~/.vim/plugged')
     let g:fzf_history_dir = '~/.local/share/fzf-history' " Ctrl+n/p for history
 
     nnoremap <Leader>a :Ag<CR>
-    nnoremap <Leader>o :Files<CR>
+    nnoremap <Leader>o :GFiles<CR>
+    nnoremap <Leader>O :Files<CR>
     nnoremap <Leader>b :Buffers<CR>
   " }
 
