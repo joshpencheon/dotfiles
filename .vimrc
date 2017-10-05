@@ -49,6 +49,16 @@ call plug#begin('~/.vim/plugged')
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
   " }
 
+  " { Linting
+    Plug 'w0rp/ale'
+
+    let g:ale_lint_on_enter = 0 " Don't lint until a change is made
+
+    nnoremap <silent> [r <Plug>(ale_previous_wrap)
+    nnoremap <silent> ]r <Plug>(ale_next_wrap)
+    nnoremap <Leader>r :ALEToggle<CR>
+  " }
+
   " { Status / Tab bars:
     Plug 'ap/vim-buftabline'
     let g:buftabline_indicators = 1 " Add '+' to modified buffers in the tabline
@@ -274,6 +284,11 @@ noremap <ScrollWheelDown> <C-E>
 
     highlight NonText    guifg=#333333
     highlight SpecialKey guifg=#333333
+
+    highlight ALEErrorSign   guifg=#000000 guibg=#FF0000
+    highlight ALEWarningSign guifg=#000000 guibg=#FFFF00
+    highlight link ALEError   ALEErrorSign
+    highlight link ALEWarning ALEWarningSign
 
     function! MagicStatus(n)
       let mode   = mode()
