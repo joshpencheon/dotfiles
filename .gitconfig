@@ -26,9 +26,9 @@
 	trustExitCode = true
 [svn]
 	rmdir = true
+[pull]
+	rebase = true
 
 # Keep last:
 [include]
 	path = .gitconfig.local
-[pull]
-	rebase = true
