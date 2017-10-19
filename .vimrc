@@ -126,6 +126,8 @@ set ruler " show the cursor position all the time
 
 set nomodeline " disable modelines, e.g. ' ex: ...'
 
+set mouse=a " Enable the mouse everywhere by default
+
 " Basic setup:
 syntax on
 filetype plugin indent on
