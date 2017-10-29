@@ -113,7 +113,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'kchmck/vim-coffee-script'
   Plug 'elixir-lang/vim-elixir'
   Plug 'vim-ruby/vim-ruby'
-
+  Plug 'neovimhaskell/haskell-vim'
   Plug 'AndrewRadev/splitjoin.vim' " single / multiline toggles
   Plug 'AndrewRadev/switch.vim'    " switch hash flavours, etc
 call plug#end()
