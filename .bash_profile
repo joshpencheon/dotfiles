@@ -5,6 +5,7 @@ PATH=~/.local/bin:$PATH
 for file in ~/.dot/shrc/*.sh; do
   source "$file"
 done
+unset file
 
 # Source local config, if present:
 if [ -e ~/.bash_profile.local ]; then
