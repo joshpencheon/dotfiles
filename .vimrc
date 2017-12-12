@@ -89,6 +89,12 @@ call plug#begin('~/.vim/plugged')
     Plug 'airblade/vim-gitgutter'
     set updatetime=250 " the gutter will refresh 'realtime' (250ms)
     let g:gitgutter_max_signs = 2000
+
+    " Use a dot character for all; colours will be different:
+    let g:gitgutter_sign_added = '∙'
+    let g:gitgutter_sign_modified = '∙'
+    let g:gitgutter_sign_removed = '∙'
+    let g:gitgutter_sign_modified_removed = '∙'
   " }
 
   " Git commit browser, :GV / :GV!
