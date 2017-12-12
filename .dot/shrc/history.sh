@@ -1,5 +1,5 @@
 # Bash History:
-export HISTCONTROL=ignorespace
+export HISTCONTROL=ignoreboth
 export HISTFILESIZE=
 export HISTSIZE=
 export HISTTIMEFORMAT="[%F %T] "
