@@ -18,3 +18,5 @@ fi
 # ------------
 source "$HOME/.fzf/shell/key-bindings.bash"
 
+# By default, reset selection on further filtering:
+export FZF_DEFAULT_OPTS='--bind change:top'
