@@ -45,9 +45,11 @@ call plug#begin('~/.vim/plugged')
 
   " { tab completion / snippet engine / snippets:
     Plug 'ervandew/supertab'
-    let g:SuperTabDefaultCompletionType = "<c-n>"
+    let g:SuperTabDefaultCompletionType = 'context'
 
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
+    let g:UltiSnipsJumpForwardTrigger = '<tab>'
+    let g:UltiSnipsJumpBackwardTrigger = '<s-tab>'
   " }
 
   " { Linting
@@ -179,8 +181,8 @@ set laststatus=2
 set showtabline=2
 set guioptions-=e
 
-" When tab-completing commands, don't just cycle:
-set wildmode=longest,list
+set wildmode=longest,list " when tab-completing commands, don't just cycle
+set completeopt=longest   " don't show menu for insert mode inc complete
 
 " Avoid delay coming out of INSERT mode, but without weirdness:
 set timeout timeoutlen=1000 ttimeoutlen=10
@@ -218,10 +220,9 @@ noremap <ScrollWheelUp>   <C-Y>
 noremap <ScrollWheelDown> <C-E>
 
 " searching {
-  set nohlsearch           " don't highlight all matches
-  set incsearch            " realtime highlighting
-  set completeopt=longest  " don't show menu for inc complete
-  set inccommand=split     " live :substitute (NeoVim)
+  set nohlsearch       " don't highlight all matches
+  set incsearch        " realtime highlighting
+  set inccommand=split " live :substitute (NeoVim)
 " }
 
 " whitespace controls {
