@@ -69,6 +69,8 @@ call plug#begin('~/.vim/plugged')
 
   " Tmux / vim integration:
   Plug 'christoomey/vim-tmux-navigator'
+  Plug 'tmux-plugins/vim-tmux-focus-events'
+  Plug 'roxma/vim-tmux-clipboard'
 
   " Better iTerm2 / tmux support:
   Plug 'sjl/vitality.vim'
