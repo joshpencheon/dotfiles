@@ -114,6 +114,13 @@ call plug#begin('~/.vim/plugged')
     vmap <C-v> <Plug>(expand_region_shrink)
   " }
 
+  " { physics-based scrolling:
+    Plug 'yuttie/comfortable-motion.vim'
+
+    noremap <silent> <ScrollWheelDown> :call comfortable_motion#flick(30)<CR>
+    noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-30)<CR>
+  " }
+
   " Ruby object support:
   Plug 'kana/vim-textobj-user'
   Plug 'nelstrom/vim-textobj-rubyblock'
@@ -216,10 +223,6 @@ set splitright
 
 set scrolloff=2  " Keep cursor 2 lines from boundary when scrolling
 set sidescroll=1 " Don't re-center the cursor when scrolling long lines
-
-" Only scroll one line per tick:
-noremap <ScrollWheelUp>   <C-Y>
-noremap <ScrollWheelDown> <C-E>
 
 " searching {
   set nohlsearch       " don't highlight all matches
