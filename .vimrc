@@ -260,12 +260,6 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
   let g:srcery_inverse=0
   colorscheme srcery
 
-  " NeoVim extras:
-  if has('nvim')
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-    let $NVIM_TUI_ENABLE_CURSOR_SHAPE=1
-  endif
-
   set fillchars=vert:│ " better than a pipe
 
   set number     " show absolute line numbers...
@@ -296,7 +290,8 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
     highlight StatusLine_visual  guibg=darkgreen gui=bold
     highlight StatusLine_replace guibg=darkred   gui=bold
 
-    highlight TermCursor guifg=#BB0000
+    highlight TermCursor   guifg=#BB0000
+    highlight TermCursorNC guibg=#550000
 
     highlight NonText    guifg=#333333
     highlight SpecialKey guifg=#333333
