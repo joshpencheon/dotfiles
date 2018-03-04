@@ -356,9 +356,9 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 " }
 
 " Leader maps {
-  nnoremap <Leader>c :lcd %:p:h<CR>
+  nnoremap <silent> <Leader>c :lcd %:p:h<CR>
   nnoremap <Leader>w :w<CR>
   nnoremap <silent> <Leader>q :try\|bp\|bd #\|close\|catch\|endtry<CR>
-  nnoremap <Leader>s :call TrimWhitespace()<CR>
+  nnoremap <silent> <Leader>s :call TrimWhitespace()<CR>
   nnoremap <silent> <Leader>t :term bash -l<CR>
 " }
