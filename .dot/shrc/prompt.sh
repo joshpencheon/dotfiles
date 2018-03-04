@@ -5,6 +5,10 @@ done
 # Build the prompt of our dreams:
 prompt="\\[\\033[1m\\]"
 
+# Add virtualenv (python) info:
+export VIRTUAL_ENV_DISABLE_PROMPT=1
+prompt="$prompt\\[\\033[38;5;112m\\]\$(__virtualenv_ps1)"
+
 # Add ruby version:
 if command -v rbenv > /dev/null; then
   prompt="$prompt\\[\\033[38;5;202m\\][\$(rbenv version | sed -e 's/ .*//')] "
