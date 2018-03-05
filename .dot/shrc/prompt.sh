@@ -25,7 +25,7 @@ prompt="$prompt\\[\\033[00m\\]\\[\\033[38;5;195m\\]\w"
 # Add git prompt:
 GIT_PS1_SHOWDIRTYSTATE=1
 GIT_PS1_SHOWUNTRACKEDFILES=1
-prompt="$prompt\\[\\033[38;5;156m\\]\$(__git_ps1) "
+prompt="$prompt\\[\\033[38;5;156m\\]\$(__git_ps1 ' %s') "
 
 # Finish up:
 prompt="$prompt\\[\\033[38;5;195m\\]\\$ \\[\\e[0m\\]\\[\\033[0m\\]"
