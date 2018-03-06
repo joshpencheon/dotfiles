@@ -83,7 +83,7 @@ call plug#begin('~/.vim/plugged')
     Plug 'tpope/vim-sensible' " let's agree
   endif
 
-  Plug 'tpope/vim-vinegar'    " improve netrw
+  Plug 'joshpencheon/vim-vinegar' " improve netrw (use fork for now)
   Plug 'tpope/vim-endwise'    " do/end magic
   Plug 'tpope/vim-fugitive'   " Git inside vim
   Plug 'tpope/vim-repeat'     " better '.' support
