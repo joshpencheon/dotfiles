@@ -55,7 +55,10 @@ call plug#begin('~/.vim/plugged')
   " { Linting
     Plug 'w0rp/ale'
 
-    let g:ale_lint_on_enter = 0 " Don't lint until a change is made
+    " Only run linters when modified file is written to disk:
+    let g:ale_lint_on_enter        = 0
+    let g:ale_lint_on_text_changed = 0
+    let g:ale_lint_on_save         = 1
 
     nmap <silent> [r <Plug>(ale_previous_wrap)
     nmap <silent> ]r <Plug>(ale_next_wrap)
