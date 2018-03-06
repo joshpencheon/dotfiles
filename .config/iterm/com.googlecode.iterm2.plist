@@ -769,6 +769,8 @@
 	<false/>
 	<key>DisableFullscreenTransparency</key>
 	<false/>
+	<key>DisableMetalWhenUnplugged</key>
+	<false/>
 	<key>DoubleClickPerformsSmartSelection</key>
 	<false/>
 	<key>EnableRendezvous</key>
