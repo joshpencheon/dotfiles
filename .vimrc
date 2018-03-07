@@ -38,9 +38,11 @@ call plug#begin('~/.vim/plugged')
   " { better autochdir
     Plug 'airblade/vim-rooter'
 
-    let g:rooter_use_lcd = 1       " :lcd for current window
-    let g:rooter_silent_chdir = 1  " don't report action
-    let g:rooter_resolve_links = 1 " follow symlinks
+    let g:rooter_manual_only = 1
+    let g:rooter_use_lcd     = 1
+
+    nnoremap <silent> <Leader>c :lcd %:p:h<CR>
+    nnoremap <silent> <Leader>C :Rooter<CR>
   " }
 
   " { tab completion / snippet engine / snippets:
@@ -354,7 +356,6 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 " }
 
 " Leader maps {
-  nnoremap <silent> <Leader>c :lcd %:p:h<CR>
   nnoremap <Leader>w :w<CR>
   nnoremap <silent> <Leader>q :try\|bp\|bd #\|close\|catch\|endtry<CR>
   nnoremap <silent> <Leader>s :call TrimWhitespace()<CR>
