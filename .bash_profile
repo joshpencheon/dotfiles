@@ -15,4 +15,4 @@ fi
 # Remove any duplicates that have crept in:
 export PATH="$(consolidate-path "$PATH")"
 
-test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
+${HOME}/.isiterm2.sh && test -e "${HOME}/.iterm2_shell_integration.bash" && source "${HOME}/.iterm2_shell_integration.bash"
