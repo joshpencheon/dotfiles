@@ -88,6 +88,7 @@ call plug#begin('~/.vim/plugged')
   Plug 'joshpencheon/vim-vinegar' " improve netrw (use fork for now)
   Plug 'tpope/vim-endwise'    " do/end magic
   Plug 'tpope/vim-fugitive'   " Git inside vim
+  Plug 'tpope/vim-rhubarb'    " GitHub support for fugitive
   Plug 'tpope/vim-repeat'     " better '.' support
   Plug 'tpope/vim-surround'   " brackets etc
   Plug 'tpope/vim-commentary' " block [un]commenting
