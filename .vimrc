@@ -247,6 +247,9 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
   tnoremap <ESC> <C-\><C-n>
   tnoremap <Leader><ESC> <C-\><C-n>
 
+  " 100k lines of scrollback in terminal buffer:
+  set scrollback=-1
+
   autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
 " }
 
