@@ -231,9 +231,12 @@ set scrolloff=2  " Keep cursor 2 lines from boundary when scrolling
 set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 
 " searching {
-  set nohlsearch       " don't highlight all matches
-  set incsearch        " realtime highlighting
-  set inccommand=split " live :substitute (NeoVim)
+  set nohlsearch " don't highlight all matches
+  set incsearch  " realtime highlighting
+
+  if has('nvim')
+    set inccommand=split " live :substitute
+  endif
 " }
 
 " whitespace controls {
@@ -243,7 +246,7 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
   set nowrap       " don't text-wrap
 " }
 
-" NeoVim terminal {
+if has('nvim') " NeoVim terminal:
   tnoremap <ESC> <C-\><C-n>
   tnoremap <Leader><ESC> <C-\><C-n>
 
@@ -251,7 +254,7 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
   set scrollback=-1
 
   autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
-" }
+endif
 
 " Configure UI {
   if has("patch-7.4.710")
