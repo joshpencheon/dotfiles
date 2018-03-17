@@ -86,14 +86,15 @@ call plug#begin('~/.vim/plugged')
   endif
 
   Plug 'joshpencheon/vim-vinegar' " improve netrw (use fork for now)
-  Plug 'tpope/vim-endwise'    " do/end magic
-  Plug 'tpope/vim-fugitive'   " Git inside vim
-  Plug 'tpope/vim-rhubarb'    " GitHub support for fugitive
-  Plug 'tpope/vim-repeat'     " better '.' support
-  Plug 'tpope/vim-surround'   " brackets etc
-  Plug 'tpope/vim-commentary' " block [un]commenting
-  Plug 'tpope/vim-dispatch'   " asynchronous tasks
-  Plug 'tpope/vim-unimpaired' " pairs of mappings
+  Plug 'tpope/vim-endwise'     " do/end magic
+  Plug 'tpope/vim-fugitive'    " Git inside vim
+  Plug 'tpope/vim-rhubarb'     " GitHub support for fugitive
+  Plug 'sodapopcan/vim-twiggy' " Git branch support for fugitive
+  Plug 'tpope/vim-repeat'      " better '.' support
+  Plug 'tpope/vim-surround'    " brackets etc
+  Plug 'tpope/vim-commentary'  " block [un]commenting
+  Plug 'tpope/vim-dispatch'    " asynchronous tasks
+  Plug 'tpope/vim-unimpaired'  " pairs of mappings
 
   " { Git signs in the left margin:
     Plug 'airblade/vim-gitgutter'
