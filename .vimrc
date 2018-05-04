@@ -47,7 +47,7 @@ call plug#begin('~/.vim/plugged')
 
   " { tab completion / snippet engine / snippets:
     Plug 'ervandew/supertab'
-    let g:SuperTabDefaultCompletionType = 'context'
+    " let g:SuperTabDefaultCompletionType = 'context'
 
     Plug 'SirVer/ultisnips' | Plug 'honza/vim-snippets'
     let g:UltiSnipsJumpForwardTrigger = '<tab>'
