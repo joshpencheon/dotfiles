@@ -135,6 +135,7 @@ call plug#begin('~/.vim/plugged')
   " Additional language / env support:
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-rake'
+  Plug 'pangloss/vim-javascript'
   Plug 'kchmck/vim-coffee-script'
   Plug 'elixir-lang/vim-elixir'
   Plug 'vim-ruby/vim-ruby'
