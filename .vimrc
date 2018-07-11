@@ -62,6 +62,9 @@ call plug#begin('~/.vim/plugged')
     let g:ale_lint_on_text_changed = 0
     let g:ale_lint_on_save         = 1
 
+    " For Ruby, only run the RuboCop linter:
+    let g:ale_linters = { 'ruby': ['rubocop'] }
+
     nmap <silent> [r <Plug>(ale_previous_wrap)
     nmap <silent> ]r <Plug>(ale_next_wrap)
     nnoremap <Leader>r :ALEToggle<CR>
