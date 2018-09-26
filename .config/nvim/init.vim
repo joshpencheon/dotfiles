@@ -283,7 +283,10 @@ endif
 
   " scheme (don't invert selections)
   let g:srcery_inverse=0
-  colorscheme srcery
+  try
+    colorscheme srcery
+  catch /E185:/
+  endtry
 
   set fillchars=vert:│ " better than a pipe
 
