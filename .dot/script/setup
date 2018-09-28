@@ -2,9 +2,12 @@
 
 # ====== Use up-to-date bash by default ======
 
-if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
-  echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
-  chsh -s /usr/local/bin/bash;
+brewed_bash=/usr/local/bin/bash
+if [ -x $brewed_bash ]; then
+  if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
+    echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
+    chsh -s /usr/local/bin/bash;
+  fi;
 fi;
 
 # ====== Install vim plugins ======
