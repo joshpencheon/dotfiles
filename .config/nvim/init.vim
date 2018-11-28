@@ -74,6 +74,9 @@ call plug#begin(printf('%s/plugged', s:portable))
     " For Ruby, only run the RuboCop linter:
     let g:ale_linters = { 'ruby': ['rubocop'] }
 
+    " Run Rubocop in the context of the bundle:
+    let g:ale_ruby_rubocop_executable = 'bundle'
+
     nmap <silent> [r <Plug>(ale_previous_wrap)
     nmap <silent> ]r <Plug>(ale_next_wrap)
     nnoremap <Leader>r :ALEToggle<CR>
