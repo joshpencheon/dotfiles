@@ -154,6 +154,7 @@ call plug#begin(printf('%s/plugged', s:portable))
   Plug 'kchmck/vim-coffee-script'
   Plug 'elixir-lang/vim-elixir'
   Plug 'vim-ruby/vim-ruby'
+  Plug 'rust-lang/rust.vim'
   Plug 'neovimhaskell/haskell-vim'
   Plug 'AndrewRadev/splitjoin.vim' " single / multiline toggles
   Plug 'AndrewRadev/switch.vim'    " switch hash flavours, etc
