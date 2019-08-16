@@ -71,8 +71,8 @@ call plug#begin(printf('%s/plugged', s:portable))
     let g:ale_lint_on_text_changed = 0
     let g:ale_lint_on_save         = 1
 
-    " For Ruby, only run the RuboCop linter:
-    let g:ale_linters = { 'ruby': ['rubocop'] }
+    " For Ruby, only run the RuboCop linter. For JS, use standard.js:
+    let g:ale_linters = { 'ruby': ['rubocop'], 'javascript': ['standard'] }
 
     " Run Rubocop in the context of the bundle:
     let g:ale_ruby_rubocop_executable = 'bundle'
