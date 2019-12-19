@@ -241,6 +241,9 @@ noremap <Right> <nop>
 inoremap <C-c> <Esc>`^
 vnoremap <C-c> <Esc>
 
+" Don't yank as you paste in visual mode:
+vnoremap p "_dP
+
 " Open new split panes to right and bottom, which feels more natural
 set splitbelow
 set splitright
