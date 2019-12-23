@@ -72,7 +72,7 @@ call plug#begin(printf('%s/plugged', s:portable))
     let g:ale_lint_on_save         = 1
 
     " For Ruby, only run the RuboCop linter. For JS, use standard.js:
-    let g:ale_linters = { 'ruby': ['rubocop'], 'javascript': ['standard'] }
+    let g:ale_linters = { 'ruby': ['rubocop'], 'javascript': ['standard'], 'python': ['pylint'] }
 
     " Run Rubocop in the context of the bundle:
     let g:ale_ruby_rubocop_executable = 'bundle'
@@ -177,6 +177,13 @@ filetype plugin indent on
 if has('vim_starting')
   " even this file needs it...
   set encoding=utf-8
+endif
+
+" Figure out the system Python for Neovim.
+if exists("$VIRTUAL_ENV")
+    let g:python3_host_prog=substitute(system("which -a python3 | head -n2 | tail -n1"), "\n", '', 'g')
+else
+    let g:python3_host_prog=substitute(system("which python3"), "\n", '', 'g')
 endif
 
 " Use system (+ selection) clipboard by default:
