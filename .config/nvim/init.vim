@@ -283,7 +283,8 @@ if has('nvim') " NeoVim terminal:
   " 100k lines of scrollback in terminal buffer:
   set scrollback=-1
 
-  autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
+  " autocmd BufEnter * if &buftype == 'terminal' | :startinsert | endif
+  autocmd TermOpen term://* startinsert
 endif
 
 " Configure UI {
