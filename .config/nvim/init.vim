@@ -48,7 +48,7 @@ call plug#begin(printf('%s/plugged', s:portable))
     Plug 'airblade/vim-rooter'
 
     let g:rooter_manual_only = 1
-    let g:rooter_use_lcd     = 1
+    let g:rooter_cd_cmd='lcd'
 
     nnoremap <silent> <Leader>c :lcd %:p:h<CR>
     nnoremap <silent> <Leader>C :Rooter<CR>
