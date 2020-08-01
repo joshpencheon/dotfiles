@@ -1,0 +1,23 @@
+pipeline {
+  agent {
+    dockerfile {
+      filename '.dot/Dockerfile'
+    }
+  }
+
+  stages {
+    // This will pull latest from master, not use
+    // the currently-CI'd code...
+    stage('Install dotfiles') {
+      sh '.dot/script/install'
+    }
+
+    stage('Setup dotfiles') {
+      sh '.dot/script/setup'
+    }
+
+    stage('Test installation') {
+      sh 'which fzf'
+    }
+  }
+}
