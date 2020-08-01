@@ -159,6 +159,7 @@ call plug#begin(printf('%s/plugged', s:portable))
   Plug 'OrangeT/vim-csharp'
   Plug 'pearofducks/ansible-vim'
   Plug 'hashivim/vim-terraform'
+  Plug 'martinda/Jenkinsfile-vim-syntax'
 
   Plug 'AndrewRadev/splitjoin.vim' " single / multiline toggles
   Plug 'AndrewRadev/switch.vim'    " switch hash flavours, etc
