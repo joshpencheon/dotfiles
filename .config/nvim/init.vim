@@ -143,6 +143,12 @@ call plug#begin(printf('%s/plugged', s:portable))
     noremap <silent> <ScrollWheelUp>   :call comfortable_motion#flick(-30)<CR>
   " }
 
+  " { Python docstring support:
+    Plug 'heavenshell/vim-pydocstring', { 'do': 'make install' }
+
+    let g:pydocstring_formatter = 'google'
+  " }
+
   " Ruby object support:
   Plug 'kana/vim-textobj-user'
   Plug 'nelstrom/vim-textobj-rubyblock'
