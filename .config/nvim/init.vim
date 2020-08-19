@@ -157,6 +157,7 @@ call plug#begin(printf('%s/plugged', s:portable))
   Plug 'tpope/vim-rails'
   Plug 'tpope/vim-rake'
   Plug 'pangloss/vim-javascript'
+  Plug 'leafgarland/typescript-vim'
   Plug 'kchmck/vim-coffee-script'
   Plug 'elixir-lang/vim-elixir'
   Plug 'vim-ruby/vim-ruby'
