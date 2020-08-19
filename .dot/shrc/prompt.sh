@@ -11,7 +11,7 @@ prompt="$prompt\\[\\033[38;5;112m\\]\$(__virtualenv_ps1)"
 
 # Add ruby version:
 if command -v rbenv > /dev/null; then
-  prompt="$prompt\\[\\033[38;5;202m\\][\$(rbenv version | sed -e 's/ .*//')] "
+  prompt="$prompt\\[\\033[38;5;202m\\][\$(rbenv version-name)] "
 fi
 
 # Add user@host, if this is a remote session:
