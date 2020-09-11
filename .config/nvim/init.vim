@@ -14,7 +14,7 @@ let &runtimepath = printf('%s,%s,%s/after', s:portable, &runtimepath, s:portable
 
 call plug#begin(printf('%s/plugged', s:portable))
   " colour scheme:
-  Plug 'roosta/srcery'
+  Plug 'srcery-colors/srcery-vim'
 
   " { Use FZF for file opening
     Plug 'junegunn/fzf', { 'dir': '~/.fzf', 'do': './install --all' }
