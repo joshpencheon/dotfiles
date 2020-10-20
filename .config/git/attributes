@@ -1,0 +1,3 @@
+*.erb diff=html
+*.rake diff=ruby
+*.rb diff=ruby
