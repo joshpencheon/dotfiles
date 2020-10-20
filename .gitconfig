@@ -28,6 +28,8 @@
 	rmdir = true
 [pull]
 	rebase = true
+[fetch]
+	prune = true
 
 # Keep last:
 [include]
