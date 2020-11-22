@@ -1,8 +1,16 @@
-# Don't modify PATH again if we have `brew` already
-command -v brew > /dev/null && return
+# Don't try to configure brew if we don't have it
+command -v brew > /dev/null || return
 
-if [[ "$OSTYPE" =~ ^linux  ]]; then
-  export PATH="$HOME/.linuxbrew/sbin:$HOME/.linuxbrew/bin:$PATH"
-else
-  export PATH="/usr/local/bin:$PATH"
+brew_dir=$(brew --prefix)
+
+export PATH="$brew_dir/sbin:$brew_dir/bin:$PATH"
+
+# Bash autocompletion, via homebrew
+if [ -f $brew_dir/etc/bash_completion ]; then
+  source $brew_dir/etc/bash_completion
+fi
+
+# For bash 4.0+ instead:
+if [ -f $brew_dir/share/bash-completion/bash_completion ]; then
+  source $brew_dir/share/bash-completion/bash_completion
 fi
