@@ -10,9 +10,9 @@ export VIRTUAL_ENV_DISABLE_PROMPT=1
 prompt="$prompt\\[\\033[38;5;112m\\]\$(__virtualenv_ps1)"
 
 # Add ruby version:
-if command -v rbenv > /dev/null; then
-  prompt="$prompt\\[\\033[38;5;202m\\][\$(rbenv version-name)] "
-fi
+# if command -v rbenv > /dev/null; then
+#   prompt="$prompt\\[\\033[38;5;202m\\][\$(rbenv version-name)] "
+# fi
 
 # Add user@host, if this is a remote session:
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
