@@ -14,3 +14,6 @@ fi
 if [ -f $brew_dir/share/bash-completion/bash_completion ]; then
   source $brew_dir/share/bash-completion/bash_completion
 fi
+
+# Only refresh brew once a day:
+export HOMEBREW_AUTO_UPDATE_SECS=$((60*60*24))
