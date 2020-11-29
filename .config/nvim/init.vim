@@ -171,6 +171,7 @@ call plug#begin(printf('%s/plugged', s:portable))
   Plug 'OrangeT/vim-csharp'
   Plug 'pearofducks/ansible-vim'
   Plug 'hashivim/vim-terraform'
+  Plug 'hashivim/vim-vagrant'
   Plug 'martinda/Jenkinsfile-vim-syntax'
   Plug 'tpope/vim-cucumber'
 
