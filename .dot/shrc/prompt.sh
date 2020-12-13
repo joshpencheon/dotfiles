@@ -28,7 +28,8 @@ GIT_PS1_SHOWUNTRACKEDFILES=1
 prompt="$prompt\\[\\033[38;5;195m\\]\$(__git_ps1 ' %s') "
 
 # Finish up:
-prompt="$prompt\n$ \\[\\e[0m\\]\\[\\033[0m\\]"
+prompt="$prompt\n"
+prompt="$prompt\\[\\033[38;5;195m\\]$ \\[\\e[0m\\]\\[\\033[0m\\]"
 
 export PS1=$prompt
 export PS2="\\[\\033[38;5;195m\\]> \\[\\e[0m\\]\\[\\033[0m\\]"
