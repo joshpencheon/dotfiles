@@ -12,6 +12,7 @@
 	log = diff-highlight | less -FRX
 	show = diff-highlight | less -FRX
 	diff = diff-highlight | less -FRX
+	branch = false
 [interactive]
 	diffFilter = diff-highlight
 [diff]
