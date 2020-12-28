@@ -17,6 +17,7 @@ plug_download_location=https://raw.githubusercontent.com/junegunn/vim-plug/maste
 if [ -f $plug_install_location ]; then
   vim +PlugUpgrade +qall
 else
-  curl -fLo $plug_install_location --create-dirs $plug_download_location
+  mkdir -p $(dirname $plug_install_location)
+  wget $plug_download_location -O $plug_install_location
 fi;
 vim +PlugUpdate +qall
