@@ -34,4 +34,4 @@
 
 # Keep last:
 [include]
-	path = .gitconfig.local
+	path = config.local
