@@ -17,6 +17,11 @@
 	diffFilter = diff-highlight
 [diff]
 	compactionHeuristic = true
+	colormoved = zebra
+	colormovedws = allow-indentation-change
+[color "diff"]
+	oldMoved = brightmagenta dim
+	newMoved = brightcyan dim
 [alias]
 	tree = log --graph --oneline --decorate --all
 [difftool "sourcetree"]
