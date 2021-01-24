@@ -771,6 +771,8 @@
 	<false/>
 	<key>EnableRendezvous</key>
 	<false/>
+	<key>FastTrackpad</key>
+	<false/>
 	<key>FocusFollowsMouse</key>
 	<false/>
 	<key>FsTabDelay</key>
