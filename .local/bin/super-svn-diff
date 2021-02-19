@@ -1,0 +1,19 @@
+#! /bin/sh
+
+# super-svn-diff
+#
+# Provides better diffs for subversion.
+#
+# Installation:
+#
+# Add "diff-cmd = /abs/path/to/super-svn-diff" to the
+# relevant section of ~/.subversion/config.
+#
+
+if command -v colordiff > /dev/null; then
+  diff_prog=colordiff
+else
+  diff_prog=diff
+fi
+
+$diff_prog -u "$@" | diff-highlight
