@@ -99,6 +99,15 @@ call plug#begin(printf('%s/plugged', s:portable))
   " Better iTerm2 / tmux support:
   Plug 'sjl/vitality.vim'
 
+  " { Workaround block pasting issue on NeoVim (see issue #1822)
+    if has('nvim')
+      Plug 'bfredl/nvim-miniyank'
+
+      map p <Plug>(miniyank-autoput)
+      map P <Plug>(miniyank-autoPut)
+    endif
+  " }
+
   " tpope collection:
   if !has('nvim')
     Plug 'tpope/vim-sensible' " let's agree
