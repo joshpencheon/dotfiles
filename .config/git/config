@@ -24,6 +24,7 @@
 	newMoved = brightcyan dim
 [alias]
 	tree = log --graph --oneline --decorate --all
+	sw = "!git switch $(git branch | fzf --reverse --height 20%)"
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
