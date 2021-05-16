@@ -75,8 +75,13 @@ call plug#begin(printf('%s/plugged', s:portable))
     let g:ale_linters = {
     \  'javascript': ['standard'],
     \  'python': ['pylint'],
+    \  'r': ['lintr'],
     \  'ruby': ['rubocop'],
     \}
+
+    " Use elegant margin signs. Colouring is handled separately below.
+    let g:ale_sign_error = ' »'
+    let g:ale_sign_warning = ' »'
 
     " Run Rubocop in the context of the bundle:
     let g:ale_ruby_rubocop_executable = 'bundle'
