@@ -23,8 +23,9 @@
 	oldMoved = brightmagenta dim
 	newMoved = brightcyan dim
 [alias]
-	tree = log --graph --oneline --decorate --all
+	recent = branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)"
 	sw = "!git switch $(git branch | fzf --reverse --height 20%)"
+	tree = log --graph --oneline --decorate --all
 [difftool "sourcetree"]
 	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
 	path = 
