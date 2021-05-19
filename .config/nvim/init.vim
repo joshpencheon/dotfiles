@@ -269,6 +269,9 @@ set formatoptions+=j
 " allow the cursor to move beyond the line end in all modes:
 set virtualedit=all
 
+" Use syntax-aware folding:
+set foldmethod=syntax
+
 " disable the arrow keys for navigation!
 noremap <Up> <nop>
 noremap <Down> <nop>
