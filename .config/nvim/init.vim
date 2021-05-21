@@ -176,6 +176,7 @@ call plug#begin(printf('%s/plugged', s:portable))
   Plug 'pangloss/vim-javascript'
   Plug 'leafgarland/typescript-vim'
   Plug 'kchmck/vim-coffee-script'
+  Plug 'mattn/emmet-vim'
   Plug 'elixir-lang/vim-elixir'
   Plug 'vim-ruby/vim-ruby'
   Plug 'fatih/vim-go', { 'do': ':GoUpdateBinaries' }
