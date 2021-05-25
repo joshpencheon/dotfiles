@@ -270,8 +270,8 @@ set formatoptions+=j
 " allow the cursor to move beyond the line end in all modes:
 set virtualedit=all
 
-" Use syntax-aware folding:
-set foldmethod=syntax
+set foldmethod=syntax " Use syntax-aware folding
+set foldlevelstart=99 " Avoid 'za' closing everything initially
 
 " disable the arrow keys for navigation!
 noremap <Up> <nop>
@@ -432,6 +432,7 @@ endif
 
 " Leader maps {
   nnoremap <Leader>w :w<CR>
+  nnoremap <Leader>z za
 
   " Can anything be learnt from rbgrouleff/bclose.vim to improve this?
   nnoremap <silent> <Leader>q :try\|bp\|bd #\|close\|catch\|endtry<CR>
