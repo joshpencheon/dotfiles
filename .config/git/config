@@ -13,6 +13,8 @@
 	show = diff-highlight | less -FRX
 	diff = diff-highlight | less -FRX
 	branch = false
+[init]
+	defaultBranch = main
 [interactive]
 	diffFilter = diff-highlight
 [diff]
