@@ -376,6 +376,8 @@ endif
     highlight NonText    guifg=#333333
     highlight SpecialKey guifg=#333333
 
+    highlight SignColumn guibg=black
+
     highlight ALEErrorSign   guifg=#000000 guibg=#FF0000
     highlight ALEWarningSign guifg=#000000 guibg=#FFFF00
     highlight link ALEError   ALEErrorSign
