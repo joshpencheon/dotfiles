@@ -186,8 +186,13 @@ call plug#begin(printf('%s/plugged', s:portable))
     \  }
     \}
 
-    let g:ultest_max_threads = 1 " avoid DB contention for now
+    " RSpec results can't be parsed out of a bigger run, so have to be run
+    " separately. Doing this sequentially avoids DB contention for now.
+    let g:ultest_max_threads = 1
+
     let g:ultest_fail_sign = '✘'
+
+    nmap <Leader>t <Plug>(ultest-run-nearest)
   " }
 
   " Ruby object support:
@@ -464,5 +469,5 @@ endif
   nnoremap <silent> <Leader>q :try\|bp\|bd #\|close\|catch\|endtry<CR>
 
   nnoremap <silent> <Leader>s :call TrimWhitespace()<CR>
-  nnoremap <silent> <Leader>t :term bash -l<CR>
+  nnoremap <silent> <Leader>T :term bash -l<CR>
 " }
