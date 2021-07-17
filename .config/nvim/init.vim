@@ -166,6 +166,30 @@ call plug#begin(printf('%s/plugged', s:portable))
     let g:pydocstring_formatter = 'google'
   " }
 
+  " { Running tests:
+    Plug 'vim-test/vim-test'
+    Plug 'rcarriga/vim-ultest', { 'do': ':UpdateRemotePlugins' }
+
+    " Custom RSpec extensions:
+    "   - match `it { is_expected.to ... }`
+    "   - allow `context` blocks to act as namespaces too
+    let g:ultest_custom_patterns = {
+    \  'ruby#rspec': {
+    \    'test': [
+    \      '\v^\s*it%(\(| )%("|'')(.*)%("|'')',
+    \      '\v^\s*it\s*%(\{)\s*(.*?)\s*\}',
+    \    ],
+    \    'namespace': [
+    \      '\v^\s*%(describe|context)%(\(| )%("|'')(.*)%("|'')',
+    \      '\v^\s*%(describe|context)%(\(| )(\S+)',
+    \    ]
+    \  }
+    \}
+
+    let g:ultest_max_threads = 1 " avoid DB contention for now
+    let g:ultest_fail_sign = '✘'
+  " }
+
   " Ruby object support:
   Plug 'kana/vim-textobj-user'
   Plug 'nelstrom/vim-textobj-rubyblock'
