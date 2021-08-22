@@ -9,7 +9,7 @@
 	<key>AdjustWindowForFontSizeChange</key>
 	<false/>
 	<key>AllowClipboardAccess</key>
-	<false/>
+	<true/>
 	<key>AlternateMouseScroll</key>
 	<true/>
 	<key>AnimateDimming</key>
