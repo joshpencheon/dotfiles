@@ -119,6 +119,7 @@ call plug#begin(printf('%s/plugged', s:portable))
 
     " OSC52 clipboard support - yank from server back to client:
     Plug 'ojroques/vim-oscyank'
+    let g:oscyank_silent=1
 
     " Automatically emit the OSC52 control sequence when yanking:
     augroup oscyank
