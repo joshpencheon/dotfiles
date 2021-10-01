@@ -28,6 +28,7 @@ call plug#begin(printf('%s/plugged', s:portable))
     nnoremap <Leader>o :Files<CR>
     nnoremap <Leader>O :GFiles<CR>
     nnoremap <Leader>b :Buffers<CR>
+    nnoremap <Leader>B :Tags <C-R><C-W><CR>
   " }
 
   " { Find in Project
