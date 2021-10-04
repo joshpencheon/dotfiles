@@ -23,7 +23,9 @@
 	colormovedws = allow-indentation-change
 [color "diff"]
 	oldMoved = brightmagenta dim
-	newMoved = brightcyan dim
+	newMoved = brightblue dim
+	oldMovedAlternative = brightyellow dim
+	newMovedAlternative = brightcyan dim
 [alias]
 	recent = branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)"
 	sw = "!git switch $(git branch --sort=-committerdate --format=\"%(refname:short)\" | fzf --reverse --height 20%)"
