@@ -25,8 +25,8 @@ call plug#begin(printf('%s/plugged', s:portable))
 
     nnoremap <Leader>a :Ag<Space>
     nnoremap <Leader>A :Ag <C-R><C-W><CR>
-    nnoremap <Leader>o :Files<CR>
-    nnoremap <Leader>O :GFiles<CR>
+    nnoremap <Leader>O :Files<CR>
+    nnoremap <Leader>o :GFiles<CR>
     nnoremap <Leader>b :Buffers<CR>
     nnoremap <Leader>B :Tags <C-R><C-W><CR>
   " }
