@@ -414,8 +414,8 @@ endif
     highlight Visual guibg=darkgreen
 
     highlight BufTabLineCurrent guifg=white    guibg=black gui=bold
-    highlight BufTabLineActive  guifg=#555555  guibg=black gui=NONE
-    highlight BufTabLineHidden  guifg=#333333  guibg=black
+    highlight BufTabLineActive  guifg=#999999  guibg=black gui=NONE
+    highlight BufTabLineHidden  guifg=#555555  guibg=black
 
     highlight Statusline    guifg=white   guibg=#191919 gui=bold
     highlight StatusLineGit guifg=#98BC37 guibg=#191919 gui=bold
