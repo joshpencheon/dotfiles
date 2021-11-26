@@ -72,9 +72,9 @@ call plug#begin(printf('%s/plugged', s:portable))
     let g:ale_lint_on_text_changed = 0
     let g:ale_lint_on_save         = 1
 
-    " For Ruby, only run the RuboCop linter. For JS, use standard.js:
+    " For Ruby, only run the RuboCop linter. For JS, use ESLint:
     let g:ale_linters = {
-    \  'javascript': ['standard'],
+    \  'javascript': ['eslint'],
     \  'python': ['pylint'],
     \  'r': ['lintr'],
     \  'ruby': ['rubocop'],
