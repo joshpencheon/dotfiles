@@ -39,6 +39,18 @@ call plug#begin(printf('%s/plugged', s:portable))
     endif
   " }
 
+  " { Telescope (fuzzy finding)
+    Plug 'nvim-lua/plenary.nvim'
+    Plug 'nvim-telescope/telescope.nvim'
+    Plug 'nvim-telescope/telescope-fzy-native.nvim'
+
+    " See after/plugin/telescope.nvim.vim for config.
+  " }
+
+  " { Treesitter (language support)
+    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+  " }
+
   " Preview register contents
   Plug 'junegunn/vim-peekaboo'
 
