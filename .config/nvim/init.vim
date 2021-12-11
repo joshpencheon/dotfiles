@@ -42,7 +42,7 @@ call plug#begin(printf('%s/plugged', s:portable))
   " { Telescope (fuzzy finding)
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
-    Plug 'nvim-telescope/telescope-fzy-native.nvim'
+    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
     " See after/plugin/telescope.nvim.vim for config.
   " }
@@ -326,7 +326,7 @@ set wildmode=longest,list " when tab-completing commands, don't just cycle
 set completeopt=longest   " don't show menu for insert mode inc complete
 
 " Avoid delay coming out of INSERT mode, but without weirdness:
-set timeout timeoutlen=1000 ttimeoutlen=10
+set timeout timeoutlen=250 ttimeoutlen=10
 
 " Give choices when closing without write:
 set confirm
