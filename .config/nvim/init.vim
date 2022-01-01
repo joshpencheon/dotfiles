@@ -42,9 +42,14 @@ call plug#begin(printf('%s/plugged', s:portable))
   " { Telescope (fuzzy finding)
     Plug 'nvim-lua/plenary.nvim'
     Plug 'nvim-telescope/telescope.nvim'
+    " See after/plugin/telescope.nvim.vim for config.
+
+    " Use FZF syntax for finding files:
     Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
-    " See after/plugin/telescope.nvim.vim for config.
+    " Emoji picker!
+    Plug 'nvim-telescope/telescope-symbols.nvim'
+    nnoremap <Leader>e :Telescope symbols<Enter>
   " }
 
   " { Treesitter (language support)
