@@ -39,25 +39,29 @@ call plug#begin(printf('%s/plugged', s:portable))
     endif
   " }
 
-  " { Telescope (fuzzy finding)
-    Plug 'nvim-lua/plenary.nvim'
-    Plug 'nvim-telescope/telescope.nvim'
-    " See after/plugin/telescope.nvim.vim for config.
+  if has('nvim')
+    " { Telescope (fuzzy finding)
+      Plug 'nvim-lua/plenary.nvim'
+      Plug 'nvim-telescope/telescope.nvim'
 
-    " Use FZF syntax for finding files:
-    Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
+      nnoremap <leader>OO <cmd>lua require('telescope.builtin').find_files()<cr>
+      nnoremap <leader>AA <cmd>lua require('telescope.builtin').live_grep()<cr>
 
-    " Emoji picker!
-    Plug 'nvim-telescope/telescope-symbols.nvim'
-    nnoremap <Leader>e :Telescope symbols<Enter>
+      " Use FZF syntax for finding files:
+      Plug 'nvim-telescope/telescope-fzf-native.nvim', { 'do': 'make' }
 
-    " Provides `:Telescope repo list`:
-    Plug 'cljoly/telescope-repo.nvim'
-  " }
+      " Emoji picker!
+      Plug 'nvim-telescope/telescope-symbols.nvim'
+      nnoremap <Leader>e :Telescope symbols<Enter>
 
-  " { Treesitter (language support)
-    Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
-  " }
+      " Provides `:Telescope repo list`:
+      Plug 'cljoly/telescope-repo.nvim'
+    " }
+
+    " { Treesitter (language support)
+      Plug 'nvim-treesitter/nvim-treesitter', { 'do': ':TSUpdate' }
+    " }
+  endif
 
   " Preview register contents
   Plug 'junegunn/vim-peekaboo'
@@ -271,6 +275,12 @@ call plug#begin(printf('%s/plugged', s:portable))
   Plug 'AndrewRadev/splitjoin.vim' " single / multiline toggles
   Plug 'AndrewRadev/switch.vim'    " switch hash flavours, etc
 call plug#end()
+
+if has("nvim")
+  " Conditionally load in lua/* config:
+  lua require('telescope_config')
+  lua require('treesitter_config')
+endif
 
 set nobackup
 set nowritebackup
