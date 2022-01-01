@@ -50,6 +50,9 @@ call plug#begin(printf('%s/plugged', s:portable))
     " Emoji picker!
     Plug 'nvim-telescope/telescope-symbols.nvim'
     nnoremap <Leader>e :Telescope symbols<Enter>
+
+    " Provides `:Telescope repo list`:
+    Plug 'cljoly/telescope-repo.nvim'
   " }
 
   " { Treesitter (language support)
