@@ -344,7 +344,7 @@ set wildmode=longest,list " when tab-completing commands, don't just cycle
 set completeopt=longest   " don't show menu for insert mode inc complete
 
 " Avoid delay coming out of INSERT mode, but without weirdness:
-set timeout timeoutlen=250 ttimeoutlen=10
+set timeout timeoutlen=500 ttimeoutlen=10
 
 " Give choices when closing without write:
 set confirm
