@@ -176,6 +176,7 @@ call plug#begin(printf('%s/plugged', s:portable))
   Plug 'tpope/vim-rhubarb'     " GitHub support for fugitive
   Plug 'sodapopcan/vim-twiggy' " Git branch support for fugitive
   Plug 'tpope/vim-repeat'      " better '.' support
+  Plug 'tpope/vim-sleuth'      " automatic identation
   Plug 'tpope/vim-surround'    " brackets etc
   Plug 'tpope/vim-commentary'  " block [un]commenting
   Plug 'tpope/vim-dispatch'    " asynchronous tasks
@@ -391,7 +392,6 @@ set sidescroll=1 " Don't re-center the cursor when scrolling long lines
 
 " whitespace controls {
   set backspace=indent,eol,start
-  set tabstop=2 shiftwidth=2 expandtab
   set nofoldenable " disable code folding
   set nowrap       " don't text-wrap
 " }
