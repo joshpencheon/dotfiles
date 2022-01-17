@@ -73,10 +73,11 @@ call plug#begin(printf('%s/plugged', s:portable))
     Plug 'airblade/vim-rooter'
 
     let g:rooter_manual_only = 1
+    let g:rooter_silent_chdir = 1
     let g:rooter_cd_cmd='lcd'
 
-    nnoremap <silent> <Leader>c :lcd %:p:h<CR>
-    nnoremap <silent> <Leader>C :Rooter<CR>
+    nnoremap <silent> <Leader>C :lcd %:p:h<CR>
+    nnoremap <silent> <Leader>c :Rooter<CR>
   " }
 
   " { tab completion / snippet engine / snippets:
