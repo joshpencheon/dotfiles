@@ -21,6 +21,7 @@
 	compactionHeuristic = true
 	colormoved = zebra
 	colormovedws = allow-indentation-change
+	algorithm = histogram
 [color "diff"]
 	oldMoved = brightmagenta dim
 	newMoved = brightblue dim
