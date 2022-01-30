@@ -1,51 +1,45 @@
-[filter "media"]
-	required = true
-	clean = git media clean %f
-	smudge = git media smudge %f
-[push]
-	default = simple
-[commit]
-	verbose = true
-[filter "lfs"]
-	clean = git-lfs clean %f
-	smudge = git-lfs smudge %f
-	required = true
-[pager]
-	log = diff-highlight | less -FRX
-	show = diff-highlight | less -FRX
-	diff = diff-highlight | less -FRX
-	branch = false
-[init]
-	defaultBranch = main
-[interactive]
-	diffFilter = diff-highlight
-[diff]
-	compactionHeuristic = true
-	colormoved = zebra
-	colormovedws = allow-indentation-change
-	algorithm = histogram
-[color "diff"]
-	oldMoved = brightmagenta dim
-	newMoved = brightblue dim
-	oldMovedAlternative = brightyellow dim
-	newMovedAlternative = brightcyan dim
 [alias]
 	recent = branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)"
 	search = "!f() { git log --oneline -S $@ | fzf --preview 'git show {+1}'; }; f"
 	sw = "!git switch $(git branch --sort=-committerdate --format=\"%(refname:short)\" | fzf --reverse --height 20%)"
 	tree = log --graph --oneline --decorate --all
-[difftool "sourcetree"]
-	cmd = opendiff \"$LOCAL\" \"$REMOTE\"
-	path = 
-[mergetool "sourcetree"]
-	cmd = /Applications/SourceTree.app/Contents/Resources/opendiff-w.sh \"$LOCAL\" \"$REMOTE\" -ancestor \"$BASE\" -merge \"$MERGED\"
-	trustExitCode = true
-[svn]
-	rmdir = true
-[pull]
-	rebase = true
+[color "diff"]
+	oldMoved = brightmagenta dim
+	newMoved = brightblue dim
+	oldMovedAlternative = brightyellow dim
+	newMovedAlternative = brightcyan dim
+[commit]
+	verbose = true
+[diff]
+	compactionHeuristic = true
+	colormoved = zebra
+	colormovedws = allow-indentation-change
+	algorithm = histogram
 [fetch]
 	prune = true
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
+[filter "media"]
+	required = true
+	clean = git media clean %f
+	smudge = git media smudge %f
+[init]
+	defaultBranch = main
+[interactive]
+	diffFilter = diff-highlight
+[pager]
+	log = diff-highlight | less -FRX
+	show = diff-highlight | less -FRX
+	diff = diff-highlight | less -FRX
+	branch = false
+[pull]
+	rebase = true
+[push]
+	default = simple
+[svn]
+	rmdir = true
 
 # Keep last:
 [include]
