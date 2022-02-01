@@ -72,7 +72,6 @@ call plug#begin(printf('%s/plugged', s:portable))
   " { better autochdir
     Plug 'airblade/vim-rooter'
 
-    let g:rooter_manual_only = 1
     let g:rooter_silent_chdir = 1
     let g:rooter_cd_cmd='lcd'
 
