@@ -197,6 +197,19 @@ call plug#begin(printf('%s/plugged', s:portable))
   " Git commit browser, :GV / :GV!
   Plug 'junegunn/gv.vim'
 
+  " { Trailing Git blame information
+    Plug 'APZelos/blamer.nvim'
+    let g:blamer_enabled = 1
+    let g:blamer_delay = 500
+
+    let g:blamer_show_in_visual_modes = 0
+    let g:blamer_show_in_insert_modes = 0
+
+    let g:blamer_prefix = '   « '
+    let g:blamer_template = '<committer-time>: <summary> [<commit-short>]'
+    let g:blamer_relative_time = 1
+  " }
+
   " auto-close brackets etc:
   Plug 'jiangmiao/auto-pairs'
 
@@ -467,6 +480,8 @@ endif
     highlight ALEWarningSign guifg=#000000 guibg=#FFFF00
     highlight link ALEError   ALEErrorSign
     highlight link ALEWarning ALEWarningSign
+
+    highlight Blamer guifg=#444444
 
     function! MagicStatus(n, focus)
       let mode   = mode()
