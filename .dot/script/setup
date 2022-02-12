@@ -21,3 +21,11 @@ else
   wget $plug_download_location -O $plug_install_location
 fi;
 vim +PlugUpdate +qall
+
+# ====== Compile bat themes ======
+
+if command -v bat > /dev/null; then
+  bat cache --build
+else
+  echo "Warning: skipping bat theme completion"
+fi

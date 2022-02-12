@@ -1,0 +1,3 @@
+[submodule ".config/bat/themes/srcery-textmate"]
+	path = .config/bat/themes/srcery-textmate
+	url = https://github.com/srcery-colors/srcery-textmate
