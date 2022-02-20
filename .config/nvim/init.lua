@@ -14,13 +14,20 @@ vim.cmd [[
 
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
+  use 'srcery-colors/srcery-vim'
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
+  use 'tpope/vim-endwise'     -- do/end magic
+  use 'tpope/vim-repeat'      -- better '.' support
+  use 'tpope/vim-sleuth'      -- automatic identation
+  use 'tpope/vim-surround'    -- brackets etc
+  use 'tpope/vim-unimpaired'  -- pairs of mappings
+  use 'f-person/git-blame.nvim' -- Inline Git blame
   use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  -- Add indentation guides even on blank lines
+  use { "jose-elias-alvarez/buftabline.nvim" }
   -- Add git related info in the signs columns and popups
   use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   -- Highlight, edit, and navigate code using a fast incremental parsing library
@@ -33,6 +40,16 @@ require('packer').startup(function(use)
   use 'saadparwaiz1/cmp_luasnip'
   use 'L3MON4D3/LuaSnip' -- Snippets plugin
 end)
+
+require("buftabline").setup {
+  tab_format = " #{b}#{f} ",
+  hlgroups = {
+    current = "TabLineSel",
+    normal  = "TabLine",
+    active  = "TabLineActive",
+    spacing = "TabLineFill",
+  }
+}
 
 --Set highlight on search
 vim.o.hlsearch = false
@@ -59,10 +76,72 @@ vim.wo.signcolumn = 'yes'
 
 --Set colorscheme
 vim.o.termguicolors = true
--- vim.cmd [[colorscheme onedark]]
 
--- Set completeopt to have a better completion experience
-vim.o.completeopt = 'menuone,noselect'
+vim.opt.listchars = {
+  space = '⋅',
+  trail = '█',
+  tab = '▸ ',
+  extends = '»',
+  precedes = '«',
+}
+vim.opt.list = true
+
+
+vim.g.gitblame_message_template = ' « <date>: <summary> [<sha>]'
+vim.g.gitblame_date_format = '%r'
+vim.g.gitblame_highlight_group = 'GitBlame'
+
+vim.cmd [[
+  let g:srcery_inverse=0
+  colorscheme srcery
+
+  set termguicolors
+  set noshowmode " Don't show '--INSERT--' etc
+
+  highlight Normal         guibg=black
+  highlight LineNr         guibg=black
+  highlight CursorLine     guibg=black
+  highlight CursorLineNr   guibg=black
+  highlight VertSplit      guibg=black guifg=#918175
+
+  highlight Visual guibg=darkgreen
+
+  highlight TabLineSel    guifg=white    guibg=black gui=bold
+  highlight TabLineActive guifg=#999999  guibg=black gui=NONE
+  highlight TabLine       guifg=#555555  guibg=black gui=NONE
+  highlight TabLineFill   guibg=black
+
+  highlight Statusline    guifg=white   guibg=#191919 gui=bold
+  highlight StatusLineGit guifg=#98BC37 guibg=#191919 gui=bold
+  highlight StatuslineNC  guifg=#555555 guibg=#191919 gui=NONE
+
+  highlight StatusLine_insert  guibg=skyblue   gui=bold guifg=black
+  highlight StatusLine_visual  guibg=darkgreen gui=bold
+  highlight StatusLine_replace guibg=darkred   gui=bold
+
+  highlight TermCursor   guifg=#BB0000
+  highlight TermCursorNC guibg=#550000
+
+  highlight NonText    guifg=#333333
+  highlight SpecialKey guifg=#333333
+
+  highlight SignColumn guibg=black
+
+  highlight GitSignsAdd    guifg=green
+  highlight GitSignsChange guifg=yellow
+  highlight GitSignsDelete guifg=red
+
+  highlight ALEErrorSign   guifg=#000000 guibg=#FF0000
+  highlight ALEWarningSign guifg=#000000 guibg=#FFFF00
+  highlight link ALEError   ALEErrorSign
+  highlight link ALEWarning ALEWarningSign
+
+  highlight GitBlame guifg=#333333
+]]
+
+
+vim.o.wildmode = 'longest,list'
+vim.o.completeopt = 'longest'
 
 --Enable Comment.nvim
 require('Comment').setup()
@@ -84,20 +163,14 @@ vim.cmd [[
   augroup end
 ]]
 
---Map blankline
-vim.g.indent_blankline_char = '┊'
-vim.g.indent_blankline_filetype_exclude = { 'help', 'packer' }
-vim.g.indent_blankline_buftype_exclude = { 'terminal', 'nofile' }
-vim.g.indent_blankline_show_trailing_blankline_indent = false
-
 -- Gitsigns
 require('gitsigns').setup {
   signs = {
-    add = { text = '+' },
-    change = { text = '~' },
-    delete = { text = '_' },
-    topdelete = { text = '‾' },
-    changedelete = { text = '~' },
+    add = { text = '∙' },
+    change = { text = '∙' },
+    delete = { text = '∙' },
+    topdelete = { text = '∙' },
+    changedelete = { text = '∙' },
   },
 }
 
@@ -117,13 +190,17 @@ require('telescope').setup {
 require('telescope').load_extension 'fzf'
 
 --Add leader shortcuts
-vim.api.nvim_set_keymap('n', '<leader><space>', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>sf', [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>w', [[<cmd>w<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>q', [[<cmd>try|bp|bd #|close|catch|endtry<CR>]], { noremap = true, silent = true })
+
+vim.api.nvim_set_keymap('n', '<leader>b', [[<cmd>lua require('telescope.builtin').buffers()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>o', [[<cmd>lua require('telescope.builtin').git_files({previewer = false})<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>O', [[<cmd>lua require('telescope.builtin').find_files({previewer = false})<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>sb', [[<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>sh', [[<cmd>lua require('telescope.builtin').help_tags()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>st', [[<cmd>lua require('telescope.builtin').tags()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>sd', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>sp', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>A', [[<cmd>lua require('telescope.builtin').grep_string()<CR>]], { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<leader>a', [[<cmd>lua require('telescope.builtin').live_grep()<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>so', [[<cmd>lua require('telescope.builtin').tags{ only_current_buffer = true }<CR>]], { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '<leader>?', [[<cmd>lua require('telescope.builtin').oldfiles()<CR>]], { noremap = true, silent = true })
 
@@ -184,7 +261,7 @@ require('nvim-treesitter.configs').setup {
 vim.api.nvim_set_keymap('n', '<leader>e', '<cmd>lua vim.diagnostic.open_float()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', '[d', '<cmd>lua vim.diagnostic.goto_prev()<CR>', { noremap = true, silent = true })
 vim.api.nvim_set_keymap('n', ']d', '<cmd>lua vim.diagnostic.goto_next()<CR>', { noremap = true, silent = true })
-vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })
+--vim.api.nvim_set_keymap('n', '<leader>q', '<cmd>lua vim.diagnostic.setloclist()<CR>', { noremap = true, silent = true })
 
 -- LSP settings
 local lspconfig = require 'lspconfig'
