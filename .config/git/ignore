@@ -1,2 +1,5 @@
 # Ignore macOS directory metadata:
 *.DS_Store
+
+# Ignore any solargraph configuration:
+.solargraph.yml
