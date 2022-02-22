@@ -142,9 +142,10 @@ vim.cmd [[
   highlight StatusLineGit guifg=#98BC37 guibg=#191919 gui=bold
   highlight StatuslineNC  guifg=#555555 guibg=#191919 gui=NONE
 
-  highlight StatusLine_insert  guibg=skyblue   gui=bold guifg=black
-  highlight StatusLine_visual  guibg=darkgreen gui=bold
-  highlight StatusLine_replace guibg=darkred   gui=bold
+  highlight StatusLine_insert  guibg=skyblue    gui=bold guifg=black
+  highlight StatusLine_visual  guibg=darkgreen  gui=bold
+  highlight StatusLine_replace guibg=darkred    gui=bold
+  highlight StatusLine_command guibg=darkorange gui=bold guifg=black
 
   highlight TermCursor   guifg=#BB0000
   highlight TermCursorNC guibg=#550000
@@ -166,6 +167,55 @@ vim.cmd [[
   highlight GitBlame guifg=#333333
 ]]
 
+-- Magic status bar style:
+vim.cmd [[
+  function! MagicStatus(n, focus)
+    let mode   = mode()
+    let active = winnr() == a:n
+
+    if a:focus == 0
+      " de-emphasise all status lines when Vim looses focus
+      let group = 'StatusLineNC'
+      let git_group = group
+    elseif active
+      " Style just the status line of the active window:
+      if mode == 'i'
+        let group     = 'StatusLine_insert'
+        let git_group = group
+      elseif mode == 'v' || mode == 'V' || mode == "\<C-v>"
+        let group = 'StatusLine_visual'
+        let git_group = group
+      elseif mode == 'r' || mode == 'R'
+        let group = 'StatusLine_replace'
+        let git_group = group
+      elseif mode == 'c'
+        let group = 'StatusLine_command'
+        let git_group = group
+      else
+        let group     = 'StatusLine'
+        let git_group = 'StatusLineGit'
+      endif
+    else
+      " de-emphasise all non-active windows.
+      let group = 'StatusLineNC'
+      let git_group = group
+    endif
+
+    return '%#' . group . '#' . (active ? '»' : '«') . ' %f ' . (active ? '«' : '»') . (active ? '%=%#' . git_group . '#%{fugitive#head(8)}%#' . group . '#  %l:%v ' : '')
+  endfunction
+
+  function! s:RefreshStatuses(focus)
+    for nr in range(1, winnr('$'))
+      call setwinvar(nr, '&statusline', '%!MagicStatus(' . nr . ', ' . a:focus .')')
+    endfor
+  endfunction
+
+  augroup status
+    autocmd!
+    autocmd FocusLost                                              * call <SID>RefreshStatuses(0)
+    autocmd FocusGained,VimEnter,WinEnter,BufWinEnter,CmdlineEnter * call <SID>RefreshStatuses(1)
+  augroup END
+]]
 
 vim.o.wildmode = 'longest,list'
 vim.o.completeopt = 'longest'
