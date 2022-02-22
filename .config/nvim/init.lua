@@ -64,8 +64,12 @@ vim.o.mouse = 'a'
 --Enable break indent
 vim.o.breakindent = true
 
---Save undo history
-vim.opt.undofile = true
+-- vim.opt.undofile = true
+vim.opt.backup = false
+vim.opt.writebackup = false
+vim.opt.swapfile = false
+
+vim.opt.shortmess = 'FIat'
 
 --Case insensitive searching UNLESS /C or capital in search
 vim.o.ignorecase = true
