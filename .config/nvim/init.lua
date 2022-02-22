@@ -155,6 +155,8 @@ vim.cmd [[
 
   highlight SignColumn guibg=black
 
+  highlight IncSearch guibg=#333333
+
   highlight GitSignsAdd    guifg=green
   highlight GitSignsChange guifg=yellow
   highlight GitSignsDelete guifg=red
@@ -236,7 +238,7 @@ vim.api.nvim_set_keymap('n', 'j', "v:count == 0 ? 'gj' : 'j'", { noremap = true,
 vim.cmd [[
   augroup YankHighlight
     autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank()
+    autocmd TextYankPost * silent! lua vim.highlight.on_yank({timeout = 500})
   augroup end
 ]]
 
