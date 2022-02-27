@@ -1,5 +1,6 @@
 vim.o.wildmode = 'longest,list'
-vim.o.completeopt = 'longest'
+vim.o.completeopt = 'menu,menuone,noselect'
+vim.o.pumheight = 8
 
 -- LSP settings
 local lspconfig = require 'lspconfig'
@@ -43,15 +44,25 @@ table.insert(runtime_path, 'lua/?/init.lua')
 -- luasnip setup
 local luasnip = require 'luasnip'
 
--- One peculiarity of honza/vim-snippets is that the file with the global snippets is _.snippets, so global snippets
--- are stored in `ls.snippets._`.
--- We need to tell luasnip that "_" contains global snippets:
-luasnip.filetype_extend("all", { "_" })
-require("luasnip.loaders.from_snipmate").lazy_load()
+-- Pull in snippets from rafamadriz/friendly-snippets
+require("luasnip.loaders.from_vscode").lazy_load()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
+
+local should_insert_whitespace = function()
+  local col = vim.fn.col('.') - 1
+  if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
+    return true
+  else
+    return false
+  end
+end
+
 cmp.setup {
+  completion = {
+    autocomplete = false,
+  },
   snippet = {
     expand = function(args)
       luasnip.lsp_expand(args.body)
@@ -71,16 +82,18 @@ cmp.setup {
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif luasnip.expand_or_jumpable() then
-        luasnip.expand_or_jump()
-      else
+      elseif luasnip.in_snippet() and luasnip.jumpable() then
+        luasnip.jump()
+      elseif should_insert_whitespace() then
         fallback()
+      else
+        cmp.complete()
       end
     end,
     ['<S-Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      elseif luasnip.jumpable(-1) then
+      elseif luasnip.in_snippet() and luasnip.jumpable(-1) then
         luasnip.jump(-1)
       else
         fallback()
@@ -92,3 +105,35 @@ cmp.setup {
     { name = 'luasnip' },
   },
 }
+
+cmp.setup.filetype('gitcommit', {
+  sources = {
+    { name = 'buffer' },
+  }
+})
+
+-- Use buffer source for `/`
+cmp.setup.cmdline('/', {
+  completion = {
+    autocomplete = {
+      cmp.TriggerEvent.TextChanged,
+    },
+  },
+  sources = {
+    { name = 'buffer' }
+  }
+})
+
+-- Use cmdline & path source for ':'
+cmp.setup.cmdline(':', {
+  completion = {
+    keyword_length = 3,
+    autocomplete = {
+      cmp.TriggerEvent.TextChanged,
+    },
+  },
+  sources = {
+    { name = 'path' },
+    { name = 'cmdline' }
+  }
+})
