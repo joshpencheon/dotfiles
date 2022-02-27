@@ -2,7 +2,9 @@
 local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
 
 if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  vim.fn.execute('!git clone https://github.com/wbthomason/packer.nvim ' .. install_path)
+  packer_bootstrap = vim.fn.system({
+    'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
+  })
 end
 
 vim.cmd [[
@@ -24,7 +26,8 @@ require('packer').startup(function(use)
   use 'tpope/vim-unimpaired'  -- pairs of mappings
   use 'f-person/git-blame.nvim' -- Inline Git blame
   use 'ojroques/vim-oscyank' -- OSC52 yank from server back to client clipboard.
-  use 'numToStr/Comment.nvim' -- "gc" to comment visual regions/lines
+  -- "gc" to comment visual regions/lines
+  use {'numToStr/Comment.nvim',  config = function() require('Comment').setup() end }
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -44,6 +47,8 @@ require('packer').startup(function(use)
 
   use 'christoomey/vim-tmux-navigator'
   use 'sjl/vitality.vim'
-end)
 
-require('Comment').setup()
+  if packer_bootstrap then
+    require('packer').sync()
+  end
+end)

@@ -10,17 +10,9 @@ if [ -x $brewed_bash ]; then
   fi;
 fi;
 
-# ====== Install vim plugins ======
+# ====== Install NeoVim plugins ======
 
-plug_install_location=~/.config/nvim/autoload/plug.vim
-plug_download_location=https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
-if [ -f $plug_install_location ]; then
-  vim +PlugUpgrade +qall
-else
-  mkdir -p $(dirname $plug_install_location)
-  wget $plug_download_location -O $plug_install_location
-fi;
-vim +PlugUpdate +qall
+nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
 
 # ====== Compile bat themes ======
 
