@@ -26,8 +26,10 @@ vim.opt.shortmess = 'FIat'
 vim.o.ignorecase = true
 vim.o.smartcase = true
 
---Decrease update time
-vim.o.updatetime = 250
+vim.o.timeout = true
+vim.o.timeoutlen = 500
+vim.o.ttimeoutlen = 10
+
 vim.wo.signcolumn = 'yes'
 
 vim.opt.listchars = {

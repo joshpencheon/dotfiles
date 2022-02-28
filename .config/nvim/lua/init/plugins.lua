@@ -24,6 +24,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-sleuth'      -- automatic identation
   use 'tpope/vim-surround'    -- brackets etc
   use 'tpope/vim-unimpaired'  -- pairs of mappings
+  use 'tpope/vim-vinegar'     -- better netrw
   use 'f-person/git-blame.nvim' -- Inline Git blame
   use 'ojroques/vim-oscyank' -- OSC52 yank from server back to client clipboard.
   -- "gc" to comment visual regions/lines
@@ -50,6 +51,9 @@ require('packer').startup(function(use)
 
   use 'christoomey/vim-tmux-navigator'
   use 'sjl/vitality.vim'
+
+  use 'tpope/vim-rails'
+  use 'vim-ruby/vim-ruby'
 
   if packer_bootstrap then
     require('packer').sync()
