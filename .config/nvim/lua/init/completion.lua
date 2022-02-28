@@ -49,6 +49,7 @@ require("luasnip.loaders.from_vscode").lazy_load()
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
+local compare = require 'cmp.config.compare'
 
 local should_insert_whitespace = function()
   local col = vim.fn.col('.') - 1
@@ -101,8 +102,22 @@ cmp.setup {
     end,
   },
   sources = {
+    { name = 'buffer' },
     { name = 'nvim_lsp' },
     { name = 'luasnip' },
+  },
+  sorting = {
+    priority_weight = 2,
+    comparators = {
+      compare.kind, -- demote buffer-based "Text" objects below LSP-provided suggestions
+      compare.offset,
+      compare.exact,
+      compare.score,
+      compare.recently_used,
+      compare.sort_text,
+      compare.length,
+      compare.order,
+    },
   },
 }
 
