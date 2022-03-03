@@ -24,7 +24,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-sleuth'      -- automatic identation
   use 'tpope/vim-surround'    -- brackets etc
   use 'tpope/vim-unimpaired'  -- pairs of mappings
-  use 'tpope/vim-vinegar'     -- better netrw
+  use 'joshpencheon/vim-vinegar' -- better netrw
   use 'f-person/git-blame.nvim' -- Inline Git blame
   use 'ojroques/vim-oscyank' -- OSC52 yank from server back to client clipboard.
   -- "gc" to comment visual regions/lines

@@ -31,3 +31,8 @@ vim.cmd [[
     autocmd TextYankPost * silent! lua vim.highlight.on_yank({timeout = 500})
   augroup end
 ]]
+
+-- Don't yank as you paste in visual mode:
+vim.cmd [[
+  vnoremap p "_dP
+]]
