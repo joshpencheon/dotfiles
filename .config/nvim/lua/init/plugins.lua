@@ -26,9 +26,12 @@ require('packer').startup(function(use)
   use 'tpope/vim-unimpaired'  -- pairs of mappings
   use 'joshpencheon/vim-vinegar' -- better netrw
   use 'f-person/git-blame.nvim' -- Inline Git blame
+  -- auto-close brackets etc:
+  use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }
   use 'ojroques/vim-oscyank' -- OSC52 yank from server back to client clipboard.
+  use 'tversteeg/registers.nvim' -- preview of registers
   -- "gc" to comment visual regions/lines
-  use {'numToStr/Comment.nvim',  config = function() require('Comment').setup() end }
+  use {'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
   -- UI to select things (files, grep results, open buffers...)
   use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' } }
   use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
@@ -45,19 +48,22 @@ require('packer').startup(function(use)
   use 'hrsh7th/cmp-path'
   use 'hrsh7th/cmp-cmdline'
   use 'hrsh7th/cmp-nvim-lsp'
+  use 'hrsh7th/cmp-nvim-lsp-signature-help'
   use 'saadparwaiz1/cmp_luasnip'
-  -- use 'L3MON4D3/LuaSnip' -- Snippets plugin
-  -- use 'rafamadriz/friendly-snippets'
-
   use 'dcampos/nvim-snippy'
   use 'dcampos/cmp-snippy'
   use 'honza/vim-snippets'
+
+  use 'junegunn/vim-easy-align'
 
   use 'christoomey/vim-tmux-navigator'
   use 'sjl/vitality.vim'
 
   use 'tpope/vim-rails'
   use 'vim-ruby/vim-ruby'
+
+  -- Simulate smooth scrolling:
+  use { 'karb94/neoscroll.nvim', config = function() require('neoscroll').setup() end }
 
   if packer_bootstrap then
     require('packer').sync()

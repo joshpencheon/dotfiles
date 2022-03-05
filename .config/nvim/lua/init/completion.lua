@@ -2,6 +2,9 @@ vim.o.wildmode = 'longest,list'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.pumheight = 8
 
+-- dump out to: lua print(vim.lsp.get_log_path())
+-- vim.lsp.set_log_level("TRACE")
+
 -- LSP settings
 local lspconfig = require 'lspconfig'
 local on_attach = function(_, bufnr)
@@ -41,12 +44,6 @@ local runtime_path = vim.split(package.path, ';')
 table.insert(runtime_path, 'lua/?.lua')
 table.insert(runtime_path, 'lua/?/init.lua')
 
--- luasnip setup
--- local luasnip = require 'luasnip'
---
--- -- Pull in snippets from rafamadriz/friendly-snippets
--- require("luasnip.loaders.from_vscode").lazy_load()
-
 local snippy = require 'snippy'
 
 -- nvim-cmp setup
@@ -68,7 +65,6 @@ cmp.setup {
   },
   snippet = {
     expand = function(args)
-      -- luasnip.lsp_expand(args.body)
       snippy.expand_snippet(args.body)
     end,
   },
@@ -86,8 +82,6 @@ cmp.setup {
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      -- elseif luasnip.in_snippet() and luasnip.jumpable() then
-      --   luasnip.jump(1)
       elseif snippy.can_jump(1) then
         snippy.next()
       elseif should_insert_whitespace() then
@@ -99,8 +93,6 @@ cmp.setup {
     ['<S-Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_prev_item()
-      -- elseif luasnip.in_snippet() and luasnip.jumpable(-1) then
-      --   luasnip.jump(-1)
       elseif snippy.can_jump(-1) then
         snippy.previous()
       else
@@ -111,7 +103,7 @@ cmp.setup {
   sources = {
     { name = 'buffer' },
     { name = 'nvim_lsp' },
-    -- { name = 'luasnip' },
+    { name = 'nvim_lsp_signature_help' },
     { name = 'snippy' },
   },
   sorting = {
@@ -160,18 +152,3 @@ cmp.setup.cmdline(':', {
     { name = 'cmdline' }
   }
 })
-
--- function leave_snippet()
---     if
---         ((vim.v.event.old_mode == 's' and vim.v.event.new_mode == 'n') or vim.v.event.old_mode == 'i')
---         and require('luasnip').session.current_nodes[vim.api.nvim_get_current_buf()]
---         and not require('luasnip').session.jump_active
---     then
---         require('luasnip').unlink_current()
---     end
--- end
---
--- -- stop snippets when you leave to normal mode
--- vim.api.nvim_command([[
---     autocmd ModeChanged * lua leave_snippet()
--- ]])
