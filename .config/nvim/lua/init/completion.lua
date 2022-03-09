@@ -101,7 +101,13 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = 'buffer' },
+    {
+      name = 'buffer',
+      option = {
+        -- complete from all buffers:
+        get_bufnrs = function() return vim.api.nvim_list_bufs() end
+      }
+    },
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
     { name = 'snippy' },
