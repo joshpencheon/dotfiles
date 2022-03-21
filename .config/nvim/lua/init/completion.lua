@@ -1,5 +1,5 @@
 vim.o.wildmode = 'longest,list'
-vim.o.completeopt = 'menu,menuone,noselect'
+vim.o.completeopt = 'menu,menuone'
 vim.o.pumheight = 8
 
 -- dump out to: lua print(vim.lsp.get_log_path())
@@ -62,6 +62,7 @@ end
 cmp.setup {
   completion = {
     autocomplete = false,
+    completeopt = vim.o.completeopt,
   },
   snippet = {
     expand = function(args)
