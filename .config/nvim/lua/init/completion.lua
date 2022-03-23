@@ -1,5 +1,5 @@
 vim.o.wildmode = 'longest,list'
-vim.o.completeopt = 'menu,menuone'
+vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.pumheight = 8
 
 -- dump out to: lua print(vim.lsp.get_log_path())
@@ -83,8 +83,8 @@ cmp.setup {
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif snippy.can_jump(1) then
-        snippy.next()
+      elseif snippy.can_expand_or_advance() then
+        snippy.expand_or_advance()
       elseif should_insert_whitespace() then
         fallback()
       else
