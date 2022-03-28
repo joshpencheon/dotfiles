@@ -2,7 +2,7 @@
 -- Parsers must be installed manually via :TSInstall
 require('nvim-treesitter.configs').setup {
   highlight = {
-    enable = true, -- false will disable the whole extension
+    enable = false,
   },
   incremental_selection = {
     enable = true,
@@ -14,6 +14,9 @@ require('nvim-treesitter.configs').setup {
     },
   },
   indent = {
+    enable = true,
+  },
+  endwise = {
     enable = true,
   },
   textobjects = {

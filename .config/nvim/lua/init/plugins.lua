@@ -19,7 +19,6 @@ require('packer').startup(function(use)
   use 'srcery-colors/srcery-vim'
   use 'tpope/vim-fugitive' -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
-  use 'tpope/vim-endwise'     -- do/end magic
   use 'tpope/vim-repeat'      -- better '.' support
   use 'tpope/vim-sleuth'      -- automatic identation
   use 'tpope/vim-surround'    -- brackets etc
@@ -42,6 +41,7 @@ require('packer').startup(function(use)
   use 'nvim-treesitter/nvim-treesitter'
   -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects'
+  use 'RRethy/nvim-treesitter-endwise' -- automatic 'end' insertion
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use 'hrsh7th/nvim-cmp' -- Autocompletion plugin
   use 'hrsh7th/cmp-buffer'
