@@ -15,7 +15,8 @@ vim.o.mouse = 'a'
 --Enable break indent
 vim.o.breakindent = true
 
--- vim.opt.undofile = true
+vim.o.linebreak = true
+
 vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
