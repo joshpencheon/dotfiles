@@ -61,6 +61,7 @@ require('packer').startup(function(use)
 
   use 'tpope/vim-rails'
   use 'vim-ruby/vim-ruby'
+  use 'hashivim/vim-terraform'
 
   -- Simulate smooth scrolling:
   use { 'karb94/neoscroll.nvim', config = function() require('neoscroll').setup() end }
