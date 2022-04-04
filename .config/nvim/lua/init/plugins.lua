@@ -24,7 +24,6 @@ require('packer').startup(function(use)
   use 'tpope/vim-surround'    -- brackets etc
   use 'tpope/vim-unimpaired'  -- pairs of mappings
   use 'joshpencheon/vim-vinegar' -- better netrw
-  use 'f-person/git-blame.nvim' -- Inline Git blame
   -- auto-close brackets etc:
   use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }
   use 'ojroques/vim-oscyank' -- OSC52 yank from server back to client clipboard.
