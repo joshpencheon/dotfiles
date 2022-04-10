@@ -18,9 +18,10 @@ vim.cmd [[
   highlight TabLine       guifg=#555555  guibg=black gui=NONE
   highlight TabLineFill   guibg=black
 
-  highlight Statusline    guifg=white   guibg=#191919 gui=bold
-  highlight StatusLineGit guifg=#98BC37 guibg=#191919 gui=bold
-  highlight StatuslineNC  guifg=#555555 guibg=#191919 gui=NONE
+  highlight Statusline     guifg=white   guibg=#191919 gui=bold
+  highlight StatusLineGit  guifg=#98BC37 guibg=#191919 gui=bold
+  highlight StatusLineHost guifg=#5A41BA guibg=#191919 gui=bold
+  highlight StatuslineNC   guifg=#555555 guibg=#191919 gui=NONE
 
   highlight StatusLine_insert  guibg=skyblue    gui=bold guifg=black
   highlight StatusLine_visual  guibg=darkgreen  gui=bold
