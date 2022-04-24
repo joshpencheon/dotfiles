@@ -1,5 +1,9 @@
 # Ensure local bin directory is sourced:
-PATH=~/.local/bin:$PATH
+PATH=~/.local/bin:/opt/homebrew/bin:$PATH
+
+if command -v brew > /dev/null; then
+  eval "$(brew shellenv)"
+fi
 
 # Source all files in the symlinked directory:
 for file in ~/.dot/shrc/*.sh; do

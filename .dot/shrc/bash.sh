@@ -1,2 +1,5 @@
 # Enable bash completion, if it has been installed:
-[[ -r "/usr/local/etc/profile.d/bash_completion.sh" ]] && . "/usr/local/etc/profile.d/bash_completion.sh"
+if command -v brew > /dev/null; then
+  bash_completion="$(brew --prefix)/etc/profile.d/bash_completion.sh"
+  [[ -r $bash_completion ]] && . $bash_completion
+fi

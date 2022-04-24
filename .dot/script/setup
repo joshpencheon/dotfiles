@@ -2,11 +2,13 @@
 
 # ====== Use up-to-date bash by default ======
 
-brewed_bash=/usr/local/bin/bash
-if [ -x $brewed_bash ]; then
-  if ! fgrep -q '/usr/local/bin/bash' /etc/shells; then
-    echo '/usr/local/bin/bash' | sudo tee -a /etc/shells;
-    chsh -s /usr/local/bin/bash;
+if command -v brew > /dev/null; then
+  brewed_bash="$(brew --prefix)/bin/bash"
+  if [ -x $brewed_bash ]; then
+    if ! fgrep -q "$brewed_bash" /etc/shells; then
+      echo "$brewed_bash" | sudo tee -a /etc/shells;
+      chsh -s $brewed_bash;
+    fi;
   fi;
 fi;
 
