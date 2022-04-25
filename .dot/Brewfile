@@ -1,0 +1,22 @@
+tap "homebrew/bundle"
+tap "homebrew/core"
+
+# Recent bash:
+brew "bash"
+brew "bash-completion"
+
+# Essentials:
+brew "gh"
+brew "git"
+brew "neovim"
+brew "tmux"
+
+# Handy utilities
+brew "bat"
+brew "fd"
+brew "htop"
+brew "jq"
+brew "ripgrep"
+brew "tree"
+
+# vim: set syntax=ruby:

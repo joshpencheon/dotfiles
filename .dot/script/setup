@@ -1,20 +1,33 @@
 #!/bin/bash
 
-# ====== Use up-to-date bash by default ======
+# ====== Install system dependencies (macOS only) ======
 
-if command -v brew > /dev/null; then
-  brewed_bash="$(brew --prefix)/bin/bash"
-  if [ -x $brewed_bash ]; then
+if [[ $OSTYPE == "darwin"* ]]; then
+  if command -v brew > /dev/null; then
+    echo "Checking any Homebrew requirements..."
+    brew bundle --file $HOME/.dot/Brewfile
+
+    brewed_bash="$(brew --prefix)/bin/bash"
     if ! fgrep -q "$brewed_bash" /etc/shells; then
+      echo "Setting default shell as $brewed_bash"
       echo "$brewed_bash" | sudo tee -a /etc/shells;
       chsh -s $brewed_bash;
     fi;
+  else
+    echo "Homebrew not found - visit https://brew.sh for installation."
+    exit 1
   fi;
+else
+  echo "Warning: skipping Homebrew dependences on $OSTYPE"
 fi;
 
 # ====== Install NeoVim plugins ======
 
-nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+if command -v nvim > /dev/null; then
+  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+else
+  echo "Warning: skipping NeoVim setup"
+fi
 
 # ====== Compile bat themes ======
 
