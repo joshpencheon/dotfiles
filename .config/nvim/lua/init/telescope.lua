@@ -9,8 +9,20 @@ function telescope_custom_actions._multiopen(prompt_bufnr, open_cmd)
     if not num_selections or num_selections <= 1 then
         actions.add_selection(prompt_bufnr)
     end
+
     actions.send_selected_to_qflist(prompt_bufnr)
-    vim.cmd("cfdo " .. open_cmd)
+    local results = vim.fn.getqflist()
+
+    for _, result in ipairs(results) do
+        local current_file = vim.fn.bufname()
+        local next_file = vim.fn.bufname(result.bufnr)
+
+        if current_file == "" then
+            vim.api.nvim_command("edit" .. " " .. next_file)
+        else
+            vim.api.nvim_command(open_cmd .. " " .. next_file)
+        end
+    end
 end
 function telescope_custom_actions.multi_selection_open_vsplit(prompt_bufnr)
     telescope_custom_actions._multiopen(prompt_bufnr, "vsplit")
