@@ -12,7 +12,7 @@
 -- over SSH.
 
 -- Use system (+ selection) clipboard by default:
-vim.cmd [[ set clipboard^=unnamed,unnamedplus ]]
+vim.opt.clipboard:prepend { "unnamed", "unnamedplus" }
 
 vim.cmd [[
   let g:oscyank_silent=1
@@ -24,15 +24,12 @@ vim.cmd [[
   augroup END
 ]]
 
--- Highlight on yank
-vim.cmd [[
-  augroup YankHighlight
-    autocmd!
-    autocmd TextYankPost * silent! lua vim.highlight.on_yank({timeout = 500})
-  augroup end
-]]
+vim.api.nvim_create_autocmd("TextYankPost", {
+    pattern = "*",
+    callback = function() vim.highlight.on_yank({timeout = 500}) end,
+    desc = "Visually highlight yanked region",
+    group = vim.api.nvim_create_augroup("YankHighlight", {})
+})
 
 -- Don't yank as you paste in visual mode:
-vim.cmd [[
-  vnoremap p "_dP
-]]
+vim.keymap.set('v', 'p', '"_dP', { silent = true })
