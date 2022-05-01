@@ -7,12 +7,15 @@ if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
   vim.o.runtimepath = vim.fn.stdpath('data') .. '/site/pack/*/start/*,' .. vim.o.runtimepath
 end
 
-vim.cmd [[
-  augroup Packer
-    autocmd!
-    autocmd BufWritePost plugins.lua PackerSync
-  augroup end
-]]
+vim.api.nvim_create_autocmd("BufWritePost", {
+    pattern = "plugins.lua",
+    callback = function(args)
+      vim.api.nvim_command("source" .. " " .. args.file)
+      require('packer').sync()
+    end,
+    desc = "Sync plugins after updating plugins.lua",
+    group = vim.api.nvim_create_augroup("Packer", {})
+})
 
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
