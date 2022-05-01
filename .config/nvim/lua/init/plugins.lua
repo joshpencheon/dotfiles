@@ -55,6 +55,7 @@ require('packer').startup(function(use)
   use 'honza/vim-snippets'
 
   use 'junegunn/vim-easy-align'
+  use 'AndrewRadev/splitjoin.vim'
 
   use 'christoomey/vim-tmux-navigator'
   use 'sjl/vitality.vim'
