@@ -151,7 +151,8 @@ cmp.setup.cmdline('/', {
   },
   sources = {
     { name = 'buffer' }
-  }
+  },
+  mapping = cmp.mapping.preset.cmdline()
 })
 
 -- Use cmdline & path source for ':'
@@ -165,5 +166,6 @@ cmp.setup.cmdline(':', {
   sources = {
     { name = 'path' },
     { name = 'cmdline' }
-  }
+  },
+  mapping = cmp.mapping.preset.cmdline()
 })
