@@ -38,6 +38,7 @@
 	rebase = true
 [push]
 	default = simple
+	autoSetupRemote = true
 [svn]
 	rmdir = true
 
