@@ -109,7 +109,10 @@ require('telescope').load_extension 'fzf'
 local builtin = require('telescope.builtin')
 
 function git_or_find_files(args)
-    if not pcall(builtin.git_files, args) then
+    local in_git_repo = vim.fn.systemlist"git rev-parse --is-inside-work-tree"[1] == 'true'
+    if in_git_repo then
+        builtin.git_files(args)
+    else
         builtin.find_files(args)
     end
 end
