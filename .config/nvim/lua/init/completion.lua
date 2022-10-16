@@ -26,8 +26,8 @@ local on_attach = function(_, bufnr)
 end
 
 -- nvim-cmp supports additional completion capabilities
-local capabilities = vim.lsp.protocol.make_client_capabilities()
-capabilities = require('cmp_nvim_lsp').update_capabilities(capabilities)
+-- beyond those built in to NeoVim's LSP.
+capabilities = require('cmp_nvim_lsp').default_capabilities()
 
 -- Enable the following language servers
 local servers = {
