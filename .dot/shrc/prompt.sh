@@ -14,6 +14,9 @@ prompt="$prompt\\[\\033[38;5;112m\\]\$(__virtualenv_ps1) "
 #   prompt="$prompt\\[\\033[38;5;202m\\][\$(rbenv version-name)] "
 # fi
 
+# Add AWS profile, if one is active:
+prompt="$prompt\$(__aws_vault_ps1)"
+
 # Add user@host, if this is a remote session:
 if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
   prompt="$prompt\\[\\033[1;34m\\]\$(whoami)@\$(hostname -s) "
