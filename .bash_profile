@@ -1,5 +1,9 @@
 # Defer to the bashrc file:
-[ -e ~/.bashrc ] && source ~/.bashrc
+if [ -e ~/.bashrc ]; then
+  source ~/.bashrc
+fi
 
-# Source local config, if present:
-[ -e ~/.bash_profile.local ] && source ~/.bash_profile.local
+# Source local profile config, if present:
+if [ -e ~/.bash_profile.local ]; then
+  source ~/.bash_profile.local
+fi
