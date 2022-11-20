@@ -34,6 +34,7 @@ vim.o.smartcase = true
 vim.o.timeout = true
 vim.o.timeoutlen = 500
 vim.o.ttimeoutlen = 10
+vim.o.updatetime = 250 -- primarily for CursorHold event
 
 vim.wo.signcolumn = 'yes'
 

@@ -57,6 +57,8 @@ require('packer').startup(function(use)
   use 'dcampos/cmp-snippy'
   use 'honza/vim-snippets'
 
+  use { 'folke/trouble.nvim', config = [[require('init.trouble')]] }
+
   use 'junegunn/vim-easy-align'
   use 'AndrewRadev/splitjoin.vim'
 
