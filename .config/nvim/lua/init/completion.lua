@@ -22,7 +22,7 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', 'gr', vim.lsp.buf.references, opts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
   vim.keymap.set('n', '<leader>so', function() require('telescope.builtin').lsp_document_symbols() end, opts)
-  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.formatting()' ]]
+  vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 end
 
 -- nvim-cmp supports additional completion capabilities
@@ -36,6 +36,8 @@ local servers = {
   'pyright',
   'rust_analyzer',
   'solargraph',
+  'terraformls',
+  'tflint',
   'tsserver',
 }
 
