@@ -60,6 +60,7 @@ require('packer').startup(function(use)
   use { 'folke/trouble.nvim', config = [[require('init.trouble')]] }
 
   use 'junegunn/vim-easy-align'
+  use 'junegunn/vim-peekaboo'
   use 'AndrewRadev/splitjoin.vim'
 
   use 'christoomey/vim-tmux-navigator'
