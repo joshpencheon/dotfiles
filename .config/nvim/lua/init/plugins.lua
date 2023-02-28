@@ -20,6 +20,7 @@ vim.api.nvim_create_autocmd("BufWritePost", {
 require('packer').startup(function(use)
   use 'wbthomason/packer.nvim' -- Package manager
   use { 'srcery-colors/srcery-vim', config = [[require('init.colours')]] }
+  use { 'sunjon/shade.nvim', config = function() require('shade').setup() end }
   use { 'tpope/vim-fugitive', config = [[require('init.statusbar')]] } -- Git commands in nvim
   use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
   use 'tpope/vim-repeat'      -- better '.' support
