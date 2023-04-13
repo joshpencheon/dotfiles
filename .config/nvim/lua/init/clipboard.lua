@@ -16,6 +16,7 @@ vim.opt.clipboard:prepend { "unnamed", "unnamedplus" }
 
 vim.cmd [[
   let g:oscyank_silent=1
+  let g:oscyank_trim=0
 
   " Automatically emit the OSC52 control sequence when yanking:
   augroup oscyank
