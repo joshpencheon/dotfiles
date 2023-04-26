@@ -34,6 +34,11 @@ vim.cmd [[
   highlight NonText    guifg=#333333
   highlight SpecialKey guifg=#333333
 
+  highlight DiagnosticError guifg=Black guibg=Red3
+  highlight DiagnosticWarn  guifg=Black guibg=DarkOrange3
+  highlight DiagnosticInfo  guifg=Black guibg=LightBlue3
+  highlight DiagnosticHint  guifg=Black guibg=SlateGrey3
+
   highlight SignColumn guibg=black
 
   highlight IncSearch guibg=#333333
@@ -41,13 +46,6 @@ vim.cmd [[
   highlight GitSignsAdd    guifg=green
   highlight GitSignsChange guifg=yellow
   highlight GitSignsDelete guifg=red
-
-  highlight ALEErrorSign   guifg=#000000 guibg=#FF0000
-  highlight ALEWarningSign guifg=#000000 guibg=#FFFF00
-  highlight link ALEError   ALEErrorSign
-  highlight link ALEWarning ALEWarningSign
-
-  highlight GitBlame guifg=#333333
 ]]
 
 

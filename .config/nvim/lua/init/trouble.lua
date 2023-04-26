@@ -2,11 +2,18 @@
 vim.diagnostic.config {
   float = true,
   severity_sort = true,
-  signs = false,
+  signs = true,
   underline = true,
   update_in_insert = false,
   virtual_text = false
 }
+
+vim.cmd [[
+sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticSignError
+sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticSignWarn
+sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=DiagnosticSignInfo
+sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticSignHint
+]]
 
 vim.api.nvim_create_autocmd("CursorHold,CursorHoldI", {
     pattern = "*",
