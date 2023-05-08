@@ -1,7 +1,7 @@
 -- Magic status bar style:
 vim.cmd [[
   function! RemoteHost()
-    if len($SSH_CLIENT . $SSH_TTY) > 0
+    if len($SSH_CLIENT . $SSH_TTY) > 0 && len($TMUX) == 0
       return system("echo -n `whoami`@`hostname -s`")
     else
       return ""
