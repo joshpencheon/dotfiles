@@ -37,7 +37,7 @@ vim.cmd [[
   highlight DiagnosticError guifg=Black guibg=Red3
   highlight DiagnosticWarn  guifg=Black guibg=DarkOrange3
   highlight DiagnosticInfo  guifg=Black guibg=LightBlue3
-  highlight DiagnosticHint  guifg=Black guibg=SlateGrey3
+  highlight DiagnosticHint  guifg=Black guibg=SlateGrey
 
   highlight SignColumn guibg=black
 
