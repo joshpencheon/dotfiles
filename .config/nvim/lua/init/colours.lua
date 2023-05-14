@@ -38,6 +38,8 @@ vim.cmd [[
   highlight DiagnosticWarn  guifg=Black guibg=DarkOrange3
   highlight DiagnosticInfo  guifg=Black guibg=LightBlue3
   highlight DiagnosticHint  guifg=Black guibg=SlateGrey
+  highlight link DiagnosticUnnecessary NONE
+  highlight DiagnosticUnnecessary gui=underline guisp=slategray
 
   highlight SignColumn guibg=black
 
