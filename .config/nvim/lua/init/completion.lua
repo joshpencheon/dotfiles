@@ -1,3 +1,6 @@
+require("mason").setup()
+require("mason-lspconfig").setup()
+
 vim.o.wildmode = 'longest,list'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.pumheight = 8

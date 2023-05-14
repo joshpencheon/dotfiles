@@ -46,6 +46,8 @@ require('packer').startup(function(use)
   -- Additional textobjects for treesitter
   use 'nvim-treesitter/nvim-treesitter-textobjects'
   use 'RRethy/nvim-treesitter-endwise' -- automatic 'end' insertion
+  use 'williamboman/mason.nvim'
+  use 'williamboman/mason-lspconfig.nvim'
   use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
   use { 'hrsh7th/nvim-cmp', config = [[require('init.completion')]] } -- Autocompletion plugin
   use 'hrsh7th/cmp-buffer'
