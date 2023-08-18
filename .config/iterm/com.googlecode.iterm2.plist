@@ -1797,6 +1797,8 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<false/>
 	<key>QuitWhenAllWindowsClosed</key>
 	<false/>
+	<key>RemapModifiersWithoutEventTap</key>
+	<true/>
 	<key>RightCommand</key>
 	<integer>8</integer>
 	<key>RightOption</key>
