@@ -29,6 +29,11 @@
 	defaultBranch = main
 [interactive]
 	diffFilter = diff-highlight
+[mergetool]
+	keepBackup = false
+[mergetool "structure-sql-merge"]
+	cmd = structure-sql-merge --base "$BASE" --local "$LOCAL" --remote "$REMOTE" --merged "$MERGED"
+	trustExitCode = true
 [pager]
 	log = diff-highlight | less -FRX
 	show = diff-highlight | less -FRX

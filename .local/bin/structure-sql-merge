@@ -1,0 +1,62 @@
+#!/usr/bin/env ruby
+
+require "optparse"
+
+# A custom mergetool for quickly resolving conflicts in Rails' structure.sql
+# file that arise when multiple migrations are being developed at once.
+class StructureSQLMerge
+  VERSIONS_PATTERN = /(?<=INSERT INTO `schema_migrations` \(version\) VALUES\s)(?<versions>.*?);/m
+
+  CONFLICT_MARKER = "======="
+
+  attr_accessor :base, :local, :remote, :merged
+
+  def initialize
+    OptionParser.new do |opts|
+      opts.banner = "Usage: structure-sql-merge [options]"
+
+      opts.on("--base=BASE", "base file")       { |path| self.base = path }
+      opts.on("--local=LOCAL", "local file")    { |path| self.local = path }
+      opts.on("--remote=REMOTE", "remote file") { |path| self.remote = path }
+      opts.on("--merged=MERGED", "merged file") { |path| self.merged = path }
+    end.parse!
+  end
+
+  def run
+    merged_contents.sub!(VERSIONS_PATTERN, merged_versions_blob)
+    File.write(merged, merged_contents)
+  end
+
+  def conflicts_remaining?
+    merged_contents.include?(CONFLICT_MARKER)
+  end
+
+  private
+
+  def merged_contents
+    @merged_contents ||= File.read(merged)
+  end
+
+  def merged_versions_blob
+    all_versions.join(",\n") + ";"
+  end
+
+  def all_versions
+    all = versions_from(local) | versions_from(remote)
+    all.sort
+  end
+
+  def versions_from(filepath)
+    version_blob = File.read(filepath).match(VERSIONS_PATTERN)[:versions]
+    version_blob.strip.lines.map { |line| line.chomp.chomp(",") }
+  end
+end
+
+merger = StructureSQLMerge.new
+merger.run
+
+if merger.conflicts_remaining?
+  exit(1)
+else
+  exit(0)
+end
