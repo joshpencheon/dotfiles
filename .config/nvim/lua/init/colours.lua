@@ -41,6 +41,11 @@ vim.cmd [[
   highlight link DiagnosticUnnecessary NONE
   highlight DiagnosticUnnecessary gui=underline guisp=slategray
 
+  highlight DiagnosticUnderlineError gui=undercurl guifg=none
+  highlight DiagnosticUnderlineWarn  gui=undercurl guifg=none
+  highlight DiagnosticUnderlineInfo  gui=undercurl guifg=none
+  highlight DiagnosticUnderlineHint  gui=undercurl guifg=none
+
   highlight SignColumn guibg=black
 
   highlight IncSearch guibg=#333333
