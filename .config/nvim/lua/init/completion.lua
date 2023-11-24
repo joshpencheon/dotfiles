@@ -36,6 +36,7 @@ capabilities = require('cmp_nvim_lsp').default_capabilities()
 local servers = {
   'clangd',
   'emmet_ls',
+  'eslint',
   'gopls',
   'pyright',
   'rust_analyzer',
