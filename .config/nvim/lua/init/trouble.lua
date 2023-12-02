@@ -1,6 +1,8 @@
 -- Low-invasive diagnostics via builtin:
 vim.diagnostic.config {
-  float = true,
+  float = {
+    focusable = false
+  },
   severity_sort = true,
   signs = true,
   underline = true,
