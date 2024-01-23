@@ -27,7 +27,7 @@ require('packer').startup(function(use)
   use 'tpope/vim-sleuth'      -- automatic identation
   use 'tpope/vim-surround'    -- brackets etc
   use 'tpope/vim-unimpaired'  -- pairs of mappings
-  use 'joshpencheon/vim-vinegar' -- better netrw
+  use 'tpope/vim-vinegar' -- better netrw
   -- auto-close brackets etc:
   use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }
   use { 'ojroques/vim-oscyank', config = [[require('init.clipboard')]] } -- OSC52 yank from server back to client clipboard.
