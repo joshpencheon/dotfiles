@@ -69,6 +69,7 @@ require('packer').startup(function(use)
   use 'christoomey/vim-tmux-navigator'
   use 'sjl/vitality.vim'
 
+  use 'tpope/vim-liquid'
   use 'tpope/vim-rails'
   use 'vim-ruby/vim-ruby'
   use 'hashivim/vim-terraform'
