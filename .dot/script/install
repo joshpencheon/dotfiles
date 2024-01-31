@@ -14,6 +14,10 @@ function config {
 # Checkout into $HOME:
 config checkout
 
+# Set up remotes:
+config config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
+config fetch
+
 # Ignore untracked files (i.e. contents of $HOME)
 config config --local status.showUntrackedFiles no
 
