@@ -10,6 +10,14 @@ vim.diagnostic.config {
   virtual_text = false
 }
 
+function vim.diagnostic.toggle()
+  if vim.diagnostic.is_disabled() then
+    vim.diagnostic.enable()
+  else
+    vim.diagnostic.disable()
+  end
+end
+
 vim.cmd [[
 sign define DiagnosticSignError text= texthl=DiagnosticSignError linehl= numhl=DiagnosticSignError
 sign define DiagnosticSignWarn text= texthl=DiagnosticSignWarn linehl= numhl=DiagnosticSignWarn
@@ -39,3 +47,6 @@ require("trouble").setup {
     },
     use_diagnostic_signs = false
 }
+
+vim.keymap.set("n", "<leader>t", [[<cmd>TroubleToggle<cr>]], { silent = true })
+vim.keymap.set("n", "<leader>T", vim.diagnostic.toggle, { silent = true })

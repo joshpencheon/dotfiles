@@ -129,5 +129,4 @@ vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { silent = t
 vim.keymap.set('n', '<leader>sh', builtin.help_tags, { silent = true })
 vim.keymap.set('n', '<leader>A', builtin.grep_string, { silent = true })
 vim.keymap.set('n', '<leader>a', builtin.live_grep, { silent = true })
-vim.keymap.set("n", "<leader>t", [[<cmd>TroubleToggle<cr>]], { silent = true })
 
