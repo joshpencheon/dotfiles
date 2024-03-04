@@ -54,5 +54,3 @@ vim.cmd [[
   highlight GitSignsChange guifg=yellow
   highlight GitSignsDelete guifg=red
 ]]
-
-

@@ -1,84 +1,94 @@
--- Install packer
-local install_path = vim.fn.stdpath 'data' .. '/site/pack/packer/start/packer.nvim'
-if vim.fn.empty(vim.fn.glob(install_path)) > 0 then
-  packer_bootstrap = vim.fn.system({
-    'git', 'clone', '--depth', '1', 'https://github.com/wbthomason/packer.nvim', install_path
+local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
+if not vim.loop.fs_stat(lazypath) then
+  vim.fn.system({
+    "git",
+    "clone",
+    "--filter=blob:none",
+    "https://github.com/folke/lazy.nvim.git",
+    "--branch=stable", -- latest stable release
+    lazypath,
   })
-  vim.o.runtimepath = vim.fn.stdpath('data') .. '/site/pack/*/start/*,' .. vim.o.runtimepath
 end
+vim.opt.rtp:prepend(lazypath)
 
-vim.api.nvim_create_autocmd("BufWritePost", {
-    pattern = "plugins.lua",
-    callback = function(args)
-      vim.api.nvim_command("source" .. " " .. args.file)
-      require('packer').sync()
-    end,
-    desc = "Sync plugins after updating plugins.lua",
-    group = vim.api.nvim_create_augroup("Packer", {})
-})
+require("lazy").setup({
+  { 'srcery-colors/srcery-vim', config = function() require('init.colours') end },
+  { 'sunjon/shade.nvim', config = function() require('shade').setup() end },
 
-require('packer').startup(function(use)
-  use 'wbthomason/packer.nvim' -- Package manager
-  use { 'srcery-colors/srcery-vim', config = [[require('init.colours')]] }
-  use { 'sunjon/shade.nvim', config = function() require('shade').setup() end }
-  use { 'tpope/vim-fugitive', config = [[require('init.statusbar')]] } -- Git commands in nvim
-  use 'tpope/vim-rhubarb' -- Fugitive-companion to interact with github
-  use 'tpope/vim-repeat'      -- better '.' support
-  use 'tpope/vim-sleuth'      -- automatic identation
-  use 'tpope/vim-surround'    -- brackets etc
-  use 'tpope/vim-unimpaired'  -- pairs of mappings
-  use 'joshpencheon/vim-vinegar' -- better netrw
+  -- Git commands in nvim
+  { 'tpope/vim-fugitive', config = function() require('init.statusbar') end },
+  'tpope/vim-rhubarb', -- Fugitive-companion to interact with github
+  'tpope/vim-repeat',      -- better '.' support
+  'tpope/vim-sleuth',      -- automatic identation
+  'tpope/vim-surround',    -- brackets etc
+  'tpope/vim-unimpaired',  -- pairs of mappings
+  'joshpencheon/vim-vinegar', -- better netrw
+
   -- auto-close brackets etc:
-  use { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end }
-  use { 'ojroques/vim-oscyank', config = [[require('init.clipboard')]] } -- OSC52 yank from server back to client clipboard.
-  use 'tversteeg/registers.nvim' -- preview of registers
+  { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end },
+  -- OSC52 yank from server back to client clipboard.
+  { 'ojroques/vim-oscyank', config = function() require('init.clipboard') end },
+  'tversteeg/registers.nvim', -- preview of registers
   -- "gc" to comment visual regions/lines
-  use {'numToStr/Comment.nvim', config = function() require('Comment').setup() end }
+  {'numToStr/Comment.nvim', config = function() require('Comment').setup() end },
   -- UI to select things (files, grep results, open buffers...)
-  use { 'nvim-telescope/telescope.nvim', requires = { 'nvim-lua/plenary.nvim' }, config=[[require('init.telescope')]] }
-  use {'nvim-telescope/telescope-fzf-native.nvim', run = 'make' }
-  use { "jose-elias-alvarez/buftabline.nvim", config = [[require('init.tabbar')
-]] }
+  { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require('init.telescope') end },
+  {'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
+  { "jose-elias-alvarez/buftabline.nvim", config = function() require('init.tabbar') end },
   -- Add git related info in the signs columns and popups
-  use { 'lewis6991/gitsigns.nvim', requires = { 'nvim-lua/plenary.nvim' }, config = [[require('init.git')]] }
+  { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require('init.git') end },
   -- Highlight, edit, and navigate code using a fast incremental parsing library
-  use { 'nvim-treesitter/nvim-treesitter', config = [[require('init.treesitter')]] }
-  -- Additional textobjects for treesitter
-  use 'nvim-treesitter/nvim-treesitter-textobjects'
-  use 'RRethy/nvim-treesitter-endwise' -- automatic 'end' insertion
-  use 'williamboman/mason.nvim'
-  use 'williamboman/mason-lspconfig.nvim'
-  use 'neovim/nvim-lspconfig' -- Collection of configurations for built-in LSP client
-  use { 'hrsh7th/nvim-cmp', config = [[require('init.completion')]] } -- Autocompletion plugin
-  use 'hrsh7th/cmp-buffer'
-  use 'hrsh7th/cmp-path'
-  use 'hrsh7th/cmp-cmdline'
-  use 'hrsh7th/cmp-nvim-lsp'
-  use 'hrsh7th/cmp-nvim-lsp-signature-help'
-  use 'saadparwaiz1/cmp_luasnip'
-  use 'dcampos/nvim-snippy'
-  use 'dcampos/cmp-snippy'
-  use 'honza/vim-snippets'
+  { 'nvim-treesitter/nvim-treesitter', config = function() require('init.treesitter') end },
+  'nvim-treesitter/nvim-treesitter-textobjects', -- Additional textobjects for treesitter
+  'RRethy/nvim-treesitter-endwise', -- automatic 'end' insertion
+  'williamboman/mason.nvim',
+  'williamboman/mason-lspconfig.nvim',
+  'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
+  -- Autocompletion plugin
+  { 'hrsh7th/nvim-cmp', config = function() require('init.completion') end },
+  'hrsh7th/cmp-buffer',
+  'hrsh7th/cmp-path',
+  'hrsh7th/cmp-cmdline',
+  'hrsh7th/cmp-nvim-lsp',
+  'hrsh7th/cmp-nvim-lsp-signature-help',
+  'saadparwaiz1/cmp_luasnip',
+  'dcampos/nvim-snippy',
+  'dcampos/cmp-snippy',
+  'honza/vim-snippets',
 
-  use { 'folke/trouble.nvim', config = [[require('init.trouble')]] }
+  { 'folke/trouble.nvim', config = function() require('init.trouble') end },
 
-  use 'junegunn/vim-easy-align'
-  use 'junegunn/vim-peekaboo'
-  use 'AndrewRadev/splitjoin.vim'
+  'junegunn/vim-easy-align',
+  'junegunn/vim-peekaboo',
+  'AndrewRadev/splitjoin.vim',
 
-  use 'christoomey/vim-tmux-navigator'
-  use 'sjl/vitality.vim'
+  'christoomey/vim-tmux-navigator',
+  'sjl/vitality.vim',
 
-  use 'tpope/vim-liquid'
-  use 'tpope/vim-rails'
-  use 'vim-ruby/vim-ruby'
-  use 'hashivim/vim-terraform'
-  use { 'ray-x/go.nvim', config = [[require('init.go')]] }
+  'tpope/vim-liquid',
+  'tpope/vim-rails',
+  'vim-ruby/vim-ruby',
+  'hashivim/vim-terraform',
+  { 'ray-x/go.nvim', config = function() require('init.go') end },
 
   -- Simulate smooth scrolling:
-  use { 'karb94/neoscroll.nvim', config = function() require('neoscroll').setup() end }
-
-  if packer_bootstrap then
-    require('packer').sync()
-  end
-end)
+  { 'karb94/neoscroll.nvim', config = function() require('neoscroll').setup() end }
+}, {
+  ui = {
+    icons = {
+      cmd = "⌘",
+      config = "🛠",
+      event = "📅",
+      ft = "📂",
+      init = "⚙",
+      keys = "🗝",
+      plugin = "🔌",
+      runtime = "💻",
+      require = "🌙",
+      source = "📄",
+      start = "🚀",
+      task = "📌",
+      lazy = "💤 ",
+    },
+  },
+})

@@ -1,2 +1,2 @@
-require('init.plugins')
 require('init.basic')
+require('init.plugins')
