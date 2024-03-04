@@ -1,4 +1,4 @@
-# Use NeoVim instead of vim, if it's available:
+# Use Neovim instead of vim, if it's available:
 if command -v nvim > /dev/null; then
   export EDITOR=nvim
   alias vi=nvim

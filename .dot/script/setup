@@ -9,13 +9,13 @@ else
   echo "No brew found - visit https://brew.sh to install."
 fi;
 
-# ====== Install NeoVim plugins ======
+# ====== Install Neovim plugins ======
 
 if command -v nvim > /dev/null; then
-  echo "Installing NeoVim packages with Lazy.nvim..."
+  echo "Installing Neovim packages with Lazy.nvim..."
   nvim --headless -c 'quitall'
 else
-  echo "No NeoVim found - skipping plugin configuration."
+  echo "No Neovim found - skipping plugin configuration."
 fi
 
 # ====== Compile bat themes ======
