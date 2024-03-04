@@ -12,8 +12,8 @@ fi;
 # ====== Install NeoVim plugins ======
 
 if command -v nvim > /dev/null; then
-  echo "Installing NeoVim packages..."
-  nvim --headless -c 'autocmd User PackerComplete quitall' -c 'PackerSync'
+  echo "Installing NeoVim packages with Lazy.nvim..."
+  nvim --headless -c 'quitall'
 else
   echo "No NeoVim found - skipping plugin configuration."
 fi
