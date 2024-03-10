@@ -1,4 +1,7 @@
-require('go').setup()
+require('go').setup({
+  -- Prevent vim.diagnostic config override:
+  diagnostic = false
+})
 
 vim.api.nvim_create_autocmd("BufWritePre", {
     pattern = "*.go",

@@ -45,7 +45,8 @@ require("trouble").setup {
         hint        = "hint",
         information = "info"
     },
-    use_diagnostic_signs = false
+    use_diagnostic_signs = false,
+    cycle_results = false
 }
 
 vim.keymap.set("n", "<leader>t", [[<cmd>TroubleToggle<cr>]], { silent = true })
