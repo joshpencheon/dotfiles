@@ -76,30 +76,40 @@ require("lazy").setup({
 
   { -- Highlight, edit, and navigate code using a fast incremental parsing library
     'nvim-treesitter/nvim-treesitter',
-    config = function() require('init.treesitter') end
+    config = function() require('init.treesitter') end,
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects', -- Additional textobjects for treesitter
+      'RRethy/nvim-treesitter-endwise',              -- automatic 'end' insertion
+    }
   },
 
-  'nvim-treesitter/nvim-treesitter-textobjects', -- Additional textobjects for treesitter
-  'RRethy/nvim-treesitter-endwise',              -- automatic 'end' insertion
-
-  'neovim/nvim-lspconfig',             -- configurations for built-in LSP client
-  'williamboman/mason.nvim',           -- LSP server manager
-  'williamboman/mason-lspconfig.nvim', -- have the two place nice
+  { -- LSP client configuration
+    'neovim/nvim-lspconfig',
+    dependencies = {
+      'williamboman/mason.nvim',           -- LSP server manager
+      'williamboman/mason-lspconfig.nvim', -- have the two place nice
+    }
+  },
 
   { -- Autocompletion plugin
     'hrsh7th/nvim-cmp',
-    config = function() require('init.completion') end
+    config = function() require('init.completion') end,
+    dependencies = {
+      'hrsh7th/cmp-buffer',                  -- use buffer as a completion source
+      'hrsh7th/cmp-path',                    -- allow paths to be cuompleted
+      'hrsh7th/cmp-cmdline',                 -- allow commands to be completed
+      'hrsh7th/cmp-nvim-lsp',                -- LSP client completion source
+      'hrsh7th/cmp-nvim-lsp-signature-help', -- LSP client completion source for signatures
+    }
   },
 
-  'hrsh7th/cmp-buffer',                  -- use buffer as a completion source
-  'hrsh7th/cmp-path',                    -- allow paths to be cuompleted
-  'hrsh7th/cmp-cmdline',                 -- allow commands to be completed
-  'hrsh7th/cmp-nvim-lsp',                -- LSP client completion source
-  'hrsh7th/cmp-nvim-lsp-signature-help', -- LSP client completion source for signatures
-
-  'dcampos/nvim-snippy', -- snippets behaviour
-  'dcampos/cmp-snippy',  -- integrates with cmp
-  'honza/vim-snippets',  -- source of snippets
+  { -- Snippets behaviour
+    'dcampos/nvim-snippy',
+    dependencies = {
+      'dcampos/cmp-snippy', -- integrates with cmp
+      'honza/vim-snippets', -- source of snippets
+    }
+  },
 
   { -- Presentation of vim.diagnostics
     'folke/trouble.nvim',
