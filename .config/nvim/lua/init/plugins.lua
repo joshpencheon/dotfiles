@@ -12,67 +12,116 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
-  { 'srcery-colors/srcery-vim', config = function() require('init.colours') end },
-  { 'sunjon/shade.nvim', config = function() require('shade').setup() end },
+  { -- Primary colourscheme
+    'srcery-colors/srcery-vim',
+    config = function() require('init.colours') end,
+    priority = 1000
+  },
 
-  -- Git commands in nvim
-  { 'tpope/vim-fugitive', config = function() require('init.statusbar') end },
-  'tpope/vim-rhubarb', -- Fugitive-companion to interact with github
-  'tpope/vim-repeat',      -- better '.' support
-  'tpope/vim-sleuth',      -- automatic identation
-  'tpope/vim-surround',    -- brackets etc
-  'tpope/vim-unimpaired',  -- pairs of mappings
+  { -- Fades inactive splits
+    'sunjon/shade.nvim',
+    config = true
+  },
+
+  { -- Git commands in nvim
+    'tpope/vim-fugitive',
+    config = function() require('init.statusbar') end
+  },
+
+  'tpope/vim-rhubarb',        -- Fugitive-companion to interact with github
+  'tpope/vim-repeat',         -- better '.' support
+  'tpope/vim-sleuth',         -- automatic identation
+  'tpope/vim-surround',       -- brackets etc
+  'tpope/vim-unimpaired',     -- pairs of mappings
   'joshpencheon/vim-vinegar', -- better netrw
 
-  -- auto-close brackets etc:
-  { 'windwp/nvim-autopairs', config = function() require('nvim-autopairs').setup() end },
-  -- OSC52 yank from server back to client clipboard.
-  { 'ojroques/vim-oscyank', config = function() require('init.clipboard') end },
+  { -- auto-close brackets etc:
+    'windwp/nvim-autopairs',
+    config = true
+  },
+
+  { -- OSC52 yank from server back to client clipboard.
+    'ojroques/vim-oscyank',
+    config = function() require('init.clipboard') end
+  },
+
   'tversteeg/registers.nvim', -- preview of registers
-  -- "gc" to comment visual regions/lines
-  {'numToStr/Comment.nvim', config = function() require('Comment').setup() end },
-  -- UI to select things (files, grep results, open buffers...)
-  { 'nvim-telescope/telescope.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require('init.telescope') end },
-  {'nvim-telescope/telescope-fzf-native.nvim', build = 'make' },
-  { "jose-elias-alvarez/buftabline.nvim", config = function() require('init.tabbar') end },
-  -- Add git related info in the signs columns and popups
-  { 'lewis6991/gitsigns.nvim', dependencies = { 'nvim-lua/plenary.nvim' }, config = function() require('init.git') end },
-  -- Highlight, edit, and navigate code using a fast incremental parsing library
-  { 'nvim-treesitter/nvim-treesitter', config = function() require('init.treesitter') end },
+
+  { -- "gc" to comment visual regions/lines
+    'numToStr/Comment.nvim',
+    config = true
+  },
+
+  { -- UI to select things (files, grep results, open buffers...)
+    'nvim-telescope/telescope.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function() require('init.telescope') end
+  },
+
+  { -- fzf-like behaviour in Telescope finders
+    'nvim-telescope/telescope-fzf-native.nvim',
+    build = 'make'
+  },
+
+  { -- creates a "tab bar" of buffers
+    'jose-elias-alvarez/buftabline.nvim',
+    config = function() require('init.tabbar') end
+  },
+
+  { -- Add git related info in the signs columns and popups
+    'lewis6991/gitsigns.nvim',
+    dependencies = { 'nvim-lua/plenary.nvim' },
+    config = function() require('init.git') end
+  },
+
+  { -- Highlight, edit, and navigate code using a fast incremental parsing library
+    'nvim-treesitter/nvim-treesitter',
+    config = function() require('init.treesitter') end
+  },
+
   'nvim-treesitter/nvim-treesitter-textobjects', -- Additional textobjects for treesitter
-  'RRethy/nvim-treesitter-endwise', -- automatic 'end' insertion
-  'williamboman/mason.nvim',
-  'williamboman/mason-lspconfig.nvim',
-  'neovim/nvim-lspconfig', -- Collection of configurations for built-in LSP client
-  -- Autocompletion plugin
-  { 'hrsh7th/nvim-cmp', config = function() require('init.completion') end },
-  'hrsh7th/cmp-buffer',
-  'hrsh7th/cmp-path',
-  'hrsh7th/cmp-cmdline',
-  'hrsh7th/cmp-nvim-lsp',
-  'hrsh7th/cmp-nvim-lsp-signature-help',
-  'saadparwaiz1/cmp_luasnip',
-  'dcampos/nvim-snippy',
-  'dcampos/cmp-snippy',
-  'honza/vim-snippets',
+  'RRethy/nvim-treesitter-endwise',              -- automatic 'end' insertion
 
-  { 'folke/trouble.nvim', config = function() require('init.trouble') end },
+  'neovim/nvim-lspconfig',             -- configurations for built-in LSP client
+  'williamboman/mason.nvim',           -- LSP server manager
+  'williamboman/mason-lspconfig.nvim', -- have the two place nice
 
-  'junegunn/vim-easy-align',
-  'junegunn/vim-peekaboo',
-  'AndrewRadev/splitjoin.vim',
+  { -- Autocompletion plugin
+    'hrsh7th/nvim-cmp',
+    config = function() require('init.completion') end
+  },
 
-  'christoomey/vim-tmux-navigator',
-  'sjl/vitality.vim',
+  'hrsh7th/cmp-buffer',                  -- use buffer as a completion source
+  'hrsh7th/cmp-path',                    -- allow paths to be cuompleted
+  'hrsh7th/cmp-cmdline',                 -- allow commands to be completed
+  'hrsh7th/cmp-nvim-lsp',                -- LSP client completion source
+  'hrsh7th/cmp-nvim-lsp-signature-help', -- LSP client completion source for signatures
 
-  'tpope/vim-liquid',
-  'tpope/vim-rails',
-  'vim-ruby/vim-ruby',
-  'hashivim/vim-terraform',
-  { 'ray-x/go.nvim', config = function() require('init.go') end },
+  'dcampos/nvim-snippy', -- snippets behaviour
+  'dcampos/cmp-snippy',  -- integrates with cmp
+  'honza/vim-snippets',  -- source of snippets
 
-  -- Simulate smooth scrolling:
-  { 'karb94/neoscroll.nvim', config = function() require('neoscroll').setup() end }
+  { -- Presentation of vim.diagnostics
+    'folke/trouble.nvim',
+    config = function() require('init.trouble') end
+  },
+
+  'junegunn/vim-easy-align',   -- bulk formatting
+  'junegunn/vim-peekaboo',     -- register previewing
+  'AndrewRadev/splitjoin.vim', -- e.g. inline/multiline toggling
+
+  'christoomey/vim-tmux-navigator', -- navigate between nvim/tmux splits
+  'sjl/vitality.vim',               -- restore Focus* events from within tmux
+
+  'tpope/vim-liquid',        -- Nicer support of liquid tags for e.g. Jekyll
+  'tpope/vim-rails',         -- extensions for Ruby on Rails projects
+  'vim-ruby/vim-ruby',       -- enhanced Ruby support
+  'hashivim/vim-terraform',  -- highlighting for HCL
+
+  { -- Improved Golang support
+    'ray-x/go.nvim',
+    config = function() require('init.go') end
+  },
 }, {
   ui = {
     icons = {
