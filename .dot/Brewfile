@@ -14,6 +14,7 @@ brew "tmux"
 # Handy utilities
 brew "bat"
 brew "fd"
+brew "fzf"
 brew "htop"
 brew "jq"
 brew "ripgrep"
