@@ -18,6 +18,9 @@ config checkout
 config config --add remote.origin.fetch +refs/heads/*:refs/remotes/origin/*
 config fetch
 
+# Update any initialised submodules
+config submodule update
+
 # Ignore untracked files (i.e. contents of $HOME)
 config config --local status.showUntrackedFiles no
 
