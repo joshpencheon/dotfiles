@@ -106,6 +106,9 @@ require('telescope').setup {
 -- Enable telescope fzf native
 require('telescope').load_extension 'fzf'
 
+-- Use telescope for Neovim selectors too:
+require('telescope').load_extension 'ui-select'
+
 local builtin = require('telescope.builtin')
 
 function git_or_find_files(args)
