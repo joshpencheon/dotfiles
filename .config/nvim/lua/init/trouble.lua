@@ -1,6 +1,10 @@
 -- Low-invasive diagnostics via builtin:
 vim.diagnostic.config {
   float = {
+    border = 'none',
+    source = 'if_many',
+    header = '',
+    prefix = '',
     focusable = false
   },
   severity_sort = true,
