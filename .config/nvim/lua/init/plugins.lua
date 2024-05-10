@@ -18,10 +18,10 @@ require("lazy").setup({
     priority = 1000
   },
 
-  { -- Fades inactive splits
-    'sunjon/shade.nvim',
-    config = true
-  },
+  -- { -- Fades inactive splits
+  --   'sunjon/shade.nvim',
+  --   config = true
+  -- },
 
   { -- Git commands in nvim
     'tpope/vim-fugitive',
@@ -83,6 +83,15 @@ require("lazy").setup({
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects', -- Additional textobjects for treesitter
       'RRethy/nvim-treesitter-endwise',              -- automatic 'end' insertion
+      { 'nvim-treesitter/nvim-treesitter-context',   -- floating context at th e top
+        config = function()
+          require('treesitter-context').setup({
+            enable = true,
+            trim_scope = 'inner',
+            max_lines = 5
+          })
+        end
+      }
     }
   },
 
