@@ -86,21 +86,27 @@ end
 
 -- Telescope
 require('telescope').setup {
-  defaults = {
-    mappings = {
-      i = {
-        ['<C-u>'] = false,
-        ['<C-d>'] = false,
-        ["<TAB>"] = actions.toggle_selection + actions.move_selection_next,
-        ["<S-TAB>"] = actions.toggle_selection + actions.move_selection_previous,
-        ["<CR>"] = telescope_custom_actions.multi_selection_open,
-        ["<C-x>"] = telescope_custom_actions.multi_selection_open_split,
-        ["<C-v>"] = telescope_custom_actions.multi_selection_open_vsplit,
-        ["<C-n>"] = actions.cycle_history_next,
-        ["<C-p>"] = actions.cycle_history_prev,
-      },
+    defaults = {
+        layout_strategy = 'vertical',
+        layout_config = {
+            vertical = {
+                preview_height = 0.30
+            }
+        },
+        mappings = {
+            i = {
+                ['<C-u>'] = false,
+                ['<C-d>'] = false,
+                ["<TAB>"] = actions.toggle_selection + actions.move_selection_next,
+                ["<S-TAB>"] = actions.toggle_selection + actions.move_selection_previous,
+                ["<CR>"] = telescope_custom_actions.multi_selection_open,
+                ["<C-x>"] = telescope_custom_actions.multi_selection_open_split,
+                ["<C-v>"] = telescope_custom_actions.multi_selection_open_vsplit,
+                ["<C-n>"] = actions.cycle_history_next,
+                ["<C-p>"] = actions.cycle_history_prev,
+            },
+        },
     },
-  },
 }
 
 -- Enable telescope fzf native
@@ -127,6 +133,7 @@ vim.keymap.set('n', '<leader>q', [[<cmd>bd<CR>]], { silent = true })
 vim.keymap.set('n', '<leader>b', builtin.buffers, { silent = true })
 vim.keymap.set('n', '<leader>o', git_or_find_files, { silent = true })
 vim.keymap.set('n', '<leader>O', function() builtin.find_files({previewer = false}) end, { silent = true })
+vim.keymap.set('n', '<leader>j', builtin.jumplist, { silent = true })
 vim.keymap.set('n', '<leader>p', function() builtin.oldfiles({cwd_only = true}) end, { silent = true })
 vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { silent = true })
 vim.keymap.set('n', '<leader>h', builtin.help_tags, { silent = true })
