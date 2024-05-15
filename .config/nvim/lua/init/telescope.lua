@@ -136,6 +136,6 @@ vim.keymap.set('n', '<leader>O', function() builtin.find_files({previewer = fals
 vim.keymap.set('n', '<leader>j', builtin.jumplist, { silent = true })
 vim.keymap.set('n', '<leader>p', function() builtin.oldfiles({cwd_only = true}) end, { silent = true })
 vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { silent = true })
-vim.keymap.set('n', '<leader>h', builtin.help_tags, { silent = true })
+vim.keymap.set('n', '<leader>hh', builtin.help_tags, { silent = true })
 vim.keymap.set('n', '<leader>A', builtin.grep_string, { silent = true })
 vim.keymap.set('n', '<leader>a', builtin.live_grep, { silent = true })

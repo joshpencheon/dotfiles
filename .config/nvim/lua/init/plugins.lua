@@ -13,14 +13,9 @@ vim.opt.rtp:prepend(lazypath)
 
 require("lazy").setup({
   { -- Primary colourscheme
-    'srcery-colors/srcery-vim',
+    'rebelot/kanagawa.nvim',
     config = function() require('init.colours') end,
     priority = 1000
-  },
-
-  { -- Fades inactive splits
-    'sunjon/shade.nvim',
-    config = true
   },
 
   { -- Git commands in nvim

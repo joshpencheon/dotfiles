@@ -20,19 +20,19 @@ vim.cmd [[
     elseif active
       " Style just the status line of the active window:
       if mode == 'i'
-        let group     = 'StatusLine_insert'
+        let group     = 'StatusLineInsert'
         let git_group = group
         let host_group = group
       elseif mode == 'v' || mode == 'V' || mode == "\<C-v>"
-        let group = 'StatusLine_visual'
+        let group = 'StatusLineVisual'
         let git_group = group
         let host_group = group
       elseif mode == 'r' || mode == 'R'
-        let group = 'StatusLine_replace'
+        let group = 'StatusLineReplace'
         let git_group = group
         let host_group = group
       elseif mode == 'c'
-        let group = 'StatusLine_command'
+        let group = 'StatusLineCommand'
         let git_group = group
         let host_group = group
       else

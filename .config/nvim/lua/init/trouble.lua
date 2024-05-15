@@ -1,7 +1,7 @@
 -- Low-invasive diagnostics via builtin:
 vim.diagnostic.config {
   float = {
-    border = 'none',
+    border = 'rounded',
     source = 'if_many',
     header = '',
     prefix = '',

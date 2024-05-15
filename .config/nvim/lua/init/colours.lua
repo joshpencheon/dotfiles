@@ -1,56 +1,47 @@
+require('kanagawa').setup({
+    -- transparent = true,         -- do not set background color
+    -- dimInactive = true,         -- dim inactive window `:h hl-NormalNC`
+    colors = {
+      theme = {
+        all = {
+          ui = {
+            bg = "black",
+            bg_gutter = "none",
+            float = {
+              bg = "none",
+              bg_border = "none"
+            }
+          }
+        }
+      }
+    },
+    overrides = function(colors)
+      local theme = colors.theme
+      local palette = colors.palette
+      return {
+        TelescopeNormal = { bg = theme.ui.bg },
+
+        -- Custom colours for the tabline:
+        TabLine = { fg = theme.ui.bg_p2, bg = theme.ui.bg },
+        TabLineSel = { fg = theme.ui.fg, bg = theme.ui.bg, bold = true },
+        TabLineFill = { link = 'TabLine' },
+
+        Whitespace  = { fg = theme.ui.bg_p1 },
+
+        -- Custom style for the magic statusbar:
+        StatusLineInsert = { fg = palette.sumiInk0, bg = palette.dragonGreen },
+        StatusLineVisual = { fg = palette.sumiInk0, bg = palette.springBlue },
+        StatusLineReplace = { fg = palette.sumiInk0, bg = palette.waveRed },
+        StatusLineCommand = { fg = palette.sumiInk0, bg = palette.dragonOrange },
+        StatusLineGit = { fg = palette.dragonGreen, bg = theme.ui.bg_m3 },
+        StatusLineHost = { fg = theme.ui.special, bg = theme.ui.bg_m3 },
+      }
+    end
+})
+
 vim.cmd [[
-  let g:srcery_inverse=0
-  colorscheme srcery
+colorscheme kanagawa
 
-  set termguicolors
-  set noshowmode " Don't show '--INSERT--' etc
-
-  highlight Normal         guibg=black
-  highlight LineNr         guibg=black
-  highlight CursorLine     guibg=black
-  highlight CursorLineNr   guibg=black
-  highlight VertSplit      guibg=black guifg=#918175
-
-  highlight Visual guibg=darkgreen
-
-  highlight TabLineSel    guifg=white    guibg=black gui=bold
-  highlight TabLineActive guifg=#999999  guibg=black gui=NONE
-  highlight TabLine       guifg=#555555  guibg=black gui=NONE
-  highlight TabLineFill   guibg=black
-
-  highlight Statusline     guifg=white   guibg=#191919 gui=bold
-  highlight StatusLineGit  guifg=#98BC37 guibg=#191919 gui=bold
-  highlight StatusLineHost guifg=#5A41BA guibg=#191919 gui=bold
-  highlight StatuslineNC   guifg=#555555 guibg=#191919 gui=NONE
-
-  highlight StatusLine_insert  guibg=skyblue    gui=bold guifg=black
-  highlight StatusLine_visual  guibg=darkgreen  gui=bold
-  highlight StatusLine_replace guibg=darkred    gui=bold
-  highlight StatusLine_command guibg=darkorange gui=bold guifg=black
-
-  highlight TermCursor   guifg=#BB0000
-  highlight TermCursorNC guibg=#550000
-
-  highlight NonText    guifg=#333333
-  highlight SpecialKey guifg=#333333
-
-  highlight DiagnosticError guifg=Black guibg=Red3
-  highlight DiagnosticWarn  guifg=Black guibg=DarkOrange3
-  highlight DiagnosticInfo  guifg=Black guibg=LightBlue3
-  highlight DiagnosticHint  guifg=Black guibg=SlateGrey
-  highlight link DiagnosticUnnecessary NONE
-  highlight DiagnosticUnnecessary gui=underline guisp=slategray
-
-  highlight DiagnosticUnderlineError gui=undercurl guifg=none
-  highlight DiagnosticUnderlineWarn  gui=undercurl guifg=none
-  highlight DiagnosticUnderlineInfo  gui=undercurl guifg=none
-  highlight DiagnosticUnderlineHint  gui=undercurl guifg=none
-
-  highlight SignColumn guibg=black
-
-  highlight IncSearch guibg=#333333
-
-  highlight GitSignsAdd    guifg=green
-  highlight GitSignsChange guifg=yellow
-  highlight GitSignsDelete guifg=red
+set termguicolors
+set noshowmode " Don't show '--INSERT--' etc
 ]]
