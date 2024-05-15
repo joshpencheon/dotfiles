@@ -53,3 +53,12 @@ require('nvim-treesitter.configs').setup {
     },
   },
 }
+
+require('treesitter-context').setup {
+  enable = true,
+  max_lines = vim.o.scrolloff,
+  line_numbers = true,
+  multiline_threshold = 1,
+  trim_scope = 'outer',
+  mode = 'topline',
+}

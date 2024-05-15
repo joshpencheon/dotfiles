@@ -78,6 +78,7 @@ require("lazy").setup({
     dependencies = {
       'nvim-treesitter/nvim-treesitter-textobjects', -- Additional textobjects for treesitter
       'RRethy/nvim-treesitter-endwise',              -- automatic 'end' insertion
+      'nvim-treesitter/nvim-treesitter-context',     -- context when scrolling up
     }
   },
 

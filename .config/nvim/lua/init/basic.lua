@@ -9,6 +9,9 @@ vim.o.hlsearch = false
 --Make line numbers default
 vim.wo.number = true
 
+-- Keep cursor away from the top and bottom
+vim.o.scrolloff = 3
+
 --Enable mouse mode
 vim.o.mouse = 'a'
 
