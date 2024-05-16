@@ -35,7 +35,7 @@ local servers = {
   'gopls',
   'pyright',
   'rust_analyzer',
-  'solargraph',
+  'ruby_lsp',
   'terraformls',
   'tflint',
   'tsserver',
