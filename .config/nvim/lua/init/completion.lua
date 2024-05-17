@@ -5,6 +5,13 @@ vim.o.wildmode = 'longest,list'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.pumheight = 8
 
+-- Use a sharp border with `FloatBorder` highlights:
+vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
+  vim.lsp.handlers.hover, {
+    border = "rounded"
+  }
+)
+
 -- dump out to: lua print(vim.lsp.get_log_path())
 -- vim.lsp.set_log_level("TRACE")
 
