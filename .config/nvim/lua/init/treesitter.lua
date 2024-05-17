@@ -2,7 +2,7 @@
 -- Parsers must be installed manually via :TSInstall
 require('nvim-treesitter.configs').setup {
   highlight = {
-    enable = false,
+    enable = true, -- In future, LSP-provided semantic tokens would be better
   },
   incremental_selection = {
     enable = true,

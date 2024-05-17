@@ -45,6 +45,9 @@ require('kanagawa').setup({
     end
 })
 
+-- Deprioritise LSP-provided highlights (prefer treesitter for now)
+vim.highlight.priorities.semantic_tokens = 75
+
 vim.cmd [[
 colorscheme kanagawa
 
