@@ -24,6 +24,8 @@ local on_attach = function(_, bufnr)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 end
 
+require('lspconfig.ui.windows').default_options.border = 'rounded'
+
 -- nvim-cmp supports additional completion capabilities
 -- beyond those built in to NeoVim's LSP.
 capabilities = require('cmp_nvim_lsp').default_capabilities()

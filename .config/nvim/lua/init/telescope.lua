@@ -90,7 +90,8 @@ require('telescope').setup {
         layout_strategy = 'vertical',
         layout_config = {
             vertical = {
-                preview_height = 0.30
+                preview_height = 0.40,
+                preview_cutoff = 22
             }
         },
         mappings = {
