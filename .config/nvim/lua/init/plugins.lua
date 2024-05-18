@@ -40,13 +40,6 @@ require("lazy").setup({
     config = function() require('init.clipboard') end
   },
 
-  'tversteeg/registers.nvim', -- preview of registers
-
-  { -- "gc" to comment visual regions/lines
-    'numToStr/Comment.nvim',
-    config = true
-  },
-
   { -- UI to select things (files, grep results, open buffers...)
     'nvim-telescope/telescope.nvim',
     dependencies = {
@@ -95,7 +88,7 @@ require("lazy").setup({
     config = function() require('init.completion') end,
     dependencies = {
       'hrsh7th/cmp-buffer',                  -- use buffer as a completion source
-      'hrsh7th/cmp-path',                    -- allow paths to be cuompleted
+      'hrsh7th/cmp-path',                    -- allow paths to be completed
       'hrsh7th/cmp-cmdline',                 -- allow commands to be completed
       'hrsh7th/cmp-nvim-lsp',                -- LSP client completion source
       'hrsh7th/cmp-nvim-lsp-signature-help', -- LSP client completion source for signatures
