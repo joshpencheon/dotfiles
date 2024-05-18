@@ -55,3 +55,11 @@ require("trouble").setup {
 
 vim.keymap.set("n", "<leader>t", [[<cmd>TroubleToggle<cr>]], { silent = true })
 vim.keymap.set("n", "<leader>T", vim.diagnostic.toggle, { silent = true })
+
+vim.keymap.set('n', ']t', function()
+  vim.diagnostic.goto_next({ float = false })
+end, { desc = 'Jump to the next troublesome diagnostic' })
+
+vim.keymap.set('n', '[t', function()
+  vim.diagnostic.goto_prev({ float = false })
+end, { desc = 'Jump to the previous troublesome diagnostic' })
