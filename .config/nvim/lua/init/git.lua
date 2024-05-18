@@ -10,8 +10,12 @@ require('gitsigns').setup {
   current_line_blame = true,
   current_line_blame_opts = {
     delay = 250,
+    virt_text_pos = 'right_align'
   },
   current_line_blame_formatter = ' « <committer_time:%R>: <summary> [<abbrev_sha>]',
+  preview_config = {
+    border = 'rounded'
+  },
 
   on_attach = function(bufnr)
     local gs = package.loaded.gitsigns
