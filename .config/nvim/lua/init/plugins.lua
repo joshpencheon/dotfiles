@@ -35,11 +35,6 @@ require("lazy").setup({
     config = true
   },
 
-  { -- OSC52 yank from server back to client clipboard.
-    'ojroques/vim-oscyank',
-    config = function() require('init.clipboard') end
-  },
-
   { -- UI to select things (files, grep results, open buffers...)
     'nvim-telescope/telescope.nvim',
     dependencies = {

@@ -14,17 +14,6 @@
 -- Use system (+ selection) clipboard by default:
 vim.opt.clipboard:prepend { "unnamed", "unnamedplus" }
 
-vim.cmd [[
-  let g:oscyank_silent=1
-  let g:oscyank_trim=0
-
-  " Automatically emit the OSC52 control sequence when yanking:
-  augroup oscyank
-    autocmd!
-    autocmd TextYankPost * if v:event.operator is 'y' && v:event.regname is '' | execute 'OSCYankRegister "' | endif
-  augroup END
-]]
-
 vim.api.nvim_create_autocmd("TextYankPost", {
     pattern = "*",
     callback = function() vim.highlight.on_yank({timeout = 500}) end,
