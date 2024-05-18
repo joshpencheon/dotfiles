@@ -1,6 +1,7 @@
 -- Treesitter configuration
 -- Parsers must be installed manually via :TSInstall
 require('nvim-treesitter.configs').setup {
+  ensure_installed = { 'html', 'javascript', 'ruby', 'rust' },
   highlight = {
     enable = true, -- In future, LSP-provided semantic tokens would be better
   },
