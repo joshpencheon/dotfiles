@@ -72,6 +72,9 @@ table.insert(runtime_path, 'lua/?/init.lua')
 
 local snippy = require 'snippy'
 
+-- Support expanding ${VISUAL} snippets
+vim.keymap.set('x', '<Tab>', require('snippy.mapping').cut_text, { remap = true })
+
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local compare = require 'cmp.config.compare'
