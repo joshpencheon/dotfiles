@@ -1,0 +1,154 @@
+snippet frozen
+	# frozen_string_literal: true
+snippet #!
+	#!/usr/bin/env ruby
+snippet begin
+	begin
+		${0:${VISUAL}}
+	end
+snippet rescue
+	begin
+		${3:${VISUAL}}
+	rescue ${1:StandardError} => ${2:ex}
+		$0
+	end
+snippet case
+	case ${1:object}
+	when $2
+		${0}
+	end
+snippet when
+	when $1
+		${0:${VISUAL}}
+snippet def
+	def ${1:method_name}
+		${0:${VISUAL}}
+	end
+snippet defm
+	def ${1:method}
+		@$1 ||= ${0}
+	end
+snippet defs
+	def self.${1:class_method_name}
+		${0}
+	end
+# def initialize
+snippet defi
+	def initialize(${1:args})
+		${0}
+	end
+snippet if
+	if $1
+		${0:${VISUAL}}
+	end
+snippet ife
+	if $1
+		${2:${VISUAL}}
+	else
+		${0}
+	end
+snippet elsif
+	elsif $1
+		${0:${VISUAL}}
+snippet unless
+	unless $1
+		${0:${VISUAL}}
+	end
+snippet wh
+	while $1
+		${0:${VISUAL}}
+	end
+snippet class
+	class ${1:`substitute(expand('%:t:r'), '\(_\|^\)\(.\)', '\u\2', 'g')`}
+		${0}
+	end
+snippet single open the singleton class
+	class << ${1:self}
+		${0}
+	end
+snippet module
+	module ${1:`substitute(expand('%:t:r'), '\(_\|^\)\(.\)', '\u\2', 'g')`}
+		${0}
+	end
+snippet r
+	attr_reader :${0:attr_names}
+snippet w
+	attr_writer :${0:attr_names}
+snippet rw
+	attr_accessor :${0:attr_names}
+snippet =
+	${1:var} = ${0}
+snippet @
+	@${1:var} = ${0:$1}
+snippet :
+	${1:key}: ${2:"value"}
+snippet each
+	each { |${1:item}| ${0} }
+snippet inject
+	inject(${1:init}) { |${2:mem}, ${3:item}| ${0} }
+snippet map
+	map { |${1:item}| ${0} }
+snippet detect
+	detect { |${1:item}| ${0} }
+snippet all
+	all? { |${1:item}| ${0} }
+snippet any
+	any? { |${1:item}| ${0} }
+snippet partition
+	partition { |${1:item}| ${0} }
+snippet reject
+	reject { |${1:item}| ${0} }
+snippet select
+	select { |${1:item}| ${0} }
+snippet do
+	do${1: |${2:item}|}
+		${0}
+	end
+snippet pry
+	require "pry"; binding.pry
+snippet irb
+	binding.irb
+snippet rspec
+	require "rails_helper"
+
+	describe ${1:`substitute(substitute(expand('%:t:r'), '_spec$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
+		${0}
+	end
+snippet describe
+	describe "${1:#method}" do
+		${0:it}
+	end
+snippet context
+	context "${1:when}" do
+		${0:it}
+	end
+snippet before
+	before do
+		$0
+	end
+snippet let
+	let(:${1:object}) { ${0} }
+snippet let!
+	let!(:${1:object}) { ${0} }
+snippet subject
+	subject(:${1:object}) { ${0} }
+snippet expect
+	expect(${1:object}).to ${0}
+snippet expectc
+	expect { ${1:object} }.to change { ${0:effect} }
+snippet expectr
+	expect { ${1:object} }.to raise_error ${2:StandardError}, /${0:pattern}/
+snippet allow
+	allow(${1:object}).to receive${2:_messages}(${0})
+snippet shared
+	shared_examples "${1:behaving like}" do
+		$0
+	end
+snippet it
+	it "${1:spec_name}" do
+		${0}
+	end
+snippet itis
+	it { is_expected.to ${0} }
+snippet be
+	be_${0:predicate}
