@@ -74,6 +74,9 @@ local snippy = require 'snippy'
 
 -- Support expanding ${VISUAL} snippets
 vim.keymap.set('x', '<Tab>', require('snippy.mapping').cut_text, { remap = true })
+vim.keymap.set('s', '<Tab>', snippy.next, { remap = true })
+vim.keymap.set('s', '<S-Tab>', snippy.previous, { remap = true })
+vim.keymap.set('s', '<BS>', '<c-o>c', { remap = true })
 
 -- nvim-cmp setup
 local cmp = require 'cmp'
@@ -112,8 +115,10 @@ cmp.setup {
     ['<Tab>'] = function(fallback)
       if cmp.visible() then
         cmp.select_next_item()
-      elseif snippy.can_expand_or_advance() then
-        snippy.expand_or_advance()
+      elseif snippy.can_jump(1) then
+        snippy.next()
+      elseif snippy.can_expand() then
+        snippy.expand()
       elseif should_insert_whitespace() then
         fallback()
       else

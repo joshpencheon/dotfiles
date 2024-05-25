@@ -94,7 +94,6 @@ require("lazy").setup({
     'dcampos/nvim-snippy',
     dependencies = {
       'dcampos/cmp-snippy', -- integrates with cmp
-      'honza/vim-snippets', -- source of snippets
     }
   },
 
