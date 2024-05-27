@@ -131,7 +131,7 @@ snippet let
 snippet let!
 	let!(:${1:object}) { ${0} }
 snippet subject
-	subject(:${1:object}) { ${0} }
+	subject${1:(${2::subject})} { ${0} }
 snippet expect
 	expect(${1:object}).to ${0}
 snippet expectc
@@ -148,7 +148,9 @@ snippet it
 	it "${1:spec_name}" do
 		${0}
 	end
-snippet itis
+snippet ii
 	it { is_expected.to ${0} }
+snippet iin
+	it { is_expected.not_to ${0} }
 snippet be
 	be_${0:predicate}
