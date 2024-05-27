@@ -5,6 +5,13 @@ vim.o.wildmode = 'longest,list'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.pumheight = 8
 
+-- Defer diagnostics that arrive in insert mode:
+vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
+  vim.lsp.diagnostic.on_publish_diagnostics, {
+    update_in_insert = false
+  }
+)
+
 -- Use a sharp border with `FloatBorder` highlights:
 vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
   vim.lsp.handlers.hover, {

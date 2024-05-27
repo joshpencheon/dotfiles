@@ -29,7 +29,7 @@ sign define DiagnosticSignInfo text= texthl=DiagnosticSignInfo linehl= numhl=Dia
 sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=DiagnosticSignHint
 ]]
 
-vim.api.nvim_create_autocmd({"CursorHold","CursorHoldI"}, {
+vim.api.nvim_create_autocmd("CursorHold", {
     pattern = "*",
     callback = function(args)
       vim.diagnostic.open_float({ scope = "cursor" }, { focus = false })
