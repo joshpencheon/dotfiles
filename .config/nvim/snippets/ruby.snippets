@@ -54,10 +54,6 @@ snippet unless
 	unless $1
 		${0:${VISUAL}}
 	end
-snippet wh
-	while $1
-		${0:${VISUAL}}
-	end
 snippet class
 	class ${1:`substitute(expand('%:t:r'), '\(_\|^\)\(.\)', '\u\2', 'g')`}
 		${0}
