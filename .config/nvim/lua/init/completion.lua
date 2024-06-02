@@ -44,9 +44,6 @@ require('lspconfig.ui.windows').default_options.border = 'rounded'
 -- beyond those built in to NeoVim's LSP.
 capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- Hook in neodev before registering lua_ls
-require("neodev").setup()
-
 -- Enable the following language servers
 local servers = {
   'clangd',

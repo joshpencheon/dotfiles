@@ -114,7 +114,10 @@ require("lazy").setup({
   'vim-ruby/vim-ruby',       -- enhanced Ruby support
   'hashivim/vim-terraform',  -- highlighting for HCL
 
-  'folke/neodev.nvim', -- Improved LSP setup for Neovim config
+  { -- Improved LSP setup for Neovim config
+    'folke/lazydev.nvim',
+    ft = 'lua'
+  },
 
   { -- Improved Golang support
     'ray-x/go.nvim',
