@@ -60,6 +60,11 @@ require("lazy").setup({
     config = function() require('init.git') end
   },
 
+  { -- git support for dotfiles in $HOME
+    "ejrichards/baredot.nvim",
+    opts = { git_dir = "~/.cfg" }
+  },
+
   { -- Highlight, edit, and navigate code using a fast incremental parsing library
     'nvim-treesitter/nvim-treesitter',
     config = function() require('init.treesitter') end,
