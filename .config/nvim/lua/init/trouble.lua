@@ -39,21 +39,26 @@ vim.api.nvim_create_autocmd("CursorHold", {
 
 -- Use trouble for more details:
 require("trouble").setup {
-    icons = false,
-    fold_open = "▾",
-    fold_closed = "▸",
-    indent_lines = true,
-    signs = {
-        error       = "error",
-        warning     = "warn",
-        hint        = "hint",
-        information = "info"
+  icons = {
+    indent = {
+      middle = " ",
+      last = " ",
+      top = " ",
+      ws = "│  ",
+      fold_open = "▾",
+      fold_closed = "▸",
     },
-    use_diagnostic_signs = false,
-    cycle_results = false
+  },
+  modes = {
+    diagnostics = {
+      groups = {
+        { "filename", format = "{file_icon} {basename:Title} {count}" },
+      },
+    },
+  },
 }
 
-vim.keymap.set("n", "<leader>t", [[<cmd>TroubleToggle<cr>]], { silent = true })
+vim.keymap.set("n", "<leader>t", [[<cmd>Trouble diagnostics toggle<cr>]], { silent = true })
 vim.keymap.set("n", "<leader>T", vim.diagnostic.toggle, { silent = true })
 
 vim.keymap.set('n', ']t', function()
