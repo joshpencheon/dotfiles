@@ -72,6 +72,8 @@ snippet w
 	attr_writer :${0:attr_names}
 snippet rw
 	attr_accessor :${0:attr_names}
+snippet delegate
+	delegate :${1:method_name}, to: :${0:target}
 snippet =
 	${1:var} = ${0}
 snippet @
@@ -127,7 +129,7 @@ snippet let
 snippet let!
 	let!(:${1:object}) { ${0} }
 snippet subject
-	subject${1:(${2::subject})} { ${0} }
+	subject${1:(:${2:subject})} { ${0} }
 snippet expect
 	expect(${1:object}).to ${0}
 snippet expectc
