@@ -70,6 +70,18 @@ require("lazy").setup({
     }
   },
 
+  { -- Extensible framework for running tests
+    'nvim-neotest/neotest',
+    config = function() require('init.neotest') end,
+    dependencies = {
+      'nvim-neotest/nvim-nio',
+      'nvim-lua/plenary.nvim',
+      'antoinemadec/FixCursorHold.nvim',
+      'nvim-treesitter/nvim-treesitter',
+      'olimorris/neotest-rspec',
+    },
+  },
+
   { -- LSP client configuration
     'neovim/nvim-lspconfig',
     dependencies = {

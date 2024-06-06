@@ -34,7 +34,7 @@ local on_attach = function(_, bufnr)
   -- vim.keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
   vim.keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
   vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
-  vim.keymap.set('n', '<leader>s', function() require('telescope.builtin').lsp_dynamic_workspace_symbols() end, opts)
+  -- vim.keymap.set('n', '<leader>s', function() require('telescope.builtin').lsp_dynamic_workspace_symbols() end, opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 end
 
