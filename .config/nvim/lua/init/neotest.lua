@@ -19,7 +19,7 @@ neotest.setup({
   },
 })
 
-vim.keymap.set('n', '<leader>sr', function()
+vim.keymap.set('n', '<leader>ss', function()
   neotest.run.run()
 end, { desc = 'run nearest test', silent = true })
 vim.keymap.set('n', '<leader>sa', function()
@@ -28,7 +28,7 @@ end, { desc = 'run all tests in file', silent = true })
 vim.keymap.set('n', '<leader>st', function()
   neotest.summary.toggle()
 end, { desc = 'toggle neotest summary pane', silent = true })
-vim.keymap.set('n', '<leader>ss', function()
+vim.keymap.set('n', '<leader>sr', function()
   neotest.output.open({ short = true })
 end, { desc = 'show floating window for nearest test result', silent = true })
 vim.keymap.set('n', '[s', function()
