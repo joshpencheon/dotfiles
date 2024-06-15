@@ -154,6 +154,8 @@ cmp.setup {
     { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
     { name = 'snippy' },
+    -- set group index to 0 to skip loading LuaLS completions:
+    { name = 'lazydev', group_index = 0 },
   },
   sorting = {
     priority_weight = 2,
