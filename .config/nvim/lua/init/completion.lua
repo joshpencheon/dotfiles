@@ -104,6 +104,9 @@ cmp.setup {
     autocomplete = false,
     completeopt = vim.o.completeopt,
   },
+  experimental = {
+    ghost_text = true
+  },
   snippet = {
     expand = function(args)
       snippy.expand_snippet(args.body)
