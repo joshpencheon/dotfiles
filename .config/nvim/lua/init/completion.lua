@@ -42,35 +42,58 @@ require('lspconfig.ui.windows').default_options.border = 'rounded'
 
 -- nvim-cmp supports additional completion capabilities
 -- beyond those built in to NeoVim's LSP.
-capabilities = require('cmp_nvim_lsp').default_capabilities()
+local capabilities = require('cmp_nvim_lsp').default_capabilities()
 
--- Enable the following language servers
-local servers = {
-  'clangd',
-  'eslint',
-  'gopls',
-  'lua_ls',
-  'pyright',
-  'rust_analyzer',
-  'ruby_lsp',
-  'terraformls',
-  'tflint',
-  'tsserver',
+lspconfig['clangd'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
-
-local server_settings = {
-  ["rust-analyzer"] = {
-    check = { command = "clippy" }
-  }
+lspconfig['eslint'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
 }
-
-for _, lsp in ipairs(servers) do
-  lspconfig[lsp].setup {
-    on_attach = on_attach,
-    capabilities = capabilities,
-    settings = server_settings
-  }
-end
+lspconfig['html'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  filetypes = { "eruby", "html", "templ" }
+}
+lspconfig['gopls'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+lspconfig['lua_ls'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+lspconfig['pyright'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+lspconfig['rust_analyzer'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+  settings = {
+    ["rust-analyzer"] = {
+      check = { command = "clippy" }
+    }
+  },
+}
+lspconfig['ruby_lsp'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+lspconfig['terraformls'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+lspconfig['tflint'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
+lspconfig['tsserver'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 
 -- Example custom server
 -- Make runtime files discoverable to the server
