@@ -109,7 +109,7 @@ snippet irb
 snippet rspec
 	require "rails_helper"
 
-	describe ${1:`substitute(substitute(expand('%:t:r'), '_spec$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
+	RSpec.describe ${1:`substitute(substitute(expand('%:t:r'), '_spec$', '', ''), '\(_\|^\)\(.\)', '\u\2', 'g')`} do
 		${0}
 	end
 snippet describe
