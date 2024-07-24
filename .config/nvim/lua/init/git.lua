@@ -7,6 +7,7 @@ require('gitsigns').setup {
     topdelete = { text = '∙' },
     changedelete = { text = '∙' },
   },
+  signs_staged_enable = false,
   current_line_blame = true,
   current_line_blame_opts = {
     delay = 250,
