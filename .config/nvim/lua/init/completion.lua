@@ -113,6 +113,14 @@ vim.keymap.set('s', '<BS>', '<c-o>c', { remap = true })
 local cmp = require 'cmp'
 local compare = require 'cmp.config.compare'
 
+-- Use treesitter to highlight docs floating window
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = 'cmp_docs',
+  callback = function()
+    vim.treesitter.start(0, 'markdown')
+  end,
+})
+
 local should_insert_whitespace = function()
   local col = vim.fn.col('.') - 1
   if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
