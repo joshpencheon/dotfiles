@@ -2,16 +2,20 @@ snippet %
 	<% ${0} %>
 snippet =
 	<%= ${0} %>
+snippet #
+	<%# ${0} %>
 snippet if
 	<% if ${1} %>
 		${0:${VISUAL}}
 	<% end %>
 snippet ife
 	<% if ${1} %>
-		${2}
+		${2:${VISUAL}}
 	<% else %>
 		${0}
 	<% end %>
+snippet else
+	<% else %>
 snippet end
 	<% end %>
 snippet render
