@@ -9,6 +9,7 @@ brew "gh"
 brew "git"
 brew "neovim"
 brew "tmux"
+brew "zellij"
 
 # Handy utilities
 brew "bat"
