@@ -2,9 +2,12 @@ keybinds clear-defaults=true {
     tmux {
         bind "\"" { NewPane "Down"; SwitchToMode "Normal"; }
         bind "%" { NewPane "Right"; SwitchToMode "Normal"; }
+        bind "t" { ToggleFloatingPanes; SwitchToMode "Normal"; }
         bind "z" { ToggleFocusFullscreen; SwitchToMode "Normal"; }
         bind "o" { FocusNextPane; SwitchToMode "Normal"; }
         bind "Space" { NextSwapLayout; SwitchToMode "Normal"; }
+
+        bind "L" { Clear; SwitchToMode "Normal"; }
 
         bind "Ctrl h" { MoveFocus "Left"; SwitchToMode "Normal"; }
         bind "Ctrl l" { MoveFocus "Right"; SwitchToMode "Normal"; }
@@ -82,8 +85,16 @@ plugins {
 simplified_ui true
 theme "kanagawa"
 
+pane_frames false
+
 // Bottom tab bar only:
 default_layout "compact"
+
+ui {
+    pane_frames {
+        hide_session_name true
+    }
+}
 
 // Sessions are gone for good once ended:
 session_serialization false
