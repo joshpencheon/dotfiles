@@ -26,6 +26,8 @@ elif [ -n "$BASH_VERSION" ]; then
   prompt="$prompt\\[\\033[00m\\]\\[\\033[38;5;244m\\]\w"
 
   # Add git prompt:
+  export GIT_PS1_SHOWDIRTYSTATE=1      # '+' / '*'
+  export GIT_PS1_SHOWUNTRACKEDFILES=1  # '%'
   prompt="$prompt\\[\\033[38;5;195m\\]\$(__git_ps1 ' %s') "
 
   # Finish up:
