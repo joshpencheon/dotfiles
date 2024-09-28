@@ -5,7 +5,7 @@ set -e
 #  https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 
 # Clone a bare repository:
-git clone --recurse-submodules --bare https://github.com/joshpencheon/dotfiles $HOME/.cfg
+git clone --bare https://github.com/joshpencheon/dotfiles $HOME/.cfg
 
 function config {
   /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
