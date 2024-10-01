@@ -81,6 +81,7 @@ lspconfig['rust_analyzer'].setup {
 lspconfig['ruby_lsp'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
+  cmd = { "bundle", "exec", "ruby-lsp" }
 }
 lspconfig['terraformls'].setup {
   on_attach = on_attach,
