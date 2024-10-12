@@ -85,7 +85,8 @@ lspconfig['rust_analyzer'].setup {
 lspconfig['ruby_lsp'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
-  cmd = { "bundle", "exec", "ruby-lsp" }
+  -- RubyLSP should set up a "composed bundle" itself
+  -- cmd = { "bundle", "exec", "ruby-lsp" }
 }
 lspconfig['tailwindcss'].setup {
   on_attach = on_attach,
