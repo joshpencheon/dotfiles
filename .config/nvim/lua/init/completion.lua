@@ -83,6 +83,10 @@ lspconfig['ruby_lsp'].setup {
   capabilities = capabilities,
   cmd = { "bundle", "exec", "ruby-lsp" }
 }
+lspconfig['tailwindcss'].setup {
+  on_attach = on_attach,
+  capabilities = capabilities,
+}
 lspconfig['terraformls'].setup {
   on_attach = on_attach,
   capabilities = capabilities,
