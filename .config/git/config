@@ -1,6 +1,6 @@
 [alias]
 	recent = branch --sort=-committerdate --format="%(committerdate:relative)%09%(refname:short)"
-	search = "!f() { git log --oneline -S $@ | fzf --preview 'git show {+1}'; }; f"
+	search = "!f() { git log --oneline -S $@ | fzf --preview 'git show --color=always {+1}'; }; f"
 	sw = "!git switch $(git branch --sort=-committerdate --format=\"%(refname:short)\" | fzf --reverse --height 20% --query ${1:-''})"
 	tree = log --graph --oneline --decorate --all
 [color "diff"]
