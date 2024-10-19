@@ -4,12 +4,12 @@ function __exit_status_ps1() {
 
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     # use blue / yellow for SSH sessions...
-    colour=$([ $status == 0 ] && echo "81" || echo "227")
+    colour=$([ $status == 0 ] && echo "34" || echo "93")
   else
     # ...otherwise, red / green:
-    colour=$([ $status == 0 ] && echo "112" || echo "124")
+    colour=$([ $status == 0 ] && echo "92" || echo "31")
   fi
 
-  printf "\033[38;5;${colour}m$dot $(date +"%X")"
+  printf "\033[${colour}m$dot $(date +"%X")"
 }
 
