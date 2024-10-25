@@ -1123,13 +1123,15 @@ Respond with one or more commands. Do not include any explanation or additional 
 	<key>DimInactiveSplitPanes</key>
 	<true/>
 	<key>DimOnlyText</key>
-	<false/>
+	<true/>
 	<key>DisableFullscreenTransparency</key>
 	<false/>
 	<key>DisableMetalWhenUnplugged</key>
 	<false/>
 	<key>DoubleClickPerformsSmartSelection</key>
 	<false/>
+	<key>EnableDivisionView</key>
+	<true/>
 	<key>EnableRendezvous</key>
 	<false/>
 	<key>FastTrackpad</key>
