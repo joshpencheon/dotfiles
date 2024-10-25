@@ -5,7 +5,6 @@ require('kanagawa').setup({
       theme = {
         all = {
           ui = {
-            bg = "black",
             bg_gutter = "none",
             float = {
               bg = "none",
@@ -26,7 +25,7 @@ require('kanagawa').setup({
         TabLineSel = { fg = theme.ui.fg, bg = theme.ui.bg, bold = true },
         TabLineFill = { link = 'TabLine' },
 
-        Whitespace  = { fg = theme.ui.bg_p1 },
+        Whitespace  = { fg = theme.ui.bg_p2 },
 
         -- Custom style for the magic statusbar:
         StatusLine = { fg = theme.ui.fg, bg = theme.ui.bg_m3 },

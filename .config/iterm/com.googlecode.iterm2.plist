@@ -1518,13 +1518,13 @@ Respond with one or more commands. Do not include any explanation or additional 
 				<key>Alpha Component</key>
 				<real>1</real>
 				<key>Blue Component</key>
-				<real>0.0</real>
+				<real>0.15686274509803921</real>
 				<key>Color Space</key>
 				<string>P3</string>
 				<key>Green Component</key>
-				<real>0.0</real>
+				<real>0.12156862745098039</real>
 				<key>Red Component</key>
-				<real>0.0</real>
+				<real>0.12156862745098039</real>
 			</dict>
 			<key>Background Image Is Tiled</key>
 			<false/>
