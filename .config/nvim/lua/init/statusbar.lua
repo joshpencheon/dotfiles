@@ -47,7 +47,7 @@ vim.cmd [[
       let host_group = group
     endif
 
-    return '%#' . group . '#' . (active ? '»' : '«') . ' %f ' . (active ? '«' : '»') . (active ? '%=%#' . git_group . '#%{FugitiveHead(8)}%#' . group . '#  %l:%v %#' . host_group . '#%{RemoteHost()}' : '')
+    return '%#' . group . '# ' . (active ? '»' : '«') . ' %f ' . (active ? '«' : '»') . (active ? '%=%#' . git_group . '#%{FugitiveHead(8)}%#' . group . '#  %l:%v %#' . host_group . '#%{RemoteHost()}' : '')
   endfunction
 
   function! s:RefreshStatuses(focus)
