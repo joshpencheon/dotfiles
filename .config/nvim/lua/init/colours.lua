@@ -36,6 +36,9 @@ require('kanagawa').setup({
         StatusLineGit = { fg = palette.dragonGreen, bg = theme.ui.bg_m3 },
         StatusLineHost = { fg = theme.ui.special, bg = theme.ui.bg_m3 },
 
+        -- Render commandline over statusline nicely (cmdheight=0):
+        MsgArea = { link = 'StatusLine' },
+
         -- Draw a line under Treesitter Context showing code nesting:
         TreesitterContext = { link = 'Normal' },
         TreesitterContextBottom = { underline = true, sp = theme.ui.nontext },

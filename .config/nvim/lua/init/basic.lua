@@ -42,6 +42,8 @@ vim.o.updatetime = 1000 -- primarily for CursorHold event
 
 vim.wo.signcolumn = 'yes'
 
+vim.o.cmdheight = 0
+
 vim.opt.listchars = {
   space = '⋅',
   trail = '█',
