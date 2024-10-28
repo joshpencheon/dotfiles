@@ -131,7 +131,7 @@ end
 vim.keymap.set('n', '<leader>w', [[<cmd>w<CR>]], { silent = true })
 vim.keymap.set('n', '<leader>q', [[<cmd>bd<CR>]], { silent = true })
 
-vim.keymap.set('n', '<leader>b', builtin.buffers, { silent = true })
+vim.keymap.set('n', '<leader>b', function() builtin.buffers({sort_mru = true}) end, { silent = true })
 vim.keymap.set('n', '<leader>o', git_or_find_files, { silent = true })
 vim.keymap.set('n', '<leader>O', function() builtin.find_files({previewer = false}) end, { silent = true })
 vim.keymap.set('n', '<leader>j', builtin.jumplist, { silent = true })
