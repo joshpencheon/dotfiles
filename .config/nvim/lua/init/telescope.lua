@@ -128,8 +128,8 @@ function git_or_find_files(args)
 end
 
 --Add leader shortcuts
-vim.keymap.set('n', '<leader>w', [[<cmd>w<CR>]], { silent = true })
-vim.keymap.set('n', '<leader>q', [[<cmd>bd<CR>]], { silent = true })
+vim.keymap.set('n', '<leader>w', [[:silent w ++p<CR>]])
+vim.keymap.set('n', '<leader>q', [[:silent bd<CR>]])
 
 vim.keymap.set('n', '<leader>b', function() builtin.buffers({sort_mru = true}) end, { silent = true })
 vim.keymap.set('n', '<leader>o', git_or_find_files, { silent = true })
