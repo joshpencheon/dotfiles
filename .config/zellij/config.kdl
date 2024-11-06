@@ -15,8 +15,6 @@ keybinds clear-defaults=true {
         bind "Ctrl k" { MoveFocus "Up"; SwitchToMode "Normal"; }
 
         bind "c" { NewTab; SwitchToMode "Normal"; }
-        bind "Left" { GoToPreviousTab; SwitchToMode "Normal"; }
-        bind "Right" { GoToNextTab; SwitchToMode "Normal"; }
 
         bind "w" {
             LaunchOrFocusPlugin "session-manager" {
@@ -32,6 +30,12 @@ keybinds clear-defaults=true {
         bind "[" { SwitchToMode "Scroll"; }
         bind "," { SwitchToMode "RenameTab"; TabNameInput 0; }
         bind "." { SwitchToMode "RenamePane"; PaneNameInput 0; }
+    }
+    normal {
+        bind "Shift Left" { GoToPreviousTab; }
+        bind "Shift Right" { GoToNextTab; }
+        bind "Ctrl Shift Left" { MoveTab "Left"; }
+        bind "Ctrl Shift Right" { MoveTab "Right"; }
     }
     renametab {
         bind "Enter" { SwitchToMode "Normal"; }
