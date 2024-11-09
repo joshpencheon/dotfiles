@@ -18,6 +18,15 @@ require("lazy").setup({
     priority = 1000
   },
 
+  {
+    'folke/noice.nvim',
+    event = 'VeryLazy',
+    config = function() require('init.noice') end,
+    dependencies = {
+      'MunifTanjim/nui.nvim',
+    }
+  },
+
   { -- Git commands in nvim
     'tpope/vim-fugitive',
     config = function() require('init.statusbar') end
