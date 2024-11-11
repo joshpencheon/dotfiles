@@ -24,9 +24,9 @@ layout {
             plugin location="compact-bar"
         }
     }
-    tab name="Server" {
+    tab name="bin/dev" {
         pane command="bash" start_suspended=true {
-            args "-c" "bin/rails server"
+            args "-c" "bin/dev"
         }
         pane size=1 {
             plugin location="compact-bar"
