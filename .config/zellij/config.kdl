@@ -7,6 +7,9 @@ keybinds clear-defaults=true {
         bind "o" { FocusNextPane; SwitchToMode "Normal"; }
         bind "Space" { NextSwapLayout; SwitchToMode "Normal"; }
 
+        bind "=" { Resize "Increase"; }
+        bind "-" { Resize "Decrease"; }
+
         bind "L" { Clear; SwitchToMode "Normal"; }
 
         bind "Ctrl h" { MoveFocus "Left"; SwitchToMode "Normal"; }

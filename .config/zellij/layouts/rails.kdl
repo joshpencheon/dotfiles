@@ -1,35 +1,23 @@
 layout {
-    // Avoiding default_tab_template until issues with
-    // hiding floating panes by default are resolved.
-    tab name="Editor" focus=true hide_floating_panes=true {
-        pane command="nvim"
-        floating_panes {
-            pane {
-                name "Shell"
-                x "10%"
-                y "10%"
-                width "80%"
-                height "80%"
-            }
-        }
+    // A bug means templates don't currently play
+    // nicely with specified floating panes.
+    default_tab_template {
+        children
         pane size=1 {
             plugin location="compact-bar"
         }
+    }
+    tab name="Editor" focus=true {
+        pane command="nvim"
     }
     tab name="Console" {
         pane command="bash" start_suspended=true {
             args "-c" "bin/rails console"
         }
-        pane size=1 {
-            plugin location="compact-bar"
-        }
     }
     tab name="bin/dev" {
         pane command="bash" start_suspended=true {
             args "-c" "bin/dev"
-        }
-        pane size=1 {
-            plugin location="compact-bar"
         }
     }
 }
