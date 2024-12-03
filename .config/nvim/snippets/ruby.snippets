@@ -1,7 +1,13 @@
 snippet frozen
 	# frozen_string_literal: true
+
+
+
 snippet #!
 	#!/usr/bin/env ruby
+
+
+
 snippet begin
 	begin
 		${0:${VISUAL}}
@@ -66,6 +72,18 @@ snippet module
 	module ${1:`substitute(expand('%:t:r'), '\(_\|^\)\(.\)', '\u\2', 'g')`}
 		${0}
 	end
+snippet concern
+	extend ActiveSupport::Concern
+
+	${1:included do
+		${2}
+	end}
+
+	${3:class_methods do
+		${4}
+	end}
+
+	${0}
 snippet r
 	attr_reader :${0:attr_names}
 snippet w
