@@ -8,6 +8,7 @@ require('noice').setup({
       filter = { icon = " $" },
       lua = { icon = " ☾" },
       help = { icon = " ?" },
+      input = { icon = "" },
     },
   },
   messages = {
