@@ -238,14 +238,25 @@ cmp.setup.cmdline('/', {
 -- Use cmdline & path source for ':'
 cmp.setup.cmdline(':', {
   completion = {
-    keyword_length = 3,
+    keyword_length = 2,
     autocomplete = {
       cmp.TriggerEvent.TextChanged,
     },
   },
-  sources = {
-    { name = 'path' },
-    { name = 'cmdline' }
-  },
-  mapping = cmp.mapping.preset.cmdline()
+  sources = cmp.config.sources({
+    { name = 'path', option = { trailing_slash = true } }
+  }, {
+    { name = 'cmdline', option = { treat_trailing_slash = false } }
+  }),
+  mapping = cmp.mapping.preset.cmdline({
+    ['<CR>'] = {
+      c = function(fallback)
+        if cmp.visible() and cmp.get_selected_entry() then
+          cmp.confirm()
+        else
+          fallback()
+        end
+      end
+    },
+  })
 })
