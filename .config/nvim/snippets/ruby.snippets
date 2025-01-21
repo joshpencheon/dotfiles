@@ -129,7 +129,9 @@ snippet rspec
 		${0}
 	end
 snippet describe
-	describe "${1:#${2:method}}" do
+	describe "${1:#method}" do
+		subject(${1/^[.#]*/:/g}) { ${2:subject.${1/^[.#]*//g}} }
+
 		${0:it}
 	end
 snippet context
