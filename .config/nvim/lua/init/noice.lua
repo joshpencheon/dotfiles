@@ -28,6 +28,13 @@ require('noice').setup({
   },
   views = {
     mini = {
+      position = {
+        row = -1,
+        col = 0,
+      },
+      size = {
+        width = "100%",
+      },
       win_options = {
         winblend = 0,
       },
