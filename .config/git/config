@@ -4,10 +4,10 @@
 	sw = "!git switch $(git branch --sort=-committerdate --format=\"%(refname:short)\" | fzf --reverse --height 20% --query ${1:-''})"
 	tree = log --graph --oneline --decorate --all
 [color "diff"]
-	oldMoved = brightmagenta dim
-	newMoved = brightblue dim
-	oldMovedAlternative = brightyellow dim
-	newMovedAlternative = brightcyan dim
+	oldMoved = magenta
+	newMoved = blue
+	oldMovedAlternative = yellow
+	newMovedAlternative = cyan
 [commit]
 	verbose = true
 [diff]
