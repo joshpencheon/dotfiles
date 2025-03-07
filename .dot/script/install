@@ -4,11 +4,17 @@ set -e
 # Based on:
 #  https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/
 
+config_location=$HOME/.cfg
+
 # Clone a bare repository:
-git clone --bare https://github.com/joshpencheon/dotfiles $HOME/.cfg
+if [ -f "$config_location/HEAD" ]; then
+  echo "Skipping git clone; it appears to already exist"
+else
+  git clone --bare https://github.com/joshpencheon/dotfiles $config_location
+fi
 
 function config {
-  /usr/bin/git --git-dir=$HOME/.cfg/ --work-tree=$HOME $@
+  /usr/bin/git --git-dir=$config_location/ --work-tree=$HOME $@
 }
 
 # Checkout into $HOME:
