@@ -31,10 +31,6 @@ vim.cmd [[
         let group = 'StatusLineReplace'
         let git_group = group
         let host_group = group
-      elseif mode == 'c'
-        let group = 'StatusLineCommand'
-        let git_group = group
-        let host_group = group
       else
         let group     = 'StatusLine'
         let git_group = 'StatusLineGit'

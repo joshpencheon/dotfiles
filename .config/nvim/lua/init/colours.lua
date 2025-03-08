@@ -32,7 +32,6 @@ require('kanagawa').setup({
         StatusLineInsert = { fg = palette.sumiInk0, bg = palette.springGreen },
         StatusLineVisual = { fg = palette.sumiInk0, bg = palette.springBlue },
         StatusLineReplace = { fg = palette.sumiInk0, bg = palette.waveRed },
-        StatusLineCommand = { fg = palette.sumiInk0, bg = palette.surimiOrange },
         StatusLineGit = { fg = palette.dragonGreen, bg = theme.ui.bg_m3 },
         StatusLineHost = { fg = theme.ui.special, bg = theme.ui.bg_m3 },
 
