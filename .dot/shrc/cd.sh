@@ -1,4 +1,3 @@
-# cd directly from listed paths.
-# Leading blank segment ensures local jumps match first.
+# cd directly to subdirectories of listed paths
 # Could add additional matches to ~/.bashrc.local
-CDPATH=:~/dev:~/dev/gems
+CDPATH=.:~/dev
