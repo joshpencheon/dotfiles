@@ -30,6 +30,6 @@ elif [ -n "$BASH_VERSION" ]; then
   prompt="$prompt\n"
   prompt="$prompt\\[\\033[95m\\]$ \\[\\e[0m\\]\\[\\033[0m\\]"
 
-  export PS1=$prompt
-  export PS2="\\[\\033[95m\\]> \\[\\e[0m\\]\\[\\033[0m\\]"
+  PS1=$prompt
+  PS2="\\[\\033[95m\\]> \\[\\e[0m\\]\\[\\033[0m\\]"
 fi
