@@ -1,7 +1,8 @@
 theme = kanagawa
 
+font-family = "Source Code Pro"
 font-family = Monaco
-font-size = 24
+font-size = 18
 
 window-width = 80
 window-height = 24
