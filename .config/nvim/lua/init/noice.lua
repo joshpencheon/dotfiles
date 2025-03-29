@@ -40,4 +40,14 @@ require('noice').setup({
       },
     },
   },
+  -- Attempt to get ':!' filter output printing again:
+  routes = {
+    {
+      view = "mini",
+      filter = {
+        event = "msg_show",
+        kind = { "shell_out", "shell_err" },
+      },
+    },
+  }
 })
