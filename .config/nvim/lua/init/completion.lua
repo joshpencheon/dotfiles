@@ -132,6 +132,24 @@ vim.api.nvim_create_autocmd('FileType', {
   end,
 })
 
+-- cmp's "custom" entries view uses `vim.fn.setcmdline`
+-- when selecting an item when suggesting cmdline completions.
+-- However, this doesn't seem to trigger the "cmdline_show"
+-- event (which it should), which is needed by Noice's
+-- externalised cmdline UI for it to know it needs to redraw.
+-- This hacky wrapper wiggles the cursor to force a redraw.
+local keymap = require('cmp.utils.keymap')
+local force_cmdline_redraw = function(cmp_action)
+  local original_cmp_action = cmp[cmp_action]
+  cmp[cmp_action] = function()
+    original_cmp_action()
+
+    vim.api.nvim_feedkeys(keymap.t(' <bs>'), 'ni', false)
+  end
+end
+force_cmdline_redraw("select_next_item")
+force_cmdline_redraw("select_previous_item")
+
 local should_insert_whitespace = function()
   local col = vim.fn.col('.') - 1
   if col == 0 or vim.fn.getline('.'):sub(col, col):match('%s') then
