@@ -167,6 +167,12 @@ cmp.setup {
   experimental = {
     ghost_text = true
   },
+  view = {
+    entries = {
+      name = 'custom',
+      selection_order = 'near_cursor'
+    }
+  },
   snippet = {
     expand = function(args)
       snippy.expand_snippet(args.body)
