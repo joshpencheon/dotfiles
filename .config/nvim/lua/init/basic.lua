@@ -40,6 +40,9 @@ vim.o.timeoutlen = 500
 vim.o.ttimeoutlen = 10
 vim.o.updatetime = 1000 -- primarily for CursorHold event
 
+vim.o.title = true
+vim.o.titlestring = 'vi %{expand("%:~:.")}'
+
 vim.wo.signcolumn = 'yes'
 
 vim.o.cmdheight = 0
