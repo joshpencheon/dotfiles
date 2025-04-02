@@ -8,6 +8,8 @@ snippet #!
 
 
 
+snippet require
+	require "${0}"
 snippet begin
 	begin
 		${0:${VISUAL}}
@@ -26,20 +28,20 @@ snippet case
 snippet when
 	when $1
 		${0:${VISUAL}}
-snippet def
+snippet def "Define method"
 	def ${1:method_name}
 		${0:${VISUAL}}
 	end
-snippet defm
+snippet defm "Define memoising method"
 	def ${1:method}
 		@$1 ||= ${0}
 	end
-snippet defs
+snippet defs "Define method on self"
 	def self.${1:class_method_name}
 		${0}
 	end
 # def initialize
-snippet defi
+snippet defi "Define initialiser"
 	def initialize(${1:args})
 		${0}
 	end
@@ -64,7 +66,7 @@ snippet class
 	class ${1:`substitute(expand('%:t:r'), '\(_\|^\)\(.\)', '\u\2', 'g')`}
 		${0}
 	end
-snippet single open the singleton class
+snippet single "Open the singleton class"
 	class << ${1:self}
 		${0}
 	end
@@ -84,13 +86,13 @@ snippet concern
 	end}
 
 	${0}
-snippet r
+snippet r "Attribute reader" b
 	attr_reader :${0:attr_names}
-snippet w
+snippet w "Attribute writer" b
 	attr_writer :${0:attr_names}
-snippet rw
+snippet rw "Attribute accessor" b
 	attr_accessor :${0:attr_names}
-snippet delegate
+snippet delegate "Define delegate" b
 	delegate :${1:method_name}, to: :${0:target}
 snippet =
 	${1:var} = ${0}
@@ -151,7 +153,7 @@ snippet subject
 snippet expect
 	expect(${1:object}).to ${0}
 snippet expectc
-	expect { ${1:object} }.to change { ${0:effect} }
+	expect { ${1:object} }.to change { ${0:observation} }
 snippet expectr
 	expect { ${1:object} }.to raise_error ${2:StandardError}, /${0:pattern}/
 snippet allow
