@@ -164,7 +164,6 @@ require("lazy").setup({
   },
 
   'junegunn/vim-easy-align',   -- bulk formatting
-  'junegunn/vim-peekaboo',     -- register previewing
   'AndrewRadev/splitjoin.vim', -- e.g. inline/multiline toggling
 
   'christoomey/vim-tmux-navigator', -- navigate between nvim/tmux splits
