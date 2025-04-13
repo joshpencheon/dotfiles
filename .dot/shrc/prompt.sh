@@ -15,7 +15,7 @@ elif [ -n "$BASH_VERSION" ]; then
 
   # Add user@host, if this is a remote session:
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
-    prompt="$prompt\\[\\033[1;34m\\]\$(whoami)@\$(hostname -s) "
+    prompt="$prompt\\[\\033[1;35m\\]\$(whoami)@\$(hostname -s) "
   fi
 
   # Add current working directory:
