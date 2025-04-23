@@ -13,6 +13,7 @@ brew "zellij"
 
 # Handy utilities
 brew "bat"
+brew "btop"
 brew "fd"
 brew "fzf"
 brew "htop"
