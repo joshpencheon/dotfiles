@@ -49,5 +49,13 @@ require('noice').setup({
         kind = { "shell_out", "shell_err" },
       },
     },
-  }
+  },
+  lsp = {
+    hover = {
+      enabled = false
+    },
+    signature = {
+      enabled = false
+    },
+  },
 })

@@ -5,22 +5,10 @@ vim.o.wildmode = 'longest,list'
 vim.o.completeopt = 'menu,menuone,noselect'
 vim.o.pumheight = 8
 
--- Defer diagnostics that arrive in insert mode:
-vim.lsp.handlers["textDocument/publishDiagnostics"] = vim.lsp.with(
-  vim.lsp.diagnostic.on_publish_diagnostics, {
-    update_in_insert = false
-  }
-)
-
--- Use a sharp border with `FloatBorder` highlights:
-vim.lsp.handlers["textDocument/hover"] = vim.lsp.with(
-  vim.lsp.handlers.hover, {
-    border = "rounded"
-  }
-)
-
--- dump out to: lua print(vim.lsp.get_log_path())
--- vim.lsp.set_log_level("TRACE")
+vim.diagnostic.config({
+  -- Defer diagnostics that arrive in insert mode:
+  update_in_insert = false,
+})
 
 -- LSP settings
 local lspconfig = require 'lspconfig'
@@ -38,8 +26,6 @@ local on_attach = function(_, bufnr)
   vim.keymap.set('n', '<leader>cS', function() require('telescope.builtin').lsp_dynamic_workspace_symbols() end, opts)
   vim.cmd [[ command! Format execute 'lua vim.lsp.buf.format()' ]]
 end
-
-require('lspconfig.ui.windows').default_options.border = 'rounded'
 
 -- nvim-cmp supports additional completion capabilities
 -- beyond those built in to NeoVim's LSP.
