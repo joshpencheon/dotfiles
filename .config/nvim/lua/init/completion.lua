@@ -276,8 +276,11 @@ cmp.setup.cmdline(':', {
   mapping = cmp.mapping.preset.cmdline({
     ['<CR>'] = {
       c = function(fallback)
-        if cmp.get_active_entry() then cmp.confirm() end
-        fallback()
+        if cmp.get_active_entry() then
+          cmp.confirm({}, fallback)
+        else
+          fallback()
+        end
       end
     },
   })
