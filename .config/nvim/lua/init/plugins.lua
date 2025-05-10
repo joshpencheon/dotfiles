@@ -28,7 +28,20 @@ require("lazy").setup({
     "zbirenbaum/copilot.lua",
     cmd = "Copilot",
     event = "InsertEnter",
-    opt = {},
+    config = function()
+      require("copilot").setup({
+        -- turn off default mechanisms, we'll use cmp instead
+        suggestion = { enabled = false },
+        panel = { enabled = false },
+      })
+    end,
+  },
+
+  {
+    "zbirenbaum/copilot-cmp",
+    config = function ()
+      require("copilot_cmp").setup()
+    end
   },
 
   {

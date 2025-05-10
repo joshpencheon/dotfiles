@@ -199,6 +199,7 @@ cmp.setup {
     end,
   },
   sources = {
+    { name = 'copilot' },
     {
       name = 'buffer',
       option = {
@@ -215,6 +216,8 @@ cmp.setup {
   sorting = {
     priority_weight = 2,
     comparators = {
+      -- Put CoPilot's suggestions first
+      require("copilot_cmp.comparators").prioritize,
       compare.kind, -- demote buffer-based "Text" objects below LSP-provided suggestions
       compare.offset,
       compare.exact,
