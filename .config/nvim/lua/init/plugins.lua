@@ -25,6 +25,22 @@ require("lazy").setup({
   },
 
   {
+    "zbirenbaum/copilot.lua",
+    cmd = "Copilot",
+    event = "InsertEnter",
+    opt = {},
+  },
+
+  {
+    'olimorris/codecompanion.nvim',
+    config = function() require('init.assistant') end,
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      'nvim-treesitter/nvim-treesitter',
+    },
+  },
+
+  {
     'folke/noice.nvim',
     event = 'VeryLazy',
     config = function() require('init.noice') end,
