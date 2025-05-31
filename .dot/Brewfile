@@ -2,7 +2,7 @@ tap "homebrew/bundle"
 
 # Recent bash:
 brew "bash"
-brew "bash-completion"
+brew "bash-completion@2"
 
 # Essentials:
 brew "gh"
