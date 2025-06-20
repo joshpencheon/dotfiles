@@ -119,6 +119,9 @@ require('telescope').load_extension 'ui-select'
 local builtin = require('telescope.builtin')
 
 function git_or_find_files(args)
+    args = args or {}
+    args.case_mode = "ignore_case"
+
     local in_git_repo = vim.fn.systemlist"git rev-parse --is-inside-work-tree"[1] == 'true'
     if in_git_repo then
         builtin.git_files(args)
@@ -131,11 +134,11 @@ end
 vim.keymap.set('n', '<leader>w', [[:silent w ++p<CR>]])
 vim.keymap.set('n', '<leader>q', [[:silent bd<CR>]])
 
-vim.keymap.set('n', '<leader>b', function() builtin.buffers({sort_mru = true}) end, { silent = true })
+vim.keymap.set('n', '<leader>b', function() builtin.buffers({sort_mru = true, case_mode = "ignore_case"}) end, { silent = true })
 vim.keymap.set('n', '<leader>o', git_or_find_files, { silent = true })
-vim.keymap.set('n', '<leader>O', function() builtin.find_files({previewer = false}) end, { silent = true })
+vim.keymap.set('n', '<leader>O', function() builtin.find_files({previewer = false, case_mode = "ignore_case"}) end, { silent = true })
 vim.keymap.set('n', '<leader>j', builtin.jumplist, { silent = true })
-vim.keymap.set('n', '<leader>p', function() builtin.oldfiles({cwd_only = true}) end, { silent = true })
+vim.keymap.set('n', '<leader>p', function() builtin.oldfiles({cwd_only = true, case_mode = "ignore_case"}) end, { silent = true })
 vim.keymap.set('n', '<leader>/', builtin.current_buffer_fuzzy_find, { silent = true })
 vim.keymap.set('n', '<leader>hh', builtin.help_tags, { silent = true })
 vim.keymap.set('n', '<leader>A', builtin.grep_string, { silent = true })
