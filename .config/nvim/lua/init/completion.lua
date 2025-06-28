@@ -200,6 +200,8 @@ cmp.setup {
   },
   sources = {
     { name = 'copilot' },
+    { name = 'nvim_lsp' },
+    { name = 'snippy' },
     {
       name = 'buffer',
       option = {
@@ -207,9 +209,7 @@ cmp.setup {
         get_bufnrs = function() return vim.api.nvim_list_bufs() end
       }
     },
-    { name = 'nvim_lsp' },
     { name = 'nvim_lsp_signature_help' },
-    { name = 'snippy' },
     -- set group index to 0 to skip loading LuaLS completions:
     { name = 'lazydev', group_index = 0 },
   },
@@ -218,11 +218,13 @@ cmp.setup {
     comparators = {
       -- Put CoPilot's suggestions first
       require("copilot_cmp.comparators").prioritize,
-      compare.kind, -- demote buffer-based "Text" objects below LSP-provided suggestions
+
       compare.offset,
       compare.exact,
       compare.score,
       compare.recently_used,
+      compare.locality,
+      compare.kind,
       compare.sort_text,
       compare.length,
       compare.order,
