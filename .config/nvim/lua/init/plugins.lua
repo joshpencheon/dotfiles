@@ -18,11 +18,7 @@ require("lazy").setup({
     priority = 1000
   },
 
-  {
-    'nvim-lua/plenary.nvim',
-    -- winborder fix: https://github.com/nvim-lua/plenary.nvim/pull/649
-    commit = "7750bc895a1f06aa7a940f5aea43671a74143be0"
-  },
+  'nvim-lua/plenary.nvim',
 
   {
     "zbirenbaum/copilot.lua",
