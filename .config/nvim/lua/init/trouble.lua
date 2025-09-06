@@ -24,7 +24,9 @@ sign define DiagnosticSignHint text= texthl=DiagnosticSignHint linehl= numhl=Dia
 vim.api.nvim_create_autocmd("CursorHold", {
     pattern = "*",
     callback = function()
-      vim.diagnostic.open_float({ scope = "cursor" }, { focus = false })
+      if vim.diagnostic.is_enabled() then
+        vim.diagnostic.open_float({ scope = "cursor" }, { focus = false })
+      end
     end,
     desc = "Show floating window with any LSP diagnostics under the cursor",
 })
