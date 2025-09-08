@@ -117,7 +117,6 @@ require("lazy").setup({
 
   { -- Extensible framework for running tests
     'nvim-neotest/neotest',
-    branch = 'fix/subprocess/load-adapters',
     config = function() require('init.neotest') end,
     dependencies = {
       'nvim-neotest/nvim-nio',
