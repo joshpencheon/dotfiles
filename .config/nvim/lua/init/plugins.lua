@@ -45,7 +45,6 @@ require("lazy").setup({
     config = function() require('init.assistant') end,
     dependencies = {
       'nvim-lua/plenary.nvim',
-      'nvim-treesitter/nvim-treesitter',
     },
   },
 
