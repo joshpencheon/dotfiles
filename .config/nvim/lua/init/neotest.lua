@@ -2,7 +2,8 @@ local neotest = require('neotest')
 
 neotest.setup({
   adapters = {
-    require('neotest-rspec')
+    require('neotest-rspec'),
+    require('neotest-minitest'),
   },
   -- Discovery can be VERY slow on large projects
   discovery = { enabled = false },
