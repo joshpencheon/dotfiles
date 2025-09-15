@@ -122,7 +122,7 @@ require("lazy").setup({
       'nvim-lua/plenary.nvim',
       'antoinemadec/FixCursorHold.nvim',
       'nvim-treesitter/nvim-treesitter',
-      { 'joshpencheon/neotest-rspec', branch = 'restore-engine-support' },
+      'olimorris/neotest-rspec',
       'zidhuss/neotest-minitest',
     },
   },
