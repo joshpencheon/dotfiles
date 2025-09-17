@@ -43,10 +43,10 @@ vim.cmd [[
       let host_group = group
     endif
 
-    let relative_path = expand("%:~:.")
+    let relative_path = expand('%:~:.:s|\([^/]*\)/.\{-}/\([^/]*/[^/]*\)$|\1/…/\2|')
 
     if len(relative_path) > 0
-      let title = (active ? '»' : '«') . ' %{expand("%:~:.")} ' . (active ? '«' : '»')
+      let title = (active ? '» ' : '« ') . relative_path . (active ? ' «' : ' »')
     else
       let title = ""
     endif
