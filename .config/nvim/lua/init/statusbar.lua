@@ -51,7 +51,9 @@ vim.cmd [[
       let title = ""
     endif
 
-    return '%#' . group . '# ' . title . (active ? '%=%#' . git_group . '#%{FugitiveHead(8)}%#' . group . '#  %l:%v %#' . host_group . '#%{RemoteHost()}' : '')
+    let branch_summary = FugitiveHead(8)->substitute('\v(.{7}).*(.{13})', '\1…\2', '')
+
+    return '%#' . group . '# ' . title . (active ? '%=%#' . git_group . '#' . branch_summary . '%#' . group . '#  %l:%v %#' . host_group . '#%{RemoteHost()}' : '')
   endfunction
 
   function! s:RefreshStatuses(focus)
