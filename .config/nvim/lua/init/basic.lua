@@ -53,8 +53,8 @@ vim.opt.listchars = {
   space = '⋅',
   trail = '█',
   tab = '▸ ',
-  extends = '»',
-  precedes = '«',
+  extends = '…',
+  precedes = '…',
 }
 vim.opt.list = true
 
