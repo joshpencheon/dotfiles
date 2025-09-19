@@ -129,6 +129,7 @@ require("lazy").setup({
 
   { -- LSP client configuration
     'neovim/nvim-lspconfig',
+    config = function() require('init.lsp') end,
     dependencies = {
       'williamboman/mason.nvim',           -- LSP server manager
       'williamboman/mason-lspconfig.nvim', -- have the two place nice
