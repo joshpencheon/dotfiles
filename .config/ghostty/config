@@ -1,4 +1,4 @@
-theme = kanagawa
+theme = dark:kanagawa-wave,light:kanagawa-lotus
 
 font-family = "Adwaita Mono"
 font-family = Monaco
