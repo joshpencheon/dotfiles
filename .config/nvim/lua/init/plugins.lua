@@ -164,7 +164,6 @@ require("lazy").setup({
   'AndrewRadev/splitjoin.vim', -- e.g. inline/multiline toggling
 
   'christoomey/vim-tmux-navigator', -- navigate between nvim/tmux splits
-  'sjl/vitality.vim',               -- restore Focus* events from within tmux
 
   'tpope/vim-liquid',        -- Nicer support of liquid tags for e.g. Jekyll
   'tpope/vim-rails',         -- extensions for Ruby on Rails projects
