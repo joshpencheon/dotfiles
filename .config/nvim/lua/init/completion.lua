@@ -69,6 +69,14 @@ cmp.setup {
       selection_order = 'near_cursor'
     }
   },
+  window = {
+    completion = {
+      border = { '', '', '', '', '', '', '', '' },
+    },
+    documentation = {
+      border = { '', '', '', '', '', '', '', '' },
+    }
+  },
   snippet = {
     expand = function(args)
       snippy.expand_snippet(args.body)
