@@ -63,6 +63,18 @@ cmp.setup {
   experimental = {
     ghost_text = true
   },
+  formatting = {
+    format = function(entry, vim_item)
+      if entry.source.name == "nvim_lsp" then
+        -- Only show kind and abbreviation for LSP items
+        vim_item.menu = nil
+      elseif entry.source.name == "copilot" then
+        -- Drop length abbreviation for Copilot items
+        vim_item.abbr = "…"
+      end
+      return vim_item
+    end,
+  },
   view = {
     entries = {
       name = 'custom',
@@ -75,6 +87,7 @@ cmp.setup {
     },
     documentation = {
       border = { '', '', '', '', '', '', '', '' },
+      winhighlight = 'Normal:PmenuSel',
     }
   },
   snippet = {
@@ -85,6 +98,7 @@ cmp.setup {
   mapping = {
     ['<C-p>'] = cmp.mapping.select_prev_item(),
     ['<C-n>'] = cmp.mapping.select_next_item(),
+    ['<C-k>'] = cmp.mapping.close_docs(),
     ['<C-b>'] = cmp.mapping.scroll_docs(-4),
     ['<C-f>'] = cmp.mapping.scroll_docs(4),
     ['<C-Space>'] = cmp.mapping.complete(),
