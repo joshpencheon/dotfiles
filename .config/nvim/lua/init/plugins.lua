@@ -67,7 +67,6 @@ require("lazy").setup({
   'tpope/vim-sleuth',         -- automatic identation
   'tpope/vim-surround',       -- brackets etc
   'tpope/vim-unimpaired',     -- pairs of mappings
-  'joshpencheon/vim-vinegar', -- better netrw
 
   { -- auto-close brackets etc:
     'windwp/nvim-autopairs',
@@ -91,6 +90,21 @@ require("lazy").setup({
   { -- creates a "tab bar" of buffers
     'jose-elias-alvarez/buftabline.nvim',
     config = function() require('init.tabbar') end
+  },
+
+  {
+    'stevearc/oil.nvim',
+    config = function()
+      require("oil").setup({
+        keymaps = {
+          ['<leader>w'] = "<CMD>write<CR>",
+        },
+      })
+
+      vim.keymap.set("n", "-", "<CMD>Oil<CR>",
+        { desc = "Open parent directory" })
+    end,
+    lazy = false
   },
 
   { -- Add git related info in the signs columns and popups
