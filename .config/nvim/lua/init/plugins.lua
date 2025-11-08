@@ -94,27 +94,7 @@ require("lazy").setup({
 
   {
     'stevearc/oil.nvim',
-    config = function()
-      require("oil").setup({
-        win_options = {
-          number = false,
-        },
-        preview_win = {
-          win_options = {
-            number = true
-          },
-        },
-        float = {
-          preview_split = "above"
-        },
-        keymaps = {
-          ['<leader>w'] = "<CMD>write<CR>",
-        },
-      })
-
-      vim.keymap.set("n", "-", "<CMD>Oil --float<CR>",
-        { desc = "Open parent directory" })
-    end,
+    config = function() require('init.oil') end,
     lazy = false
   },
 
