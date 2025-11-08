@@ -191,9 +191,13 @@ require("lazy").setup({
   'christoomey/vim-tmux-navigator', -- navigate between nvim/tmux splits
 
   'tpope/vim-liquid',        -- Nicer support of liquid tags for e.g. Jekyll
-  'tpope/vim-rails',         -- extensions for Ruby on Rails projects
   'vim-ruby/vim-ruby',       -- enhanced Ruby support
   'hashivim/vim-terraform',  -- highlighting for HCL
+
+  { -- extensions for Ruby on Rails projects
+    'tpope/vim-rails',
+    config = function() require('init.rails') end
+  },
 
   { -- Improved LSP setup for Neovim config
     'folke/lazydev.nvim',
