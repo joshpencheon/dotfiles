@@ -1,4 +1,5 @@
 require('codecompanion').setup({
+  ignore_warnings = true, -- for upcoming v18
   strategies = {
     chat = {
       keymaps = {
