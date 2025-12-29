@@ -69,3 +69,6 @@ require('treesitter-context').setup {
   trim_scope = 'outer',
   mode = 'topline',
 }
+
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
