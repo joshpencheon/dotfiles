@@ -2,3 +2,6 @@
 
 [settings.ruby]
 compile = false
+
+[tools]
+ruby = "4"
