@@ -38,6 +38,10 @@ vim.lsp.config('eslint', {
   on_attach = on_attach,
   capabilities = capabilities,
 })
+vim.lsp.config('herb_ls', {
+  on_attach = on_attach,
+  capabilities = capabilities,
+})
 vim.lsp.config('html', {
   on_attach = on_attach,
   capabilities = capabilities,
