@@ -51,9 +51,15 @@ vim.cmd [[
       let title = ""
     endif
 
-    let branch_summary = FugitiveHead(8)->substitute('\v(.{7}).*(.{13})', '\1…\2', '')
+    if active
+      let branch_summary = FugitiveHead(8)->substitute('\v(.{7}).*(.{13})', '\1…\2', '')
+      let additional_info = '%=%#' . git_group . '#' . branch_summary . '%#' . group . '#  %l:%v %#' . host_group . '#%{RemoteHost()}'
+    else
+      let additional_info = ""
+    endif
 
-    return '%#' . group . '# ' . title . (active ? '%=%#' . git_group . '#' . branch_summary . '%#' . group . '#  %l:%v %#' . host_group . '#%{RemoteHost()}' : '')
+
+    return '%#' . group . '# ' . title . additional_info
   endfunction
 
   function! s:IsFloatingWindow(winnr)
