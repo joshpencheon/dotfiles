@@ -43,7 +43,7 @@ vim.cmd [[
       let host_group = group
     endif
 
-    let relative_path = expand('%:~:.:s|\([^/]*\)/.\{-}/\([^/]*/[^/]*\)$|\1/…/\2|')
+    let relative_path = fnamemodify(bufname(winbufnr(a:n)), ':~:.:s|\([^/]*\)/.\{-}/\([^/]*/[^/]*\)$|\1/…/\2|')
 
     if len(relative_path) > 0
       let title = (active ? '» ' : '« ') . relative_path . (active ? ' «' : ' »')
@@ -56,9 +56,18 @@ vim.cmd [[
     return '%#' . group . '# ' . title . (active ? '%=%#' . git_group . '#' . branch_summary . '%#' . group . '#  %l:%v %#' . host_group . '#%{RemoteHost()}' : '')
   endfunction
 
+  function! s:IsFloatingWindow(winnr)
+    let win_id = win_getid(a:winnr)
+    return win_id != 0 && get(nvim_win_get_config(win_id), 'relative', '') != ''
+  endfunction
+
   function! s:RefreshStatuses(focus)
     for nr in range(1, winnr('$'))
-      call setwinvar(nr, '&statusline', '%!MagicStatus(' . nr . ', ' . a:focus .')')
+      if s:IsFloatingWindow(nr)
+        continue
+      else
+        call setwinvar(nr, '&statusline', '%!MagicStatus(' . nr . ', ' . a:focus .')')
+      endif
     endfor
   endfunction
 
