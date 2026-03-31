@@ -34,7 +34,8 @@ require("lazy").setup({
   },
 
   {
-    "zbirenbaum/copilot-cmp",
+    "joshpencheon/copilot-cmp",
+    branch = "fix-nvim-0-12-deprecation",
     config = function ()
       require("copilot_cmp").setup()
     end
