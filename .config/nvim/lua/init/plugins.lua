@@ -112,9 +112,13 @@ require("lazy").setup({
 
   { -- Highlight, edit, and navigate code using a fast incremental parsing library
     'nvim-treesitter/nvim-treesitter',
+    branch = "main",
     config = function() require('init.treesitter') end,
     dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects', -- Additional textobjects for treesitter
+      {
+        'nvim-treesitter/nvim-treesitter-textobjects', -- Additional textobjects for treesitter
+        branch = "main",
+      },
       'RRethy/nvim-treesitter-endwise',              -- automatic 'end' insertion
       'nvim-treesitter/nvim-treesitter-context',     -- context when scrolling up
     }
