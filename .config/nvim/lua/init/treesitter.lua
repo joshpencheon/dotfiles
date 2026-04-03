@@ -1,65 +1,40 @@
--- Treesitter configuration
--- Parsers must be installed manually via :TSInstall
-require('nvim-treesitter.configs').setup {
-  ensure_installed = { 'html', 'css', 'javascript', 'ruby', 'rust', 'vimdoc', 'markdown', 'yaml' },
-  highlight = {
-    enable = true, -- In future, LSP-provided semantic tokens would be better
-  },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = 'gnn',
-      node_incremental = 'grn',
-      scope_incremental = 'grc',
-      node_decremental = 'grm',
+local installed_parsers = { 'html', 'css', 'javascript', 'ruby', 'rust', 'vimdoc', 'markdown', 'yaml' }
+
+require('nvim-treesitter').install(installed_parsers)
+
+vim.api.nvim_create_autocmd('FileType', {
+  pattern = installed_parsers,
+  callback = function()
+    -- Enable highlighting:
+    vim.treesitter.start()
+    -- Enable indentation:
+    vim.bo.indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+    -- Enable folding:
+    vim.wo[0][0].foldmethod = 'expr'
+    vim.wo[0][0].foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+  end,
+})
+
+require('nvim-treesitter-textobjects').setup {
+  select = {
+    lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
+    selection_modes = {
+      ['@block.outer'] = 'V', -- Linewise selection of outer blocks
     },
   },
-  indent = {
-    enable = true,
-  },
-  endwise = {
-    enable = true,
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-        ['ab'] = '@block.outer',
-        ['ib'] = '@block.inner',
-      },
-      selection_modes = {
-        -- Linewise selection of outer blocks:
-        ['@block.outer'] = 'V'
-      }
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        [']m'] = '@function.outer',
-        [']]'] = '@class.outer',
-      },
-      goto_next_end = {
-        [']M'] = '@function.outer',
-        [']['] = '@class.outer',
-      },
-      goto_previous_start = {
-        ['[m'] = '@function.outer',
-        ['[['] = '@class.outer',
-      },
-      goto_previous_end = {
-        ['[M'] = '@function.outer',
-        ['[]'] = '@class.outer',
-      },
-    },
+  move = {
+    set_jumps = true,
   },
 }
+
+local select = require('nvim-treesitter-textobjects.select')
+
+vim.keymap.set({ 'x', 'o' }, 'af', function() select.select_textobject('@function.outer', 'textobjects') end)
+vim.keymap.set({ 'x', 'o' }, 'if', function() select.select_textobject('@function.inner', 'textobjects') end)
+vim.keymap.set({ 'x', 'o' }, 'ac', function() select.select_textobject('@class.outer', 'textobjects') end)
+vim.keymap.set({ 'x', 'o' }, 'ic', function() select.select_textobject('@class.inner', 'textobjects') end)
+vim.keymap.set({ 'x', 'o' }, 'ab', function() select.select_textobject('@block.outer', 'textobjects') end)
+vim.keymap.set({ 'x', 'o' }, 'ib', function() select.select_textobject('@block.inner', 'textobjects') end)
 
 require('treesitter-context').setup {
   enable = true,
@@ -69,6 +44,3 @@ require('treesitter-context').setup {
   trim_scope = 'outer',
   mode = 'topline',
 }
-
-vim.opt.foldmethod = "expr"
-vim.opt.foldexpr = "v:lua.vim.treesitter.foldexpr()"
