@@ -8,6 +8,7 @@ brew "bash-completion@2"
 brew "gh"
 brew "git"
 brew "neovim"
+brew "tree-sitter-cli"
 brew "tmux"
 brew "zellij"
 
