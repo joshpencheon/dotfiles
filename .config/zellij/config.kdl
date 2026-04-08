@@ -98,6 +98,8 @@ theme "kanagawa"
 
 pane_frames false
 
+mouse_hover_effects false
+
 // Bottom tab bar only:
 default_layout "compact"
 
