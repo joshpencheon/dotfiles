@@ -2,7 +2,7 @@
 vim.cmd [[
   function! RemoteHost()
     if len($SSH_CLIENT . $SSH_TTY) > 0 && len($TMUX) == 0
-      return system("echo -n `whoami`@`hostname -s`")
+      return " " . system("echo -n `whoami`@`hostname -s`")
     else
       return ""
     endif
@@ -53,13 +53,13 @@ vim.cmd [[
 
     if active
       let branch_summary = FugitiveHead(8)->substitute('\v(.{7}).*(.{13})', '\1…\2', '')
-      let additional_info = '%=%#' . git_group . '#' . branch_summary . '%#' . group . '#  %l:%v %#' . host_group . '#%{RemoteHost()}'
+      let additional_info = '%=%#' . git_group . '#' . branch_summary . '%#' . group . '#  %l:%v%#' . host_group . '#%{RemoteHost()}'
     else
       let additional_info = ""
     endif
 
 
-    return '%#' . group . '# ' . title . additional_info
+    return '%#' . group . '#' . title . additional_info
   endfunction
 
   function! s:IsFloatingWindow(winnr)

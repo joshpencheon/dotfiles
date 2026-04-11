@@ -8,6 +8,7 @@ vim.o.hlsearch = false
 
 --Make line numbers default
 vim.wo.number = true
+vim.wo.numberwidth = 1
 
 -- Keep cursor away from the top and bottom
 vim.o.scrolloff = 3

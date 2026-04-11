@@ -1,5 +1,5 @@
 require("buftabline").setup {
-  tab_format = " #{b}#{f} ",
+  tab_format = "#{b}#{f}  ",
   hlgroups = {
     current = "TabLineSel",
     normal  = "TabLine",
