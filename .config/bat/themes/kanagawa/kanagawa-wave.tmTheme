@@ -7,7 +7,7 @@ Sourced from:
 <plist version="1.0">
   <dict>
     <key>name</key>
-    <string>Kanagawa</string>
+    <string>Kanagawa Wave</string>
     <key>settings</key>
     <array>
       <dict>
@@ -449,6 +449,6 @@ Sourced from:
     <key>colorSpaceName</key>
     <string>sRGB</string>
     <key>semanticClass</key>
-    <string>theme.dark.kanagawa</string>
+    <string>theme.dark.kanagawa-wave</string>
   </dict>
 </plist>
