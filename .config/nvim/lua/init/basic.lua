@@ -30,6 +30,9 @@ vim.opt.backup = false
 vim.opt.writebackup = false
 vim.opt.swapfile = false
 
+-- Disable modeline parsing
+vim.o.modeline = false
+
 vim.opt.shortmess = 'FIat'
 
 --Case insensitive searching UNLESS /C or capital in search
