@@ -1,5 +1,7 @@
 -- Magic status bar style:
 vim.cmd [[
+  let g:statusline_focus = 1
+
   function! RemoteHost()
     if len($SSH_CLIENT . $SSH_TTY) > 0 && len($TMUX) == 0
       return " " . system("echo -n `whoami`@`hostname -s`")
@@ -68,11 +70,12 @@ vim.cmd [[
   endfunction
 
   function! s:RefreshStatuses(focus)
+    let g:statusline_focus = a:focus
     for nr in range(1, winnr('$'))
       if s:IsFloatingWindow(nr)
         continue
       else
-        call setwinvar(nr, '&statusline', '%!MagicStatus(' . nr . ', ' . a:focus .')')
+        call setwinvar(nr, '&statusline', '%!MagicStatus(win_id2win(g:statusline_winid), g:statusline_focus)')
       endif
     endfor
   endfunction
