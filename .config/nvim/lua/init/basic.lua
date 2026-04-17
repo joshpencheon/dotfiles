@@ -47,6 +47,9 @@ vim.o.updatetime = 1000 -- primarily for CursorHold event
 vim.o.title = true
 vim.o.titlestring = 'vi %{expand("%:~:.")}'
 
+vim.o.splitbelow = true
+vim.o.splitright = true
+
 vim.o.winborder = 'rounded'
 
 vim.wo.signcolumn = 'yes'
