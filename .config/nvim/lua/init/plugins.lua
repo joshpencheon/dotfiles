@@ -133,7 +133,7 @@ require("lazy").setup({
       'antoinemadec/FixCursorHold.nvim',
       'nvim-treesitter/nvim-treesitter',
       'olimorris/neotest-rspec',
-      'zidhuss/neotest-minitest',
+      'joshpencheon/neotest-minitest',
     },
   },
 
