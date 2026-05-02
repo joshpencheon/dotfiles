@@ -9,6 +9,8 @@ neotest.setup({
   discovery = { enabled = false },
   -- Disable adding separate diagnostics
   diagnostic = { enabled = false },
+  -- By default, avoid e.g. DB lock contention
+  running = { concurrent = false },
   icons = {
     failed = '✘',
     passed = '✔',
@@ -16,7 +18,12 @@ neotest.setup({
     running_animated ={'⠋', '⠙', '⠹', '⠸', '⠼', '⠴', '⠦', '⠧', '⠇', '⠏'},
     skipped = '✘',
     unknown = '◌',
-    watching = '○'
+    watching = '○',
+    test = "",
+    notify = "",
+    dir = "",
+    file = "",
+    namespace = "",
   },
 })
 
