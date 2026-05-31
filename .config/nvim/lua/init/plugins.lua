@@ -89,7 +89,8 @@ require("lazy").setup({
   },
 
   { -- creates a "tab bar" of buffers
-    'jose-elias-alvarez/buftabline.nvim',
+    'joshpencheon/buftabline.nvim', -- Fork, upstream went away
+    commit = "31a1d0cc80553",
     config = function() require('init.tabbar') end
   },
 
