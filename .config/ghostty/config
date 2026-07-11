@@ -20,3 +20,6 @@ cursor-style-blink = false
 macos-option-as-alt = right
 macos-titlebar-style = tabs
 
+window-theme = ghostty
+gtk-toolbar-style = flat
+gtk-titlebar-style = tabs
