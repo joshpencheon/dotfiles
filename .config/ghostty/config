@@ -1,6 +1,6 @@
 theme = dark:kanagawa-wave,light:kanagawa-lotus
 
-font-family = "Adwaita Mono"
+font-family = Inconsolata
 font-family = Monaco
 font-size = 22
 
