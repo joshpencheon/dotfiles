@@ -20,26 +20,26 @@ require("lazy").setup({
 
   'nvim-lua/plenary.nvim',
 
-  {
-    "zbirenbaum/copilot.lua",
-    cmd = "Copilot",
-    event = "InsertEnter",
-    config = function()
-      require("copilot").setup({
-        -- turn off default mechanisms, we'll use cmp instead
-        suggestion = { enabled = false },
-        panel = { enabled = false },
-      })
-    end,
-  },
-
-  {
-    "joshpencheon/copilot-cmp",
-    branch = "fix-nvim-0-12-deprecation",
-    config = function ()
-      require("copilot_cmp").setup()
-    end
-  },
+  -- {
+  --   "zbirenbaum/copilot.lua",
+  --   cmd = "Copilot",
+  --   event = "InsertEnter",
+  --   config = function()
+  --     require("copilot").setup({
+  --       -- turn off default mechanisms, we'll use cmp instead
+  --       suggestion = { enabled = false },
+  --       panel = { enabled = false },
+  --     })
+  --   end,
+  -- },
+  --
+  -- {
+  --   "joshpencheon/copilot-cmp",
+  --   branch = "fix-nvim-0-12-deprecation",
+  --   config = function ()
+  --     require("copilot_cmp").setup()
+  --   end
+  -- },
 
   {
     'olimorris/codecompanion.nvim',

@@ -68,9 +68,9 @@ cmp.setup {
       if entry.source.name == "nvim_lsp" then
         -- Only show kind and abbreviation for LSP items
         vim_item.menu = nil
-      elseif entry.source.name == "copilot" then
-        -- Drop length abbreviation for Copilot items
-        vim_item.abbr = "…"
+      -- elseif entry.source.name == "copilot" then
+      --   -- Drop length abbreviation for Copilot items
+      --   vim_item.abbr = "…"
       end
       return vim_item
     end,
@@ -131,7 +131,7 @@ cmp.setup {
     end,
   },
   sources = {
-    { name = 'copilot' },
+    -- { name = 'copilot' },
     { name = 'nvim_lsp' },
     { name = 'snippy' },
     {
@@ -149,7 +149,7 @@ cmp.setup {
     priority_weight = 2,
     comparators = {
       -- Put CoPilot's suggestions first
-      require("copilot_cmp.comparators").prioritize,
+      -- require("copilot_cmp.comparators").prioritize,
 
       compare.offset,
       compare.exact,
