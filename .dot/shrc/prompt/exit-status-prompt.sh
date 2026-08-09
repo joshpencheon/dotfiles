@@ -1,6 +1,6 @@
 function __exit_status_ps1() {
   status=$?
-  dot="●" && [[ $OSTYPE == "darwin"* ]] && dot=""
+  dot="•" && [[ $OSTYPE == "darwin"* ]] && dot=""
 
   if [ -n "$SSH_CLIENT" ] || [ -n "$SSH_TTY" ]; then
     # use blue / yellow for SSH sessions...
