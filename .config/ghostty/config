@@ -1,7 +1,7 @@
 theme = dark:kanagawa-wave,light:kanagawa-lotus
 
-font-family = Inconsolata
 font-family = Monaco
+font-family = Inconsolata
 font-size = 22
 
 window-width = 80
