@@ -1,7 +1,6 @@
 theme = dark:kanagawa-wave,light:kanagawa-lotus
 
 font-family = Monaco
-font-family = Inconsolata
 font-size = 22
 
 window-width = 80
@@ -23,3 +22,7 @@ macos-titlebar-style = tabs
 window-theme = ghostty
 gtk-toolbar-style = flat
 gtk-titlebar-style = tabs
+
+config-file = ?linux-config
+# font-family = Inconsolata
+# font-size = 18
