@@ -2,8 +2,13 @@ binds {
     // Show basic help.
     Mod+Shift+Slash { show-hotkey-overlay; }
 
+    Mod+Escape { spawn-sh "noctalia msg panel-toggle session"; }
+
     Mod+Space { spawn-sh "noctalia msg panel-toggle launcher"; }
     XF86Search { spawn-sh "noctalia msg panel-toggle launcher"; }
+
+    // Touch ID button.
+    XF86MenuKB { spawn-sh "noctalia msg session lock-and-suspend"; }
 
     XF86AudioRaiseVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1+ -l 1.0"; }
     XF86AudioLowerVolume allow-when-locked=true { spawn-sh "wpctl set-volume @DEFAULT_AUDIO_SINK@ 0.1-"; }
