@@ -1,0 +1,90 @@
+input {
+    keyboard {
+        repeat-delay 200
+        repeat-rate 30
+
+        numlock
+    }
+
+    touchpad {
+        tap
+        natural-scroll
+    }
+}
+
+gestures {
+    hot-corners {
+        off
+    }
+}
+
+layout {
+    gaps 8
+
+    center-focused-column "on-overflow"
+    always-center-single-column
+
+    default-column-width { proportion 0.5; }
+
+    focus-ring {
+        width 4
+    }
+
+    border {
+        off
+    }
+
+    struts {
+        left 24
+        right 24
+        top 24
+        bottom 24
+    }
+}
+
+spawn-at-startup "noctalia"
+
+hotkey-overlay {
+    skip-at-startup
+}
+
+screenshot-path "~/Pictures/Screenshots/Screenshot from %Y-%m-%d %H-%M-%S.png"
+
+// Slightly faster animations.
+animations {
+    slowdown 0.9
+}
+
+// General window settings.
+window-rule {
+    geometry-corner-radius 12
+    clip-to-geometry true
+
+    background-effect {
+        blur true
+        xray false
+    }
+}
+
+// Floating window settings.
+window-rule {
+    match is-floating=true
+
+    shadow {
+        on
+    }
+}
+
+// Noctalia layer settings.
+layer-rule {
+  match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
+  background-effect {
+    blur true
+    xray false
+  }
+}
+
+include "binds.kdl"
+
+// Theming sync'd by noctalia.
+include optional=true "noctalia.kdl"
