@@ -14,8 +14,12 @@ input {
 
 gestures {
     hot-corners {
-        off
+        bottom-left
     }
+}
+
+recent-windows {
+    open-delay-ms 200
 }
 
 layout {
