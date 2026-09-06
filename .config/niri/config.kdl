@@ -79,6 +79,13 @@ window-rule {
     }
 }
 
+// Sushi preview should be floating.
+window-rule {
+    match app-id="org.gnome.NautilusPreviewer"
+
+    open-floating true
+}
+
 // Noctalia layer settings.
 layer-rule {
   match namespace="^noctalia-(bar-[^\"]+|notification|dock|panel|attached-panel|osd)$"
