@@ -7,3 +7,4 @@
 # Ignore any local/temporary Claude Code files:
 **/.claude/.cc-writes/
 **/.claude/settings.local.json
+CLAUDE.local.md
