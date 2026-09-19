@@ -1,0 +1,8 @@
+[theme]
+mode = "auto"
+source = "wallpaper"
+wallpaper_scheme = "m3-tonal-spot"
+
+    [theme.templates]
+    builtin_ids = [ "niri" ]
+    enable_community_templates = false

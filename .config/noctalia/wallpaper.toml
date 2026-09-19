@@ -1,0 +1,4 @@
+[wallpaper]
+directory = "/usr/share/backgrounds"
+transition = [ "zoom" ]
+transition_on_startup = true

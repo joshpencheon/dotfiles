@@ -1,0 +1,34 @@
+[bar]
+order = [ "Top" ]
+
+    [bar.Top]
+    background_opacity = 0.5
+    center = [ "clock", "notifications" ]
+    concave_edge_corners = false
+    end = [ "clipboard", "network", "bluetooth", "volume", "control-center", "launcher" ]
+    margin_edge = 7
+    margin_ends = 7
+    panel_overlap = 0
+    start = [ "session", "workspaces" ]
+    widget_spacing = 8
+
+[widget.bluetooth]
+hide_when_no_connected_device = true
+
+[widget.control-center]
+glyph = "adjustments-alt"
+
+[widget.network]
+show_label = false
+
+[widget.notifications]
+hide_when_no_unread = true
+
+[widget.tray]
+enabled = false
+
+[widget.volume]
+show_label = false
+
+[widget.clock]
+format = "{:%a %d %b  %H:%M}"
