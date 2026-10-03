@@ -2,12 +2,13 @@
 order = [ "Top" ]
 
     [bar.Top]
-    background_opacity = 0.5
+    background_opacity = 0.33
     center = [ "clock", "notifications" ]
     concave_edge_corners = false
     end = [ "clipboard", "network", "bluetooth", "volume", "control-center", "launcher" ]
-    margin_edge = 7
-    margin_ends = 7
+    margin_edge = 0
+    margin_ends = 0
+    radius = 0
     panel_overlap = 0
     start = [ "session", "workspaces" ]
     widget_spacing = 8
