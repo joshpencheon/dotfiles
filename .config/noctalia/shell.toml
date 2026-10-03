@@ -1,6 +1,8 @@
 [shell]
 polkit_agent = true
 
+readline_shortcuts = true
+
     [shell.animation]
     enabled = false
 
