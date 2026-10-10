@@ -26,3 +26,5 @@ gtk-titlebar-style = tabs
 config-file = ?linux-config
 # font-family = Inconsolata
 # font-size = 18
+# window-height = ""
+# window-width = ""
