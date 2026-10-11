@@ -18,6 +18,3 @@ unset file
 if [ -e ~/.zshrc.local ]; then
   source ~/.zshrc.local
 fi
-
-# Remove any duplicates that have crept in:
-export PATH="$(consolidate-path "$PATH")"

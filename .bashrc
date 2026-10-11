@@ -15,7 +15,3 @@ unset file
 if [ -e ~/.bashrc.local ]; then
   source ~/.bashrc.local
 fi
-
-# Remove any duplicates that have crept in:
-export PATH="$(consolidate-path "$PATH")"
-
