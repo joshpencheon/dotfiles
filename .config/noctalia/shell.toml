@@ -10,6 +10,7 @@ readline_shortcuts = true
     auto_sync = true
 
     [shell.launcher]
+    layout = "simple"
     categories = false
 
     [shell.panel]
