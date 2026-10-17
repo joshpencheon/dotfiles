@@ -1,3 +1,7 @@
+[lockscreen]
+transition            = ["zoom"]
+transition_duration   = 250
+
 [lockscreen_widgets]
 schema_version = 2
 widget_order = [  "lockscreen-login-box@DP-2" ]
