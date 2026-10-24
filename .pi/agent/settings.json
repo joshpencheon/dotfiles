@@ -1,0 +1,16 @@
+{
+  "lastChangelogVersion": "1.4.0",
+  "packages": [
+    "npm:pi-sandbox"
+  ],
+  "defaultProvider": "fireworks",
+  "defaultModel": "accounts/fireworks/models/deepseek-v4p1-flash-1017",
+  "hideThinkingBlock": false,
+  "showHardwareCursor": true,
+  "terminal": {
+    "showTerminalProgress": true
+  },
+  "quietStartup": true,
+  "enableInstallTelemetry": false,
+  "doubleEscapeAction": "tree"
+}
