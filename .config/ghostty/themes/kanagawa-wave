@@ -1,3 +1,6 @@
+palette-generate = true
+palette-harmonious = true
+
 palette = 0=#16161d
 palette = 1=#c34043
 palette = 2=#76946a
