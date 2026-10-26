@@ -1,5 +1,5 @@
 [lockscreen]
-transition            = ["zoom"]
+transition            = ["melt"]
 transition_duration   = 250
 
 [lockscreen_widgets]
