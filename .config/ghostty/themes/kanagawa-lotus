@@ -1,25 +1,46 @@
 palette-generate = true
 palette-harmonious = true
 
+# sumiInk3
 palette = 0=#1f1f28
+# lotusRed
 palette = 1=#c84053
+# lotusGreen
 palette = 2=#6f894e
+# lotusYellow
 palette = 3=#77713f
+# lotusBlue4
 palette = 4=#4d699b
+# lotusPink
 palette = 5=#b35b79
+# lotusAqua
 palette = 6=#597b75
+# lotusInk1
 palette = 7=#545464
+# lotusGray3
 palette = 8=#8a8980
+# lotusRed2
 palette = 9=#d7474b
+# lotusGreen2
 palette = 10=#6e915f
+# lotusYellow2
 palette = 11=#836f4a
+# lotusTeal2
 palette = 12=#6693bf
+# lotusViolet4
 palette = 13=#624c83
+# lotusAqua2
 palette = 14=#5e857a
+# lotusInk2
 palette = 15=#43436c
 
+# lotusWhite3
 background = f2ecbc
+# lotusInk1
 foreground = 545464
+# lotusInk2
 cursor-color = 43436c
+# lotusViolet3
 selection-background = c9cbd1
+# lotusInk2
 selection-foreground = 43436c

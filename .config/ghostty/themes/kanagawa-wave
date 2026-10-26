@@ -1,25 +1,46 @@
 palette-generate = true
 palette-harmonious = true
 
+# sumiInk0
 palette = 0=#16161d
+# autumnRed
 palette = 1=#c34043
+# autumnGreen
 palette = 2=#76946a
+# boatYellow2
 palette = 3=#c0a36e
+# crystalBlue
 palette = 4=#7e9cd8
+# oniViolet
 palette = 5=#957fb8
+# waveAqua1
 palette = 6=#6a9589
+# oldWhite
 palette = 7=#c8c093
+# fujiGray
 palette = 8=#727169
+# samuraiRed
 palette = 9=#e82424
+# springGreen
 palette = 10=#98bb6c
+# carpYellow
 palette = 11=#e6c384
+# springBlue
 palette = 12=#7fb4ca
+# springViolet1
 palette = 13=#938aa9
+# waveAqua2
 palette = 14=#7aa89f
+# fujiWhite
 palette = 15=#dcd7ba
 
+# sumiInk3
 background = 1f1f28
+# fujiWhite
 foreground = dcd7ba
+# oldWhite
 cursor-color = c8c093
+# waveBlue2
 selection-background = 2d4f67
+# oldWhite
 selection-foreground = c8c093
