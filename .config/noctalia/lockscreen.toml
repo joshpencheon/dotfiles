@@ -18,7 +18,7 @@ widget_order = [  "lockscreen-login-box@DP-2" ]
     type = "login_box"
 
         [lockscreen_widgets.widget."lockscreen-login-box@DP-2".settings]
-        background_color = "surface_variant"
+        background_color = "surface_container"
         center_password_text = true
         layout = "compact"
         show_unlock_hint = false
