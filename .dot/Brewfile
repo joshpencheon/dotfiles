@@ -10,7 +10,6 @@ brew "git"
 brew "neovim"
 brew "tree-sitter-cli"
 brew "tmux"
-brew "zellij"
 
 # Handy utilities
 brew "bat"
