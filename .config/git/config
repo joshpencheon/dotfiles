@@ -3,6 +3,7 @@
 	search = "!f() { git log --oneline -S $@ | fzf --preview 'git show --color=always {+1}'; }; f"
 	sw = "!git switch $(git branch --sort=-committerdate --format=\"%(refname:short)\" | fzf --reverse --height 20% --query ${1:-''})"
 	tree = log --graph --oneline --decorate --all
+	wt = "!f() { dir=$(git worktree list | fzf --reverse --height 20% --query \"${1:-}\" --select-1 --exit-0 | awk '{print $1}') && [ -n \"$dir\" ] && cd \"$dir\" && exec \"$SHELL\"; }; f"
 [color "diff"]
 	oldMoved = magenta
 	newMoved = blue
