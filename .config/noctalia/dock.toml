@@ -1,0 +1,12 @@
+[dock]
+auto_hide = true
+auto_hide_reveal_delay_ms = 100
+background_opacity = 0.33
+enabled = true
+icon_shadow = true
+layer = "overlay"
+margin_edge = 10
+pinned = [ "org.gnome.Nautilus", "com.mitchellh.ghostty", "firefox" ]
+position = "right"
+reserve_space = false
+show_dots = true

@@ -4,7 +4,8 @@ polkit_agent = true
 readline_shortcuts = true
 
     [shell.animation]
-    enabled = false
+    enabled = true
+    speed = 2.5
 
     [shell.greeter_sync]
     auto_sync = true
