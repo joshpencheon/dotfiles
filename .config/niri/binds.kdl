@@ -51,8 +51,8 @@ binds {
     Mod+Shift+R { switch-preset-column-width-back; }
 
     // Fullscreen variants.
-    Mod+F { maximize-column; }
-    Mod+Shift+F { fullscreen-window; }
+    Mod+Return { maximize-column; }
+    Mod+Shift+Return { fullscreen-window; }
 
     // Size adjustments.
     Mod+Minus { set-column-width "-10%"; }
